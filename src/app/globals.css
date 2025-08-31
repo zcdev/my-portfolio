@@ -26,6 +26,32 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+p code, li code {
+  font-size: 16px;
+  background: #fef9c2;
+  padding: 3px;
+}
+
+pre code {
+  font-size: 15px;
+}
+
+.emoji-large {
+  font-size: 30px;
+}
+
+.emoji-small {
+  font-size: 22px;
+}
+
 .icon-inline {
   display: inline;
+}
+
+.list {
+  line-height: 2;
+}
+
+.list li::before {
+  content: '– '
 }
