@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProjectIndex from "./projects/page";
+import ProjectIndex from "./project/page";
 import { RxArrowRight } from "react-icons/rx";
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
         </section>
         {/* Blog Teaser */}
         <section className="text-left">
-          <h2 className="text-2xl font-semibold mb-4">Latest Updates</h2>
+          <h2 className="text-xl font-semibold mb-4">Latest Updates</h2>
           <Link
             href="/blog"
             className="text-lg text-purple-600 dark:text-purple-400 hover:underline align-middle inline-block"

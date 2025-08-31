@@ -5,12 +5,12 @@ import matter from "gray-matter";
 export type MdxMeta = {
   slug: string;
   title: string;
-  description?: string;
-  tech?: string[];
-  url?: string;
-  codebase?: string;
   date?: string;
-  cover?: string;
+  description?: string;
+  tech?: string;
+  codebase?: string;
+  demo?: string;
+  cover?: string
 };
 
 export function getPostMetadata(contentFolder: "docs" | "posts"): MdxMeta[] {
@@ -26,11 +26,11 @@ export function getPostMetadata(contentFolder: "docs" | "posts"): MdxMeta[] {
       slug,
       title: (data.title as string) || slug,
       description: (data.description as string) || undefined,
-      tech: (data.tech as string[]) || undefined,
-      url: (data.url as string) || undefined,
+      tech: (data.tech as string) || undefined,
       codebase: (data.codebase as string) || undefined,
       date: (data.date as string) || undefined,
       cover: (data.cover as string) || undefined,
+      demo: (data.demo as string) || undefined,
     }
   })
 }
