@@ -4,77 +4,74 @@ slug: "typescript-cannot-find-module"
 date: "2025-08-26"
 ---
 
-# TS2307 “Cannot Find Module” 🌀 😵‍💫
+<span class="emoji-large">🌀 😵‍💫</span>
 
 While migrating my React + Vite project to TypeScript, I hit this error:
 
-```ts
+```
 import "./styles/styles.css";
 // ❌ Cannot find module './styles/styles.css' or its corresponding type declarations. (TS2307)
 ````
 
 At first glance I thought: *“Wait, why is TypeScript mad about plain CSS?”*
 
----
-
 ## The Rabbit Hole 🕳️🐇
 
-Instead of asking ChatGPT first (whoops 😏), I ventured into the Google Search wonderland: 16 articles, 7 search variations, several Stack Overflow threads, and enough document skimming to qualify as a speed-reading time travel maze.
+Instead of asking ChatGPT first (whoops 
+<span class="emoji-small">😏</span>), I ventured into the Google Search wonderland: 16 articles, 7 search variations, several Stack Overflow threads, and enough document skimming to qualify as a speed-reading time travel maze.
 
 The highlights looked like:
 
-* *“Cannot find module …”* in Vite forums
-* Stack Overflow on TypeScript + CSS imports
-* `vite-env.d.ts` hack mentions
-* @types/css-modules on npm
+<ul class="list">
+<li>*“Cannot find module …”* in Vite forums</li>
+<li>Stack Overflow on TypeScript + CSS imports</li>
+<li>`vite-env.d.ts` hack mentions</li>
+<li>@types/css-modules on npm</li>
+</ul>
 
 …you get the picture. Lots of scrolling, not much fixing.
-
----
 
 ## ✅ The Final Fix
 
 After all that, the solution boiled down to **three simple steps**:
 
-1. Install type definitions:
+### 1. Install type definitions:
 
-   ```bash
-   npm i -D @types/css-modules
-   ```
-2. Create a `vite-env.d.ts` file:
+```
+npm i -D @types/css-modules
+```
+### 2. Create a `vite-env.d.ts` file:
 
-   ```ts
-   declare module "*.css";
-   ```
-3. Update `tsconfig.json` to include it:
+```
+declare module "*.css";
+```
+### 3. Update `tsconfig.json` to include it:
 
-   ```json
-   "include": ["src", "vite-env.d.ts"]
-   ```
+```
+"include": ["src", "vite-env.d.ts"]
+```
 
 And BAM 💥 — the error disappeared.
-
----
 
 ## CSS Imports: Two Paths
 
 Once I got it working, ChatGPT showed me there are actually **two variations**:
 
-| Approach        | vite-env.d.ts declaration                                                                                       | Usage                                    | Pros                        |
-| --------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | --------------------------- |
-| **Global CSS**  | `declare module "*.css";`                                                                                       | `import "./styles.css";`                 | Simple, works for plain CSS |
-| **CSS Modules** | `ts\n declare module "*.css" {\n   const classes: { [key: string]: string };\n   export default classes;\n }\n` | `import styles from "./App.module.css";` | Autocomplete + type-safety  |
+**1. Global CSS only:** `declare module "*.css";`
+
+**2. CSS Modules with classes:** `{ [key: string]: string }` version.
 
 So you can pick a path depending on whether you’re importing one big stylesheet or using `.module.css` files.
 
----
 
-## Reflection 🤔
+## Reflection <span class="emoji-small">🤔</span>
 
 Would’ve been faster to ask ChatGPT first, but stumbling through the maze taught me a few things:
 
-* How TypeScript handles non-TS imports
-* Where `vite-env.d.ts` fits into the config
-* That there’s a lightweight vs. strict way to type CSS modules
+<ul class="list">
+<li>How TypeScript handles non-TS imports</li>
+<li>Where `vite-env.d.ts` fits into the config</li>
+<li>That there’s a lightweight vs. strict way to type CSS modules</li>
+</ul>
 
-**Valuable lesson:** Still proud of my own adventure and discovery! 💪 Searching builds grit, yet with ChatGPT, it’s even more marvelous. 🤖
+**Valuable lesson:** Still proud of my own adventure and discovery! <span class="emoji-small">💪</span> Searching builds grit, yet with ChatGPT, it’s even more marvelous. <span class="emoji-small">🤖</span>

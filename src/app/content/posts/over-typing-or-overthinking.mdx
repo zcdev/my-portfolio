@@ -4,7 +4,7 @@ slug: "over-typing-or-overthinking"
 date: "2025-08-27"
 ---
 
-# Over-Typing or Overthinking? 🤖 🤯
+<span class="emoji-large">🤖 🤯</span>
 
 I came to discover a new pattern for writing functions in TypeScript:
 
@@ -16,9 +16,9 @@ const onSubmit: (task: string, hours: number) => boolean = (task, hours) => {
 
 I asked ChatGPT what it is, and it explained to me in a very helpful manner:
 
-🤖 ”Great question — this is a TypeScript function type annotation pattern. Let’s break it down step by step:”
+<span class="emoji-small">🤖</span> ”Great question — this is a TypeScript function type annotation pattern. Let’s break it down step by step:”
 
-### 1. Function Type Annotation
+## 1. Function Type Annotation
 
 The part before the `=` is saying what kind of function `onSubmit` must be:
 
@@ -29,12 +29,13 @@ The part before the `=` is saying what kind of function `onSubmit` must be:
 This means:
 
 - It takes **two parameters**:
-  - `name` of type `string`
-  - `age` of type `number`
-- It **returns a boolean**.
-  So, TypeScript now knows `onSubmit` has exactly this "shape."
+  - `task` of type `string`
+  - `hours` of type `number`
 
-### 2. Function Implementation
+It **returns a boolean**.
+So, TypeScript now knows `onSubmit` has exactly this "shape."
+
+## 2. Function Implementation
 
 The part after the = is the actual arrow function that implements that shape:
 
@@ -49,23 +50,25 @@ Here:
 - Parameters match the declared types (`string`, `number`).
 - The function returns `hustle > 24 * 7`, which is a **boolean expression**.
 
-**Summary:**
+## Summary:
 
 This is declaring a constant `onSubmit` whose type is “a function that takes `(string, number)` and returns `boolean`” then assigning an arrow function that matches that type. It’s a way of making function contracts explicit.
 
-🤯 ChatGPT read my mind as we continued the discussion:
+<span class="emoji-small">🤯</span> ChatGPT read my mind as we continued the discussion:
 
-🤖 ”Why Declare Types Like This? You might think: _But TypeScript could infer that!_ — and you’d be right.”
+<span class="emoji-small">🤖</span> ”Why Declare Types Like This? You might think: _But TypeScript could infer that!_ — and you’d be right.”
 
 This pattern is useful when you want to be **explicit** about what type the variable holds, for clarity or consistency.
 
 It’s especially common when:
 
-- You want to **enforce a contract** (e.g., `onSubmit` must return a `boolean`, not `void` or a `string`).
-- You’re **passing the function around** (callbacks, props, event handlers).
-- You want to make the code more **self-documenting**.
+<ul class="list">
+<li>You want to **enforce a contract** (e.g., `onSubmit` must return a `boolean`, not `void` or a `string`).</li>
+<li>You’re **passing the function around** (callbacks, props, event handlers).</li>
+<li>You want to make the code more **self-documenting**.</li>
+</ul>
 
-💡 So I confirmed with ChatGPT that without the explicit type, TypeScript would still infer correctly when the function is simply written like this:
+<span class="emoji-small">💡</span> So I confirmed with ChatGPT that without the explicit type, TypeScript would still infer correctly when the function is simply written like this:
 
 ```
 const onSubmit = (task: string, hours: number) => {
@@ -73,19 +76,17 @@ return hustle > 24 * 7
 }
 ```
 
-🤖 ChatGPT also mentioned: “The TypeScript function type annotation pattern makes the function type explicit, which can be clearer in team codebases or when exporting APIs.”
+<span class="emoji-small">🤖</span> ChatGPT also mentioned: “The TypeScript function type annotation pattern makes the function type explicit, which can be clearer in team codebases or when exporting APIs.”
 
-🤔 Hmmm… Now, I wonder… Should I just let TypeScript “infer” my function types like some carefree developer?
+<span class="emoji-small">🤔</span> Hmmm… Now, I wonder… Should I just let TypeScript “infer” my function types like some carefree developer?
 
-Should I write my function signatures **explicitly**. Literally, like, EVERY. SINGLE. TIME?
-
-Should I trust the compiler’s inference?
-
-Do I want my teammates to sleep at night knowing _nothing will slip through the cracks_?
-◊
-This isn’t just code. It’s a **contract, notarized by TypeScript itself**, is that right?
-
-Inference may whisper, but explicit types? Shall we be assertive all the time? And if anyone doubts me, I’ll annotate that too. What do you think, teammates?
+<ul class="list">
+<li>Should I write my function signatures **explicitly**. Literally, like, EVERY. SINGLE. TIME?</li>
+<li>Should I trust the compiler’s inference?</li>
+<li>Do I want my teammates to sleep at night knowing _nothing will slip through the cracks_?</li>
+<li>This isn’t just code. It’s a **contract, notarized by TypeScript itself**, is that right?</li>
+<li>Inference may whisper, but explicit types? Shall we be assertive all the time? And if anyone doubts me, I’ll annotate that too. What do you think, teammates?</li>
+</ul>
 
 Oh well, let's read the code again:
 
@@ -97,4 +98,4 @@ return huslte > 24 * 7 // return false, because hours can never exceed 168 ⛔�
 
 “No matter how hard you hustle, TypeScript won’t let you work 24/7. It just returns false.”
 
-Shall we overwork on over-typing, or am I just over with overthinking? 😏
+Shall we overwork on over-typing, or am I just over with overthinking? <span class="emoji-small">😏</span>
