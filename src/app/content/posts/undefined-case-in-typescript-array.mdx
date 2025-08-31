@@ -4,7 +4,7 @@ slug: "undefined-case-in-typescript-array"
 date: "2025-08-21"
 ---
 
-# Handling the `undefined` Case in TypeScript Arrays ⁉️ 🤔
+<span class="emoji-large">⁉️ 🤔</span>
 
 ## My code from the "Easter Eggs Festival" project:
 
@@ -52,7 +52,7 @@ Because `eggsValues` starts as an empty array, accessing `eggsValues[i]` can yie
 
 ### There are a few possible ways to resolve this issue, you can:
 
-1. Use a union type and handle `undefined`.
+### 1. Use a union type and handle `undefined`.
 
 ```
 type EggItem = {
@@ -62,25 +62,25 @@ type EggItem = {
 };
 ```
 
-2. Provide a default value by using the **Nullish Coalescing Operator** `??` to default it to `0` if it is `undefined` or `null`.
+### 2. Provide a default value by using the **Nullish Coalescing Operator** `??` to default it to `0` if it is `undefined` or `null`.
 
 ```
 value: eggsValues[i] ?? 0;
 ```
 
-3. Type guard it conditionally to check if `value` is not undefined or set it to `0`.
+### 3. Type guard it conditionally to check if `value` is not undefined or set it to `0`.
 
 ```
 value: eggsValues[i] !== undefined ? eggsValues[i] : 0;
 ```
 
-4. Use the **Non-null Assertion Operator** `!` if you are certain that `value` is not `undefined`.
+### 4. Use the **Non-null Assertion Operator** `!` if you are certain that `value` is not `undefined`.
 
 ```
 value: eggsValues[i]!;
 ```
 
-5. Or, simply use `.map()` to return a new array for the `eggsValues` and keep `value` preserved. This is the cleanest solution since every value is guaranteed as a `number`:
+### 5. Or, simply use `.map()` to return a new array for the `eggsValues` and keep `value` preserved. This is the cleanest solution since every value is guaranteed as a `number`:
 
 ```
  return eggsValues.map((value, i) => ({
@@ -90,7 +90,7 @@ value: eggsValues[i]!;
   }));
 ```
 
-So, here again, the type alias was initialized like this:
+**So, here again, the type alias was initialized like this:**
 
 ```
 type EggItem = {
@@ -100,4 +100,4 @@ type EggItem = {
 };
 ```
 
-**Valuable lesson learned:** Guard your types, and define your code thoughtfully. 😏
+**Valuable lesson learned:** Guard your types, and define your code thoughtfully. <span class="emoji-small">😏</span>
