@@ -2,7 +2,7 @@
 @import "tailwindcss/preflight.css" layer(base);
 
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
 }
 
@@ -24,6 +24,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Montserrat", sans-serif;
+  display: grid;
+  place-content: center;
 }
 
 p code, li code {
@@ -49,9 +51,7 @@ pre code {
 }
 
 .list {
+  list-style-type: disc;
   line-height: 2;
-}
-
-.list li::before {
-  content: '– '
+  margin-left: 2.5em;
 }
