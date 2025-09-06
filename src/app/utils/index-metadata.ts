@@ -7,10 +7,8 @@ export type MdxMeta = {
   title: string;
   date?: string;
   description?: string;
-  tech?: string;
+  tech?: string[] | undefined;
   codebase?: string;
-  demo?: string;
-  cover?: string
 };
 
 export function getPostMetadata(contentFolder: "docs" | "posts"): MdxMeta[] {
@@ -25,12 +23,10 @@ export function getPostMetadata(contentFolder: "docs" | "posts"): MdxMeta[] {
     return {
       slug,
       title: (data.title as string) || slug,
-      description: (data.description as string) || undefined,
-      tech: (data.tech as string) || undefined,
-      codebase: (data.codebase as string) || undefined,
       date: (data.date as string) || undefined,
-      cover: (data.cover as string) || undefined,
-      demo: (data.demo as string) || undefined,
+      description: (data.description as string) || undefined,
+      tech: (Array.isArray(data.tech) ? data.tech : [data.tech]) || undefined,
+      codebase: (data.codebase as string) || undefined,
     }
   })
 }
