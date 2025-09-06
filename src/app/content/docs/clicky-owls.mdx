@@ -1,11 +1,58 @@
 ---
 title: "Clicky Owls 🦉"
 slug: "clicky-owls"
-tech: "React.js + Accessibility"
+tech: ["React.js", "Vite", "Accessibility", "CSS Grid", "Flexbox", "Framer Motion", "React Confetti", "Vercel"]
 description: "A lighthearted game that helps users focus and manage their visual memorization skills strategically. Users need to click through randomly shuffled owls without repetition to complete the challenge."
-demo: "clicky-owls.vercel.app"
 ---
 
-Welcome to the **Clicky Owls** 🎉!  
+![Project screenshot](/assets/clicky-owls.webp)
 
-### Features
+[View Demo](https://clicky-owls.vercel.app)
+[Visit GitHub](https://github.com/zcdev/clicky-owls)
+
+## Overview
+
+This project is part of my personal portfolio rebuild initiative, where I transformed the legacy code I learned at UCBX into a modern web app using the most up-to-date tech stack. I rebuilt it from **React** `v16.7.0` to `v19.1.0`, enhancing it by improving accessibility, user interaction, visual design, and mobile-friendliness, while adhering to modern frontend best practices for accessibility, performance, and responsive design.
+
+## Features
+<ul className="list">
+<li>Memory-based shuffled image recognition test with instant feedback</li>
+<li>Responsive 4×3 (desktop) / 3x4 (mobile) grid layout</li>
+<li>Confetti animation on win using react-confetti</li>
+<li>Smooth animated message transitions with framer-motion</li>
+<li>Accessibility-conscious design (aria-live, semantic landmarks, screen reader support)</li>
+<li>Freeze UI after win to prevent further clicks until restart</li>
+<li>Restart button with complete state reset</li>
+</ul>
+
+## Implementation
+
+Project was initialized and scaffolded using **React** and **Vite**. Managed game scores by `useState()` with a list of `12` owl images, displayed as `grid` items, which shuffles upon a click or tap on each by the user on desktop or mobile devices. App was divided into four major React components: *Header*, *OwlCard*, *OwlGrid*, and *ScoreBoard*, with a utility function for shuffling owl images using the Fisher-Yates Array Shuffle Algorithm (curriculum coverage from UCBX). **Framer Motion** was used to animate UI messages, and **React Confetti** was used to animate the winning effect for the playgame. When the game is won, the UI freezes and the owl images gray out. App was tested via **Lighthouse** for web performance, and accessibility concerns were addressed to support screen readers and keyboard navigation.
+
+## Challenges & Solutions
+
+<ul className="list">
+<li>Git on macOS may ignore changes like `ScoreBoard.jsx` → `Scoreboard.jsx`. Use `git mv` to force rename.</li>
+<li>React `setState()` is asynchronous. Don't rely on the immediate value update within the same function.</li>
+<li>Replaced legacy JavaScript array method `.concat()` with the functional `setState()` pattern.</li>
+<li>Vercel deployment was smooth once path resolution and casing were corrected.</li>
+<li>A focus on `a11y` and animated UI messages made the app more inclusive and polished.</li>
+</ul>
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>Accessibility: <span className="emoji-small">💯</span></li>
+<li>Best practices: <span className="emoji-small">💯</span></li>
+<li>SEO: <span className="emoji-small">💯</span></li>
+<li>Performance: > 90 (App was image-based)</li>
+</ul>
+
+## Reflections & Learnings
+
+Rebuilding *Clicky Owls* was a strong exercise in moving from legacy React to modern practices. I gained hands-on experience with functional components, hooks, and functional state updates, which clarified common pitfalls around asynchronous state. Working with **Vite** and **Vercel** highlighted the improvements in today’s developer tooling and deployment workflows.
+
+A focus on **accessibility** taught me how to integrate ARIA attributes, semantic structure, and keyboard navigation as part of the core design, not as an afterthought. Using **Framer Motion** and **React Confetti** also showed how thoughtful animations can enhance user experience without compromising clarity.
+
+Finally, Lighthouse testing reinforced the importance of **performance awareness**, especially around image optimization. This project ultimately helped me bridge the gap between older React patterns and modern frontend best practices.
