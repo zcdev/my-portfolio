@@ -17,7 +17,7 @@ export default function Home() {
           I’m a front-end developer specializing in crafting modern,
           responsive web interfaces with a strong emphasis on accessibility,
           performance, and intuitive user interaction. With hands-on
-          experience in React, Next.js, and TypeScript, I build products that
+          experience in React.js, TypeScript, and Next.js, I build products that
           are both usable and engaging.
         </p>
         <p className="text-base mb-5 pb-6 border-b-1 border-zinc-200">
