@@ -16,7 +16,7 @@ const mdxComponents = {
   code: (props: any) => <code className="font-mono" {...props} />,
   a: (props: any) => (
     <>
-      {props.children.includes("GitHub") || props.children.includes("Demo")
+      {props.children.includes("Repo") || props.children.includes("Demo")
         ?
         <Link
           href={props.href ?? "#"}
