@@ -8,9 +8,10 @@ export default function IconLinksSection() {
 
     return (
         <section className="text-left">
-            <h2 className="text-xl font-semibold mb-1">Latest Updates</h2>
-            <p className="text-base"><span className="emoji-large ">👩🏻‍💻</span> I'm available for hire!</p>
-            <div className="mt-2 mb-7">
+            <h2 className="text-xl font-semibold mb-1">Latest Updates <span className="emoji-large">👩🏻‍💻</span></h2>
+            <p className="text-base mb-3">This is a living portfolio where I’ll continue adding new work as I keep learning and building. I’m currently focused on deepening my frontend skills with React, TypeScript, and Next.js.</p>
+            <p className="text-base mb-3">I'll likely start looking for a role closer to the end of the year. More to come, please stay tuned!</p>
+            <div className="mb-7">
                 <IconContext.Provider value={{ size: "1.8em" }}>
                     <Link href="https://www.linkedin.com/in/zcdev/" aria-label="Connect with me on LinkedIn">
                         <FaLinkedin className="text-lg icon-linkedin icon-inline" title="LinkedIn" />
