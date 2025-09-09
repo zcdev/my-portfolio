@@ -9,7 +9,7 @@ import mdxComponents from "./CustomComponents";
 import PillsList from "./PillsList";
 
 type MDXPageProps = {
-  params: Promise<{ slug: string; }>;
+  params: { slug: string; };
   contentFolder: "posts" | "docs";
 };
 
@@ -32,7 +32,7 @@ function formatDate(iso?: string) {
 }
 
 export default async function MDXPage({ params, contentFolder }: MDXPageProps) {
-  const { slug } = await params;
+  const { slug } = params;
 
   const CONTENT_ROOT = path.join(process.cwd(), "src/app/content");
 
