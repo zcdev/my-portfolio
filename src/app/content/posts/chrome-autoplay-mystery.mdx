@@ -1,7 +1,7 @@
 ---
 title: "Chrome Autoplay Mystery"
 slug: "chrome-autoplay-mystery"
-date: "2025-07-22"
+date: "2025/07/22"
 ---
 
 <span className="emoji-large">🍪 🔇</span>
@@ -32,7 +32,7 @@ Uncaught (in promise) DOMException: play() failed because the user didn't intera
 🔗 [Related Reddit thread](https://www.reddit.com/r/CodingHelp/comments/q2tbhu/uncaught_in_promise_domexception_play_failed/)
 
 That **déjà vu** moment sparked a memory from some old code I wrote years ago.
-Turns out… I had completely forgotten to include a .then() after .play() before the .catch(), which is needed to properly handle the promise and avoid unhandled exceptions:
+Turns out… I had completely forgotten to include a `.then()` after `.play()` before the `.catch()`, which is needed to properly handle the promise and avoid unhandled exceptions:
 
 ```
 audioRef.current.play()
@@ -46,7 +46,7 @@ audioRef.current.play()
 
 Once I added that back, the error was handled gracefully — no more autoplay frustration.
 
-**Valuable lesson learned:** Only to realize — I forgot .then() after .play() <span className="emoji-small">🙃</span>, and maybe someone else will .catch() that. <span className="emoji-small">😏</span>
+**Valuable lesson learned:** Only to realize — I forgot `.then()` after `.play()` <span className="emoji-small">🙃</span>, and maybe someone else will `.catch()` that. <span className="emoji-small">😏</span>
 
 Thankfully, `audioRef.current` didn't let me override it initially, but just because it didn't work, that got me back on the right track.
 
