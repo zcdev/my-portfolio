@@ -1,19 +1,63 @@
 ---
 title: "Easter Eggs Festival 🐣"
 slug: "easter-eggs-festival"
-tech: "React.js + TypeScript"
-description: "A strategic number-memory game built in React.js. Features custom sound design and inclusive accessibility practices, creating a fun, approachable experience for all ages."
-cover: "/images/easter-eggs-festival.png"
-codebase: "https://github.com/zcdev/easter-eggs-festival"
+tech: ["React.js", "TypeScript", "Vite", "Accessibility", "CSS Grid", "Flexbox", "Mobile-first", "Dark Mode", "Vercel", "Audio"]
+description: "A strategic number-memory game built with React.js. Features custom sound design that is both accessible and user-friendly, creating a fun and inclusive experience suitable for all ages."
 demo: "easter-eggs-festival.vercel.app"
-url: "easter-eggs-festival.mdx"
 ---
 
-Welcome to the **Easter Eggs Festival** 🎉!  
-This was a fun rebuild of my jQuery project into React, where I learned about state management, event handling, and sound effects.
+![Project screenshot](/assets/easter-eggs-festival.webp)
 
-### Features
+[See Demo](https://easter-eggs-festival.vercel.app)
+[Visit Repo](https://github.com/zcdev/easter-eggs-festival)
 
-- Unique eggs generated each round
-- Win/loss sound effects with `useEffect`
-- Responsive design with a reusable image component
+## Overview
+
+This project is a single-page application rebuilt from jQuery
+(jquery-3.3.1 with Bootstrap) to modern **React** `v19.1.0`, and further migrated to **TypeScript** `5.9.2`. It was revamped with a mobile-first layout, custom sound effects, and modern accessibility-focused best practices.
+
+## Features
+<ul className="list">
+<li>Generates unique egg values each round with real-time score tracking.</li>
+<li>Modal messages on win/loss with “Play Again” or “Try Again” options.</li>
+<li>Custom win/loss sound clips with mute toggle for gameplay.</li>
+<li>Mobile-first responsive design with a reusable React image component.</li>
+<li>CSS3 transitions and animations.</li>
+<li>Fully keyboard-accessible and screen reader–friendly.</li>
+</ul>
+
+## Implementation
+<ul className="list">
+<li>**State management:** `useReducer()` for score tracking and game actions.</li>
+<li>**Audio controls:** `useEffect()` for playback; mute toggle for accessibility.</li>
+<li>**UI & Modals:** Custom modal with `useRef()` for DOM control.</li>
+<li>**Utilities:** Reusable function to generate unique egg values and target scores (1–12, 19–120).</li>
+<li>**Strict typing:** `TypeScript` applied for data safety.</li>
+<li>**Testing:** Validated with `Lighthouse`; ensured dark mode and keyboard navigation support.</li>
+</ul>
+
+## Challenges & Solutions
+
+<ul className="list">
+<li>**Learning useReducer():** Started from React docs, but needed clarity on action objects. Consulted ChatGPT and refined understanding through trial and error.</li>
+<li>**Payload defaults:** Tried using the `nullish coalescing operator (??)` with `action.payload`, but since the payload was undefined, used separate dispatched actions instead.</li>
+<li>**Hook behavior:** Clarified differences between `useEffect(`) and `useRef()`. Learned that `useRef()` wasn’t suitable for audio playback when not tied to a persistent DOM element.</li>
+<li>**Accessibility compliance:** Verified sound design against `WCAG guidelines` (controls not required since audio doesn’t auto-play beyond three seconds).</li>
+<li>**UI enhancements:** Explored `CSS3` animations with ChatGPT guidance, adding subtle modal fade/pop effects. Combined with accessibility focus, these refinements made the app more inclusive and polished.</li>
+</ul>
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>**Accessibility:** <span className="emoji-small">💯</span></li>
+<li>**Best practices:** <span className="emoji-small">💯</span></li>
+<li>**SEO:** <span className="emoji-small">💯</span></li>
+<li>**Performance:** 99</li>
+</ul>
+
+## Reflections & Learnings
+
+Rebuilding *`Easter Eggs Festival`* from jQuery to **React**, and later to **TypeScript**, was a transformative learning experience. The project required significant refactoring and helped me move from basic state handling with `useState()` to more advanced state management with `useReducer()`. I gained practical experience applying React Hooks, such as `useEffect()` for audio playback, `useRef()` for modal and DOM element controls, and refined data handling through TypeScript’s strict typing. These steps deepened my understanding of modern frontend best practices and strengthened my confidence in managing more complex application logic.
+
+From the start, I prioritized *accessibility, mobile-first responsiveness, and dark mode support to ensure an inclusive user experience*. Incorporating custom sound effects allowed me to merge creative design with technical implementation, sharpening my ability to solve problems across disciplines. Debugging, troubleshooting, and simulating GitHub release workflows further challenged me to refine my process and workflows. Together, these experiences reinforced the value of approaching projects with both technical rigor and design sensitivity, and they fueled my motivation to keep improving and exploring.

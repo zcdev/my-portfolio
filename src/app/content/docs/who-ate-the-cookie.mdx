@@ -1,14 +1,68 @@
 ---
 title: "Who Ate the Cookie 🍪"
 slug: "who-ate-the-cookie"
-tech: "Next.js + Voice API"
-description: "A playful, voice-interactive guessing game built with Next.js. Designed for accessibility and performance, with an engaging narrative that keeps users curious from start to finish."
-cover: "/images/who-ate-the-cookie.png"
-codebase: "https://github.com/zcdev/who-ate-the-cookie"
+tech: ["Next.js", "React.js", "ElevenLabs API", "Accessibility", "CSS Grid", "Flexbox", "Mobile-first", "Dark Mode", "Vercel"]
+description: "A playful, voice-interactive detective game built with Next.js. Designed for accessibility and performance, with an engaging narrative that keeps players curious from start to finish."
 demo: "whoatethecookie.fun"
-url: "who-ate-the-cookie.mdx"
 ---
 
-Welcome to the **Who Ate the Cookie** 🎉!  
+![Project screenshot](/assets/who-ate-the-cookie.webp)
 
-### Features
+[See Demo](https://whoatethecookie.fun)
+[Visit Repo](https://github.com/zcdev/who-ate-the-cookie)
+
+## Overview
+
+This project began as a `VoiceRSS` experiment and unexpectedly evolved into a lighthearted yet technically challenging detective game. It was first prototyped in `Vue 3` and later rebuilt in modern **React** `v19.1.0` with multiple iterations to refine user experience, accessibility, and audio interactivity. The final build delivers both visual and auditory gameplay while following modern frontend best practices.
+
+## Features
+
+<ul className="list">
+<li>Dynamic voice generation via serverless `/api/speech`.</li>
+<li>Voice warm-up strategy to eliminate first-click playback delays.</li>
+<li>Mobile-first, fully responsive layout with high-DPI image optimization.</li>
+<li>Sound controls with mute/resume toggle.</li>
+<li>Instant game replay with a single click.</li>
+<li>Accessible controls: keyboard navigation, screen reader support, focus management, motion preference handling, semantic roles.</li>
+</ul>
+
+## Implementation
+
+<ul className="list">
+<li>**Game logic:** Shared character narrative ensures consistent flow regardless of the starting point.</li>
+<li>**UI components:** Reusable button and responsive image components.</li>
+<li>**API handling:** Next.js API routes with private key in `.env`, structured error handling, and binary audio decoding via `ArrayBuffer`.</li>
+<li>**Audio playback:** Responses prepared with headers for blob consumption; session storage caching with `useEffect()` + `setTimeout()` to pre-run voices and avoid API rate limits.</li>
+<li>**State & UI management:** Conditional rendering of message board based on game states, dispatched actions, and dynamic animations through class toggles.</li>
+</ul>
+
+## Challenges & Solutions
+
+<ul className="list">
+<li>**Autoplay restrictions:** Chrome blocked audio without user interaction. Fixed with explicit gesture checks and an audio warm-up strategy.</li>
+<li>**Cross-browser playback:** Audio behaved inconsistently across browsers. Improved handling with `audioRef` refinements and fallback testing.</li>
+<li>**Migration to Next.js:** Rebuilt from `Vite/React` into `Next.js`, enabling serverless API routes and a smoother deployment pipeline.</li>
+<li>**Client/server boundaries:** Clarified data flow between frontend components and API routes, while securing API keys.</li>
+<li>**Complex UI logic:** Simplified intertwined conditions, improving state transitions and animations.</li>
+<li>**Accessibility testing:** Verified usability with keyboard-only navigation and `macOS VoiceOve`r, resulting in a more inclusive experience.</li>
+</ul>
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>**Accessibility:** <span className="emoji-small">💯</span></li>
+<li>**Best Practices:** <span className="emoji-small">💯</span></li>
+<li>**SEO:** <span className="emoji-small">💯</span></li>
+<li>**Performance:** <span className="emoji-small">💯</span></li>
+</ul>
+
+## Reflections & Learnings
+
+Building *`Who Ate the Cookie`* was both experimental and improvisational. I began by testing `VoiceRSS` and the `Web Speech API` before adopting the **ElevenLabs API**, which matched my character design with highly engaging voices.
+
+The transition from `Vue` to **React** highlighted major differences in state management, data flow, and lifecycle hooks. **Next.js** introduced a new layer with serverless API routing, which required careful handling of audio responses, playback quirks, and deployment behavior. Along the way, I learned to manage API status handling, cache audio intelligently, and untangle conditional logic for animated UI rendering.  
+
+Hosting on **Vercel** gave me experience with preview vs production environments, and simulating API responses under different states. Ultimately, the project passed Lighthouse audits with a perfect `100%` score across *performance, accessibility, best practices, and SEO on both desktop and mobile*. Moreover, a custom domain was configured.
+
+This project strengthened my skills in **React** state management, API handling with **Next.js**, and accessible UX design while exploring the creative potential of voice-driven web experiences.

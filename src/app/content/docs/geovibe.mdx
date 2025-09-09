@@ -1,14 +1,63 @@
 ---
 title: "GeoVibe 🇺🇸"
 slug: "geovibe"
-tech: "React.js"
-description: "A single-page app built with React.js utilizing a web form datalist to help users explore U.S. Census data by understanding the population, income, age, and diversity across all 50 states."
-cover: "/images/geovibe.png"
-codebase: "https://github.com/zcdev/geovibe"
+tech: ["React.js", "Census API", "Webform", "Vite", "Accessibility", "HTML5", "CSS3", "Dark Mode", "Vercel"]
+description: "A user-friendly single-page web app built with React.js. Helps users explore U.S. Census data and gain insights into population, income, age, and diversity across all 50 states."
 demo: "geovibe.vercel.app"
-url: "geovibe.mdx"
 ---
 
-Welcome to the **GeoVibe** 🎉!  
+![Project screenshot](/assets/geovibe.webp)
 
-### Features
+[See Demo](https://geovibe.vercel.app)
+[Visit Repo](https://github.com/zcdev/geovibe)
+
+## Overview
+
+This project is a complete rebuild of an earlier JavaScript-based version, modernized with **React** and **Vite**, presenting geodemographic insights from the `U.S. Census Bureau` in a user-friendly, accessible, and visually engaging way. Users can enter any U.S. state in the webform to view statistics on population, median income, age distribution, gender, and racial diversity.
+
+## Features
+
+<ul className="list">
+<li>Integration with the U.S. Census Bureau API, retrieving official `2023 American Community Survey (ACS)` data in real-time.</li>
+<li>Key demographic insights including total population, median income, age, gender, and race/ethnicity breakdowns.</li>
+<li>Webform input validation, autocomplete with `datalist`, and API fetch error handling.</li>
+<li>Custom background artwork reflecting the theme of community, diversity, and geography.</li>
+<li>Dark mode–friendly design that adapts to system preferences for eye comfort and accessibility.</li>
+<li>Responsive UI optimized for different devices, with keyboard-friendly webform navigation.</li>
+</ul>
+
+## Implementation
+
+<ul className="list">
+<li>**Demographic stats:** Extracted data from Census tables and calculated percentages for clear population breakdowns.</li>
+<li>**Performance monitoring:** Used `Vercel Web Analytic`s and `Speed Insights` to track performance and user interactions.</li>
+<li>**Autocomplete:** Populated `datalist` with all `50` U.S. states for autofill functionality.</li>
+<li>**Webform management:** Validated input, fetched API data, and surfaced user-friendly error messages.</li>
+<li>**State management:** Managed user queries with controlled inputs, `useState()`, and structured error handling.</li>
+</ul>
+
+## Challenges & Solutions
+
+<ul className="list">
+<li>**Stack modernization:** Migrated from ES6 to `React`, adopting structured state management.</li>
+<li>**Accessible input:** Added `datalist autocomplete` for streamlined and accessible user interaction.</li>
+<li>**Data accuracy:** Recalculated Hispanic/Latino as an ethnicity and added explanatory disclaimers for clarity.</li>
+<li>**Updated sources:** Shifted from 2019 Census data to the latest 2023 ACS endpoints for relevance.</li>
+<li>**Performance tracking:** Integrated `Vercel Analytics` and `Speed Insights` to monitor usage and optimize performance post-deployment.</li>
+</ul>
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>**Accessibility:** <span className="emoji-small">💯</span></li>
+<li>**Best Practices:** <span className="emoji-small">💯</span></li>
+<li>**SEO:** <span className="emoji-small">💯</span></li>
+<li>**Performance:** <span className="emoji-small">💯</span></li>
+</ul>
+
+## Reflections & Learnings
+
+Rebuilding *`GeoVibe`* from `ES6` to **React** reshaped how I think about application architecture and frameworks. Working with the `U.S. Census Bureau API` was challenging at first, but I learned to navigate endpoints and map tables to the data I needed. Leveraging the native **HTML5** `datalist` proved to be an efficient way to implement accessible autocomplete.  
+
+This project also deepened my understanding of presenting demographic data responsibly, particularly clarifying that “Hispanic or Latino” is categorized as an ethnicity, not a race. Through this project, I gained valuable experience in *data reliability, web performance monitoring, and designing applications with accessibility and user privacy in mind*.
