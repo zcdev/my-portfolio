@@ -1,22 +1,23 @@
 import Link from "next/link";
 import { RxArrowRight } from "react-icons/rx";
+import { ComponentPropsWithoutRef } from "react";
 
 const mdxComponents = {
-  h1: (props: any) => (
+  h1: (props: ComponentPropsWithoutRef<"h1">) => (
     <h1 className="text-4xl font-bold mt-8 mb-4" {...props} />
   ),
-  h2: (props: any) => (
+  h2: (props: ComponentPropsWithoutRef<"h2">) => (
     <h2 className="text-xl font-bold mt-8 mb-4" {...props} />
   ),
-  h3: (props: any) => (
+  h3: (props: ComponentPropsWithoutRef<"h3">) => (
     <h3 className="text-base font-bold mt-8 mb-4" {...props} />
   ),
-  p: (props: any) => <p className="text-lg mt-4 mb-2" {...props} />,
-  pre: (props: any) => <pre className="bg-gray-100 text-black p-4 rounded-lg overflow-x-auto" {...props} />,
-  code: (props: any) => <code className="font-mono" {...props} />,
-  a: (props: any) => (
+  p: (props: ComponentPropsWithoutRef<"p">) => <p className="text-lg mt-4 mb-2" {...props} />,
+  pre: (props: ComponentPropsWithoutRef<"pre">) => <pre className="bg-gray-100 text-black p-4 rounded-lg overflow-x-auto" {...props} />,
+  code: (props: ComponentPropsWithoutRef<"code">) => <code className="font-mono" {...props} />,
+  a: (props: ComponentPropsWithoutRef<"a">) => (
     <>
-      {props.children.includes("Repo") || props.children.includes("Demo")
+      {typeof props.children === "string" && props.children.includes("Repo") || typeof props.children === "string" && props.children.includes("Demo")
         ?
         <Link
           href={props.href ?? "#"}
@@ -32,12 +33,12 @@ const mdxComponents = {
       }
     </>
   ),
-  ul: (props: any) => (
+  ul: (props: ComponentPropsWithoutRef<"ul">) => (
     <ul className="mt-2 mb-4">
       {props.children}
     </ul>
   ),
-  li: (props: any) => <li {...props} />
+  li: (props: ComponentPropsWithoutRef<"li">) => <li {...props} />
 };
 
 export default mdxComponents;
