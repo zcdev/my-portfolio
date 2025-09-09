@@ -1,15 +1,15 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { RxArrowLeft } from "react-icons/rx";
-import Link from "next/link";
 import fs from "fs";
+import Link from "next/link";
 import path from "path";
 import matter from "gray-matter";
 import mdxComponents from "./CustomComponents";
 import PillsList from "./PillsList";
 
 type MDXPageProps = {
-  params: { slug: string; };
+  slug: string;
   contentFolder: "posts" | "docs";
 };
 
@@ -31,8 +31,7 @@ function formatDate(iso?: string) {
   });
 }
 
-export default async function MDXPage({ params, contentFolder }: MDXPageProps) {
-  const { slug } = params;
+export default function MDXPage({ slug, contentFolder }: MDXPageProps) {
 
   const CONTENT_ROOT = path.join(process.cwd(), "src/app/content");
 
@@ -41,7 +40,7 @@ export default async function MDXPage({ params, contentFolder }: MDXPageProps) {
   let source: string;
 
   try {
-    source = fs.readFileSync(filePath, "utf-8");
+    source = fs.readFileSync(filePath, "utf-8");;
   } catch {
     notFound();
   }

@@ -1,9 +1,6 @@
 import MDXPage from "../../components/MDXPage";
 
-export default function BlogPostPage(props: {
-  params: { slug: string; };
-}) {
-  return (
-    <MDXPage params={props.params} contentFolder="posts" />
-  );
+export default function BlogPostPage({ params }: { params: { slug: string; }; }) {
+  const { slug } = params;
+  return <MDXPage slug={slug} contentFolder="posts" />;
 }
