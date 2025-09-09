@@ -40,7 +40,7 @@ export default function MDXPage({ slug, contentFolder }: MDXPageProps) {
   let source: string;
 
   try {
-    source = fs.readFileSync(filePath, "utf-8");;
+    source = fs.readFileSync(filePath, "utf-8");
   } catch {
     notFound();
   }
