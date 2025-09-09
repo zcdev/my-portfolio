@@ -18,6 +18,9 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+  h3 code, p code, li code {
+    color: var(--background)
+  }
 }
 
 body {
@@ -28,7 +31,7 @@ body {
   place-content: center;
 }
 
-p code, li code {
+h3 code, p code, li code {
   font-size: 16px;
   background: #fef9c2;
   padding: 3px;
