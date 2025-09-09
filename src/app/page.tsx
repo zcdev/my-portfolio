@@ -14,15 +14,10 @@ export default function Home() {
           Building accessible and interactive UX
         </p>
         <p className="text-base mb-4">
-          I’m a front-end developer specializing in crafting modern,
-          responsive web interfaces with a strong emphasis on accessibility,
-          performance, and intuitive user interaction. With hands-on
-          experience in React.js, TypeScript, and Next.js, I build products that
-          are both usable and engaging.
+          I’m a front-end developer specializing in crafting modern, responsive web interfaces with a strong emphasis on accessibility, performance, and intuitive user interaction. With hands-on experience in React.js, TypeScript, and Next.js, I build products that are both usable and engaging.
         </p>
         <p className="text-base mb-5 pb-6 border-b-1 border-zinc-200">
-          All the web apps in my portfolio support accessibility, dark-mode,
-          and responsive designs.
+          All the web apps in my portfolio support accessibility, dark-mode considerations, and responsive designs.
         </p>
         <IconLinksSection />
       </aside>

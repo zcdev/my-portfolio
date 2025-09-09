@@ -30,7 +30,7 @@ export function getPostMetadata(contentFolder: "docs" | "posts"): MdxMeta[] {
       demo: (data.demo as string) || undefined,
       codebase: (data.codebase as string) || undefined,
     }
-  })
+  });
 }
 
 export const getProjectMeta = () => getPostMetadata("docs");
