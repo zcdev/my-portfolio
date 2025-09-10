@@ -6,7 +6,7 @@ date: "2025/08/21"
 
 <span className="emoji-large">⁉️ 🤔</span>
 
-## My code from the "Easter Eggs Festival" project:
+My code from the *`Easter Eggs Festival`* project:
 
 ```
 // Type alias
@@ -50,7 +50,7 @@ Type 'undefined' is not assignable to type 'number'.ts(2322)
 
 Because `eggsValues` starts as an empty array, accessing `eggsValues[i]` can yield `undefined`, so TypeScript infers `number | undefined`.
 
-### There are a few possible ways to resolve this issue, you can:
+## There are a few possible ways to resolve this issue, you can:
 
 ### 1. Use a union type and handle `undefined`.
 
@@ -90,7 +90,7 @@ value: eggsValues[i]!;
   }));
 ```
 
-**So, here again, the type alias was initialized like this:**
+## So, here again, the type alias was initialized like this:
 
 ```
 type EggItem = {

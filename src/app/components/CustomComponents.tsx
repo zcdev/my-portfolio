@@ -10,7 +10,7 @@ const mdxComponents = {
     <h2 className="text-xl font-bold mt-8 mb-4" {...props} />
   ),
   h3: (props: ComponentPropsWithoutRef<"h3">) => (
-    <h3 className="text-base font-bold mt-8 mb-4" {...props} />
+    <h3 className="text-base mt-8 mb-4" {...props} />
   ),
   p: (props: ComponentPropsWithoutRef<"p">) => <p className="text-lg mt-4 mb-2" {...props} />,
   pre: (props: ComponentPropsWithoutRef<"pre">) => <pre className="bg-gray-100 text-black p-4 rounded-lg overflow-x-auto" {...props} />,
