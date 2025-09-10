@@ -1,0 +1,10 @@
+# Allow all good bots to index the site
+User-agent: *
+Allow: /
+
+# Block sensitive or irrelevant paths (adjust as needed)
+Disallow: /api/
+Disallow: /static/
+
+# Point to your sitemap (Next.js can generate or you can add one later)
+Sitemap: https://zoechang.dev/sitemap.xml
