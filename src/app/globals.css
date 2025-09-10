@@ -24,10 +24,15 @@ body {
   place-content: center;
 }
 
+main {
+  width: 100vw;
+}
+
 h3 code, p code, li code {
   font-size: 16px;
   background: #fef9c2;
   padding: 3px;
+  width: 100%;
 }
 
 pre code {
@@ -49,5 +54,5 @@ pre code {
 .list {
   list-style-type: disc;
   line-height: 2;
-  margin-left: 2.5em;
+  margin-left: 24px;
 }
