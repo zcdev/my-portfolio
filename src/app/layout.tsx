@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Arimo } from "next/font/google";
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 
 const arimo = Arimo({
@@ -49,7 +50,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
         <meta name="theme-color" content="#7e3ff2" />
       </head>
-      <body className={`${arimo.variable} antialiased`}>{children}</body>
+      <body className={`${arimo.variable} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
