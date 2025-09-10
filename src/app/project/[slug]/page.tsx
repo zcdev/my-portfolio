@@ -1,5 +1,9 @@
 import MDXPage from "../../components/MDXPage";
 
-export default function ProjectPage({ params }: { params: { slug: string; }; }) {
-  return <MDXPage slug={(params as { slug: string; }).slug} contentFolder="docs" />;
+type ProjectPageProps = {
+  params: Promise<{ slug: string; }>;
+};
+
+export default function ProjectPage({ params }: ProjectPageProps) {
+  return <MDXPage params={params} contentFolder="docs" />;
 }
