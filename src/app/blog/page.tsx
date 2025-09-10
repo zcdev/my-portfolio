@@ -27,11 +27,11 @@ export default async function BlogIndex() {
             <ul className="mb-6">
               {grouped[Number(year)].map((post) => (
                 <li key={post.slug} className="mb-2">
+                  <span className="text-lg text-gray-600 pr-2">{post.date!.slice(5, post.date?.length)}:</span>
                   <Link
                     href={`/blog/${post.slug}`}
                     className="text-lg text-purple-600 hover:underline dark:text-purple-400"
-                  >
-                    <span className="text-gray-600">{post.date!.slice(5, post.date?.length)}:</span> {post.title}
+                  >{post.title}
                   </Link>
                 </li>
               ))}
