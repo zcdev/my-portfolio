@@ -43,6 +43,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+        <meta name="theme-color" content="#7e3ff2" />
+      </head>
       <body className={`${arimo.variable} antialiased`}>{children}</body>
     </html>
   );
