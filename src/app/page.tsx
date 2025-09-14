@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="grid grid-cols-1 lg:grid-cols-8 gap-x-8 gap-y-6 max-w-[1700px] min-h-screen text-gray-900 p-6 dark:bg-stone-950 dark:text-zinc-400">
       <aside className="mb-4 col-span-8 lg:col-span-2 text-left">
-        <h1 className="text-4xl font-bold mb-2">Zoe Chang</h1>
-        <p className="text-xl text-purple-600 mb-1 dark:text-purple-400">
+        <h1 className="text-4xl font-bold mb-1">Zoe Chang</h1>
+        <p className="title text-xl text-purple-600 mb-1 dark:text-purple-400">
           Front-end Developer
         </p>
         <p className="text-base text-[17px] font-semibold mb-4">

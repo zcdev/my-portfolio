@@ -67,7 +67,7 @@ export default async function MDXPage({ params, contentFolder }: MDXPageProps) {
         {contentFolder === "docs" && (
           <>
             <p className="text-lg mb-6">{format.description}</p>
-            <p className="text-lg font-semibold">Tech & Features:</p>
+            <h2 className="text-xl font-semibold">Tech & Features:</h2>
             <PillsList items={format.tech} />
           </>
         )}

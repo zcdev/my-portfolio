@@ -19,7 +19,7 @@ This project began as a `VoiceRSS` experiment and unexpectedly evolved into a li
 
 <ul className="list">
 <li>Dynamic voice generation via serverless `/api/speech`.</li>
-<li>Voice warm-up strategy to eliminate first-click playback delays.</li>
+<li>Voice warm-up strategy to establish voice consistency and eliminate excessive API calls.</li>
 <li>Mobile-first, fully responsive layout with high-DPI image optimization.</li>
 <li>Sound controls with mute/resume toggle.</li>
 <li>Instant game replay with a single click.</li>
@@ -32,19 +32,19 @@ This project began as a `VoiceRSS` experiment and unexpectedly evolved into a li
 <li>**Game logic:** Shared character narrative ensures consistent flow regardless of the starting point.</li>
 <li>**UI components:** Reusable button and responsive image components.</li>
 <li>**API handling:** Next.js API routes with private key in `.env`, structured error handling, and binary audio decoding via `ArrayBuffer`.</li>
-<li>**Audio playback:** Responses prepared with headers for blob consumption; session storage caching with `useEffect()` + `setTimeout()` to pre-run voices and avoid API rate limits.</li>
+<li>**Audio playback:** Responses prepared with headers for blob consumption; session storage caching with `useEffect()` + `setTimeout()` to pre-run voices and eliminate excessive API calls.</li>
 <li>**State & UI management:** Conditional rendering of message board based on game states, dispatched actions, and dynamic animations through class toggles.</li>
 </ul>
 
 ## Challenges & Solutions
 
 <ul className="list">
-<li>**Autoplay restrictions:** Chrome blocked audio without user interaction. Fixed with explicit gesture checks and an audio warm-up strategy.</li>
-<li>**Cross-browser playback:** Audio behaved inconsistently across browsers. Improved handling with `audioRef` refinements and fallback testing.</li>
+<li>**Autoplay restrictions:** Chrome blocked audio without user interaction. Fixed by correction of promise chaining.</li>
+<li>**Cross-browser playback:** Audio behaved inconsistently between fetches. Improved handling with `audioRef` refinements and pre-check warm-up per session.</li>
 <li>**Migration to Next.js:** Rebuilt from `Vite/React` into `Next.js`, enabling serverless API routes and a smoother deployment pipeline.</li>
 <li>**Client/server boundaries:** Clarified data flow between frontend components and API routes, while securing API keys.</li>
 <li>**Complex UI logic:** Simplified intertwined conditions, improving state transitions and animations.</li>
-<li>**Accessibility testing:** Verified usability with keyboard-only navigation and `macOS VoiceOve`r, resulting in a more inclusive experience.</li>
+<li>**Accessibility testing:** Verified usability with keyboard-only navigation and `macOS VoiceOver`, resulting in a more inclusive experience.</li>
 </ul>
 
 ## Performance & Accessibility
@@ -61,7 +61,7 @@ This project began as a `VoiceRSS` experiment and unexpectedly evolved into a li
 
 Building *`Who Ate the Cookie`* was both experimental and improvisational. I began by testing `VoiceRSS` and the `Web Speech API` before adopting the **ElevenLabs API**, which matched my character design with highly engaging voices.
 
-The transition from `Vue` to **React** highlighted major differences in state management, data flow, and lifecycle hooks. **Next.js** introduced a new layer with serverless API routing, which required careful handling of audio responses, playback quirks, and deployment behavior. Along the way, I learned to manage API status handling, cache audio intelligently, and untangle conditional logic for animated UI rendering.  
+The transition from `Vue` to **React** highlighted major differences in state management, data flow, and lifecycle hooks. **Next.js** introduced a new layer with serverless API routing, which required careful handling of audio responses, playback quirks, and deployment behavior. Along the way, I learned to manage API status handling, cache audio strategically, and untangle conditional logic for animated UI rendering.  
 
 Hosting on **Vercel** gave me experience with preview vs production environments, and simulating API responses under different states. Ultimately, the project passed Lighthouse audits with a perfect `100%` score across *performance, accessibility, best practices, and SEO on both desktop and mobile*. Moreover, a custom domain was configured.
 

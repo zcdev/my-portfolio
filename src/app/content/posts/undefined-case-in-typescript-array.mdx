@@ -38,7 +38,7 @@ const [eggs] = useState<EggItem[]>(() => generateEggs(4));
 
 The **TypeScript language service** (a.k.a. tsserver) that is built into VSCode will mark the `return` keyword by a red squiggly line when the variable is strictly typed as `number` yet has the potential to be `undefined`.
 
-## VSCode’s strict type-checking throws this error:
+<p>VSCode’s strict type-checking throws this error:</p>
 
 ```
 Type '{ id: number; image: string; value: number | undefined; }[]' is not assignable to type 'EggItem[]'.
@@ -50,9 +50,9 @@ Type 'undefined' is not assignable to type 'number'.ts(2322)
 
 Because `eggsValues` starts as an empty array, accessing `eggsValues[i]` can yield `undefined`, so TypeScript infers `number | undefined`.
 
-## There are a few possible ways to resolve this issue, you can:
+<p>There are a few possible ways to resolve this issue, you can:</p>
 
-### 1. Use a union type and handle `undefined`.
+<p>1. Use a union type and handle `undefined`.</p>
 
 ```
 type EggItem = {
@@ -62,25 +62,25 @@ type EggItem = {
 };
 ```
 
-### 2. Provide a default value by using the **Nullish Coalescing Operator** `??` to default it to `0` if it is `undefined` or `null`.
+<p>2. Provide a default value by using the **Nullish Coalescing Operator** `??` to default it to `0` if it is `undefined` or `null`.</p>
 
 ```
 value: eggsValues[i] ?? 0;
 ```
 
-### 3. Type guard it conditionally to check if `value` is not undefined or set it to `0`.
+<p>3. Type guard it conditionally to check if `value` is not undefined or set it to `0`.</p>
 
 ```
 value: eggsValues[i] !== undefined ? eggsValues[i] : 0;
 ```
 
-### 4. Use the **Non-null Assertion Operator** `!` if you are certain that `value` is not `undefined`.
+<p>4. Use the **Non-null Assertion Operator** `!` if you are certain that `value` is not `undefined`.</p>
 
 ```
 value: eggsValues[i]!;
 ```
 
-### 5. Or, simply use `.map()` to return a new array for the `eggsValues` and keep `value` preserved. This is the cleanest solution since every value is guaranteed as a `number`:
+<p>5. Or, simply use `.map()` to return a new array for the `eggsValues` and keep `value` preserved. This is the cleanest solution since every value is guaranteed as a `number`:</p>
 
 ```
  return eggsValues.map((value, i) => ({
@@ -90,7 +90,7 @@ value: eggsValues[i]!;
   }));
 ```
 
-## So, here again, the type alias was initialized like this:
+<p>So, here again, the type alias was initialized like this:</p>
 
 ```
 type EggItem = {

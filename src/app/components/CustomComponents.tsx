@@ -10,11 +10,11 @@ const mdxComponents = {
     <h2 className="text-xl font-bold mt-8 mb-4" {...props} />
   ),
   h3: (props: ComponentPropsWithoutRef<"h3">) => (
-    <h3 className="text-base mt-8 mb-4" {...props} />
+    <h3 className="text-base mt-4 mb-4" {...props} />
   ),
-  p: (props: ComponentPropsWithoutRef<"p">) => <p className="text-lg mt-4 mb-2" {...props} />,
-  pre: (props: ComponentPropsWithoutRef<"pre">) => <pre className="bg-gray-100 text-black p-4 rounded-lg overflow-x-auto" {...props} />,
-  code: (props: ComponentPropsWithoutRef<"code">) => <code className="font-mono" {...props} />,
+  p: (props: ComponentPropsWithoutRef<"p">) => <p className="text-[17px] mt-4 mb-4" {...props} />,
+  pre: (props: ComponentPropsWithoutRef<"pre">) => <pre className="text-[17px] bg-gray-100 text-black p-4 rounded-lg overflow-x-auto" {...props} />,
+  code: (props: ComponentPropsWithoutRef<"code">) => <code className="text-[15px] font-mono" {...props} />,
   a: (props: ComponentPropsWithoutRef<"a">) => (
     <>
       {typeof props.children === "string" && props.children.includes("Repo") || typeof props.children === "string" && props.children.includes("Demo")

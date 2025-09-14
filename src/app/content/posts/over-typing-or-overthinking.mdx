@@ -28,9 +28,11 @@ The part before the `=` is saying what kind of function `onSubmit` must be:
 
 This means:
 
-- It takes **two parameters**:
-  - `task` of type `string`
-  - `hours` of type `number`
+It takes **two parameters**:
+<ul className="list">
+<li>`task` of type `string`</li>
+<li>`hours` of type `number`</li>
+</ul>
 
 It **returns a boolean**.
 So, TypeScript now knows `onSubmit` has exactly this "shape."
@@ -46,9 +48,10 @@ return hustle > 24 * 7
 ```
 
 Here:
-
-- Parameters match the declared types `(string, number)`.
-- The function returns `hustle > 24 * 7`, which is a **boolean expression**.
+<ul className="list">
+<li>Parameters match the declared types `(string, number)`.</li>
+<li>The function returns `hustle > 24 * 7`, which is a **boolean expression**.</li>
+</ul>
 
 ## Summary:
 
@@ -98,4 +101,4 @@ return huslte > 24 * 7 // return false, because hours can never exceed 168 ⛔�
 
 “No matter how hard you hustle, TypeScript won’t let you work 24/7. It just returns false.”
 
-Shall we overwork on over-typing, or am I just over with overthinking? <span className="emoji-small">😏</span>
+<p>Shall we overwork on over-typing, or am I just over with overthinking? <span className="emoji-small">😏</span></p>

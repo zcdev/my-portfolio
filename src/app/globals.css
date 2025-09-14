@@ -28,13 +28,23 @@ main {
   width: 100vw;
 }
 
+p {
+  font-size: 17px;
+  margin: 17px 0px;
+}
+
+p.title {
+  margin: 0px;
+}
+
+/* For Project docs */
 h3 code, p code, li code {
-  font-size: 16px;
+  font-size: 15px;
   background: #fef9c2;
-  padding: 3px;
   width: 100%;
 }
 
+/* For Blog posts */
 pre code {
   font-size: 15px;
 }
@@ -53,6 +63,15 @@ pre code {
 
 .list {
   list-style-type: disc;
-  line-height: 2;
-  margin-left: 24px;
+  margin-left: 30px;
+  font-size: 17px;
+  line-height: 28px;
+}
+
+.list li {
+  padding-bottom: 17px;
+}
+
+.list li:last-child {
+  padding-bottom: 0px;
 }
