@@ -27,6 +27,7 @@ export default async function ProjectIndex() {
               </Link>
               <Link
                 href={`https://${doc.demo}`}
+                target="_blank"
                 className="text-base text-purple-600 dark:text-purple-400 underline"
               >
                 See Demo
