@@ -1,0 +1,95 @@
+---
+title: "The TypeScript Buffet: Eating Your Way Through Types"
+slug: "the-typescript-buffet"
+date: "2025/09/23"
+---
+<span className="emoji-large">🥗🤢</span>
+
+## <span className="emoji-small">🍵</span> Entree
+
+TypeScript can feel intimidating at first glance — all the utility types, generics, overloads, and odd keywords. But if you squint (and you’re a little hungry), it’s not a language… it’s a **buffet**. Each type feature is just another dish on the table. Some are light and simple, some stacked and heavy, some… You really need to narrow before you eat.
+
+So, grab a tray. Let’s eat through the TypeScript buffet together.
+
+## <span className="emoji-small">🥗</span> Primitives → Salad
+Simple, fresh, no layers.
+
+```
+let count: number = 42;
+let name: string = "Zarnok";
+```
+
+## <span className="emoji-small">🥟</span> Objects → Dumplings
+Stuffed wrappers with fillings inside.
+
+```
+type User = { id: number; name: string };
+```
+
+## <span className="emoji-small">🍱</span> Arrays & Tuples → Bento Boxes
+Neatly portioned compartments.
+
+```
+let coords: [number, number] = [10, 20];
+let names: string[] = ["Blip", "Luna-7"];
+```
+
+## <span className="emoji-small">🥪</span> Utility Types → Sandwiches
+Stack slices, trim edges, rearrange fillings.
+
+```
+type WithoutId = Omit<User, "id">;
+type PartialUser = Partial<User>;
+```
+
+## <span className="emoji-small">🌯</span> Generics → Burritos
+A single wrapper, endless fillings.
+
+```
+function wrap<T>(value: T): { value: T } {
+  return { value };
+}
+```
+
+## <span className="emoji-small">🍔</span> Function Overloads → Stacked Burgers
+Layer upon layer, each bite precise.
+
+```
+function double(val: number): number;
+function double(val: string): string;
+function double(val: number | string): number | string {
+  return typeof val === "number" ? val * 2 : val + val;
+}
+```
+
+## <span className="emoji-small">🤢</span> Unknown → Mystery Stew
+You must taste-test before trusting.
+
+```
+function log(val: unknown) {
+  if (typeof val === "string") console.log(val.toUpperCase());
+}
+```
+
+## <span className="emoji-small">🍽️</span> Never → Empty Plate
+Nothing comes out of this kitchen.
+
+```
+function fail(msg: string): never {
+  throw new Error(msg);
+}
+```
+
+## <span className="emoji-small">🥡</span> Wrap-Up
+
+TypeScript is the **ultimate buffet world**:
+<ul className="list">
+<li>Sometimes you need salad <span className="emoji-small">🥗</span> (primitives).</li>
+<li>Sometimes you crave a burrito <span className="emoji-small">🌯</span> (generics).</li>
+<li>Sometimes you stack a burger <span className="emoji-small">🍔</span> (overloads).</li>
+<li>Sometimes you’re handed a stew <span className="emoji-small">🤢</span> (unknown).</li>
+</ul>
+
+The trick is knowing what dish to grab at the right time <span className="emoji-small">😏</span>.    
+P.S. We'll serve some TypeScript desserts next time <span className="emoji-small">🍨</span>. Cheers<span className="emoji-large">🧋</span>.
+
