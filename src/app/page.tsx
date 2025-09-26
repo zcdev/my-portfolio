@@ -11,10 +11,10 @@ export default function Home() {
           Frontend Developer
         </h2>
         <p className="text-base text-[17px] font-semibold mb-4">
-          Building accessible and interactive UX
+          Blending tech + art into creative, user-friendly, accessible, and performant web experiences.
         </p>
         <p className="text-base text-[17px] mb-4">
-          Frontend developer specializing in React.js, Next.js, and TypeScript, with a strong focus on accessibility, performance, and intuitive design. I’m passionate about building clean, responsive interfaces and bringing modern best practices to collaborative teams.
+          Frontend developer specializing in React.js, Next.js, and TypeScript, with a strong focus on inclusive user experience, web performance optimization, and intuitive interface design. I’m passionate about building clean, responsive interfaces and bringing modern best practices to collaborative teams.
         </p>
         <p className="text-base text-[17px] mb-5 pb-6 border-b-1 border-zinc-200">
           All the web apps in my portfolio support accessibility, dark-mode considerations, and responsive designs.
