@@ -1,0 +1,62 @@
+---
+id: 2
+title: "Techie Cookie 🥠"
+slug: "techie-cookie"
+tech: ["Next.js", "TypeScript", "React.js", "Hugging Face", "Vercel", "Tailwind CSS", "Accessibility", "CSS3 Animations"]
+description: "A motivational app built with Next.js and TypeScript, offering a mix of custom and AI-generated fortune cookie messages that blend humor, insight, and encouragement for developers."
+demo: "mytechiecookie.com"
+---
+
+![Techie Cookie project screenshot](/assets/techie-cookie.webp)
+
+[See Demo](https://mytechiecookie.com)
+[Visit Repo](https://github.com/zcdev/mytechiecookie)
+
+## Overview
+
+Techie Cookie combines my exploration of generative AI with a playful twist: serving fortune cookie messages tailored for coders. Using the `Hugging Face API` with the `OpenAI GPT-OSS-20b model (via Novita)`, I built a lightweight Next.js + TypeScript app where users reveal fortunes tied to their coding personalities. Subtle CSS animations add liveliness and make the experience engaging.
+
+## Features
+
+<ul className="list">
+<li>Fortune cookies flavored by coder types</li>
+<li>AI-generated responses via Hugging Face API (openai/gpt-oss-20b:novita)</li>
+<li>SEO-optimized (meta tags, OG/Twitter cards, sitemap, robots.txt)</li>
+<li>Custom domain via Vercel deployment</li>
+<li>Mobile-first, dark mode-friendly, and accessible</li>
+<li>CSS3 animations: typewriter, cookie slip corner flipping on hover, and spark effects</li>
+</ul>
+
+## Implementation
+
+<ul className="list">
+<li>**Local JSON data:** Curated collection of fortune messages stored in JSON, randomized for quick, offline usage.</li>
+<li>**Remote API calls:** Hugging Face API (openai/gpt-oss-20b:novita) generates AI-driven cookie messages in real time.</li>
+<li>**Next.js API routes:** Secure handling of private keys in `.env` with structured error handling for reliability.</li>
+<li>**Simplified architecture:** Centralized TypeScript types ensure consistency, while utility functions are separated for clarity and maintainability.</li>
+</ul>
+
+## Challenges & Solutions
+
+<ul className="list">
+<li>**App feature choice:** Reduced API calls by half and cut latency by ~2s by removing randomized splits between local and remote fetches after trade-off evaluation.</li>
+<li>**Web performance decision:** Accepted a minor Lighthouse performance dip (92%) to enlarge mobile buttons, prioritizing usability after real-device testing.</li>
+<li>**Type safety enforcement:** Replaced any with refined TypeScript types, satisfying the linter and ensuring safer type enforcement.</li>
+</ul>
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>**Accessibility:** <span className="emoji-small">💯</span></li>
+<li>**Best Practices:** <span className="emoji-small">💯</span></li>
+<li>**SEO:** <span className="emoji-small">💯</span></li>
+<li>**Performance:** 💯 (desktop) / 92 (mobile, with usability trade-off)</li>
+</ul>
+
+## Reflections & Learnings
+Building this app taught me valuable lessons about technical decision-making and highlighted various trade-off considerations. With a straightforward architecture, the most challenging aspect was clearly defining the API routing for both local and remote data flows. This experience allowed me to work with the latest technologies, including the `Hugging Face API`, and introduced me to the integration of AI-generated content into app designs.
+
+I also learned how to format simple client-side message prompts to the AI model, manage asynchronous responses, and normalize them into predictable data structures with `TypeScript`. In the process, I adopted safer typing practices that made the app more reliable. On the UI side, I experimented with CSS3 animations such as typewriter text, hover effects, and spark elements to make the interface more lively while still keeping it simple and accessible.
+
+Additionally, I gained insights into basic SEO techniques, such as generating a sitemap, creating a robots.txt file, designing Open Graph metadata, setting up a manifest.json file, and configuring a custom domain. These strategies significantly increased the app’s exposure to the targeted developer audience, encouraging more visits and shares.
