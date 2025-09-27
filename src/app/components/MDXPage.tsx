@@ -58,7 +58,7 @@ export default async function MDXPage({ params, contentFolder }: MDXPageProps) {
     : { href: "/", label: "Back to Home" };
 
   return (
-    <main className="prose max-w-4xl p-5">
+    <main className="prose max-w-4xl pt-5 pr-5 pb-10 pl-5">
       <header>
         <h1 className="text-3xl font-bold mb-4">{format.title}</h1>
         {contentFolder === "posts" && format.date && (
