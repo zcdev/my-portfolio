@@ -1,17 +1,18 @@
 import Link from "next/link";
-import { getProjectMeta } from "../utils/index-metadata";
+import { getProjectMeta, MdxMeta } from "../utils/index-metadata";
 import ResponsiveImage from "../components/ResponsiveImage";
 import ListPills from "../components/PillsList";
 
 export default async function ProjectIndex() {
-  const docs = getProjectMeta();
+  const docs: MdxMeta[] = getProjectMeta();
+  const sorted = docs.sort((a, b) => a.id! - b.id!);
 
   return (
     <ul className="grid md:grid-cols-2 gap-6">
-      {docs.map((doc) => {
+      {sorted.map((doc) => {
         return (
           <li
-            key={doc.slug}
+            key={doc.id}
             className="rounded-2xl border-1 border-zinc-200 shadow-md bg-zinc-100 dark:bg-stone-800 dark:text-zinc-400 dark:border-none"
           >
             <ResponsiveImage className="rounded-t-2xl" src={`/assets/${doc.slug}`} alt="" width={600} height={411} />

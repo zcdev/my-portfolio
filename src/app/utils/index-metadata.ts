@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 
 export type MdxMeta = {
+  id?: number;
   slug: string;
   title: string;
   date?: string;
@@ -23,13 +24,14 @@ export function getPostMetadata(contentFolder: "docs" | "posts"): MdxMeta[] {
 
     return {
       slug,
+      id: (data.id as number) || undefined,
       title: (data.title as string) || slug,
       date: (data.date as string) || undefined,
       description: (data.description as string) || undefined,
       tech: (Array.isArray(data.tech) ? data.tech : [data.tech]) || undefined,
       demo: (data.demo as string) || undefined,
       codebase: (data.codebase as string) || undefined,
-    }
+    };
   });
 }
 
