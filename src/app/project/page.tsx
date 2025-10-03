@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { getProjectMeta, MdxMeta } from "../utils/index-metadata";
+import { MdxMeta } from "../types/mdxmeta";
+import { getProjectMeta } from "../utils/index-metadata";
+import { sortProjectDocsById } from "../utils/sort-content";
 import ResponsiveImage from "../components/ResponsiveImage";
 import ListPills from "../components/PillsList";
 
 export default async function ProjectIndex() {
   const docs: MdxMeta[] = getProjectMeta();
-  const sorted = docs.sort((a, b) => a.id! - b.id!);
+  const sorted = sortProjectDocsById(docs);
 
   return (
     <ul className="grid md:grid-cols-2 gap-6">
