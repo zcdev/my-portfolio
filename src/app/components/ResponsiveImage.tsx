@@ -13,7 +13,6 @@ export default function ResponsiveImage({
     width,
     height,
 }: Cover) {
-    console.log("Image source:", src);
 
     return (
         <picture>

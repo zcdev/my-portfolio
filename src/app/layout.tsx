@@ -8,8 +8,6 @@ const arimo = Arimo({
   subsets: ["latin"],
 });
 
-metadataBase: new URL("https://zoechang.dev");
-
 export const metadata: Metadata = {
   title: "Zoe Chang — Front-end Developer",
   description: "Frontend portfolio, interactive projects, and dev blog",
