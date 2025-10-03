@@ -1,17 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-
-export type MdxMeta = {
-  id?: number;
-  slug: string;
-  title: string;
-  date?: string;
-  description?: string;
-  tech?: string[] | undefined;
-  demo?: string;
-  codebase?: string;
-};
+import { MdxMeta } from "../types/mdxmeta";
 
 export function getPostMetadata(contentFolder: "docs" | "posts"): MdxMeta[] {
   const dir = path.join(process.cwd(), `src/app/content/${contentFolder}`);
