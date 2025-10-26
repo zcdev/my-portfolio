@@ -1,0 +1,70 @@
+---
+id: 1
+title: "Palaxy 🪐"
+slug: "palaxy-app"
+tech: ["Next.js", "TypeScript", "React.js", "Framer-Motion", "Vercel", "Tailwind CSS", "Accessibility", "Supabase", "Zod"]
+description: "A personality exploration app built with Next.js, TypeScript, and Framer Motion, inviting users to discover their cosmic archetype through motion, storytelling, and thoughtful interaction."
+demo: "palaxy.app"
+---
+
+![Palaxy project screenshot](/assets/palaxy-app.webp)
+
+[See Demo](https://palaxy.app)
+[Visit Repo](https://github.com/zcdev/palaxy)
+
+## Overview
+
+The Palaxy app was design and developed to merge art, logic, and play into a cohesive web experience that reflects the harmony between creativity and engineering. Designed for accessibility, optimized for performance, and fine-tuned for an interesting, unique, and out-of-the-world experience.
+
+## Features
+
+<ul className="list">
+<li>Six original cosmic avatars with unique archetypes and animated intros</li>
+<li>Custom designed avatar graphics and radically optimized images</li>
+<li>Cosmic motion design using layered Starfields and Wavy Prism</li>
+<li>Dynamic flow: Avatar Grid → Avatar Modal → Force Map → Pulse Survey → Transmission</li>
+<li>Type-safe validation with Zod for robust form handling</li>
+<li>Keyboard-navigable, ARIA-labeled interactive components</li>
+<li>Perfect Lighthouse scores (100 / 100) on desktop and mobile</li>
+<li>Vercel Web Analytics for real-time UX insights</li>
+</ul>
+
+## Implementation
+
+<ul className="list">
+<li>**Data:** Contained structured collections of avatar metadata, survey Q&A, and randomized “cosmic quotes,” all defined in strongly typed nested objects.</li>
+<li>**Types:** Centralized and organized TypeScript type definitions for global reuse across components.</li>
+<li>**Form validation:** Utilized `Zod` schemas to handle both frontend and server-side form validation, ensuring consistent and secure data handling.</li>
+<li>**Database:** Integrated **Supabase** for CRUD operations, backend management, and real-time data storage.</li>
+<li>**Animation:** Leveraged `Framer Motion` to bring dynamic motion and depth to the interface—layering animated Starfields and custom **Wave Prism** backgrounds for immersive interactions.</li>
+<li>**Accessibility:** Implemented keyboard-navigable, ARIA-labeled interactive components to ensure inclusive design.</li>
+<li>**Performance optimization:** Fine-tuned assets, layout flow, and animation rendering to achieve **perfect Lighthouse scores (100/100)** across Performance, Accessibility, Best Practices, and SEO on both desktop and mobile.</li>
+<li>**Analytics/UX insights:** Integrated `Vercel Web Analytics` for real-time insight into user engagement and behavior.</li>
+</ul>
+
+## Challenges & Solutions
+
+<ul className="list">
+<li>**Animation glitch:** Both Starfield and Wave Prism backgrounds initially caused layout shifts due to fixed positioning. Resolved by applying targeted `Tailwind CSS` adjustments per component and standardizing vector stroke widths and canvas dimensions.</li>
+<li>**Layout consistency:** Ensured visual alignment and spacing across shared parent–child components to maintain design coherence and responsive structure.</li>
+<li>**Data, props, and type integrity:** Enforced numeric indexing for Avatar IDs and implemented `TypeScript` utilities (type extensions, annotations, and interfaces) for consistent and reusable data typing across components.</li>
+<li>**Image size and LCP:** Optimized all responsive images for minimal file size while preserving quality, significantly improving Largest Contentful Paint (LCP) and overall loading performance.</li> <li>**Advanced Git workflow:** Used feature branches, semantic commit messages, and tagging to simulate production-level release management. Encountered and resolved merge conflicts and rebase issues to maintain a clean history.</li>
+</ul>
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>**Accessibility:** <span className="emoji-small">💯</span></li>
+<li>**Best Practices:** <span className="emoji-small">💯</span></li>
+<li>**SEO:** <span className="emoji-small">💯</span></li>
+<li>**Performance:** <span className="emoji-small">💯</span></li>
+</ul>
+
+## Reflections & Learnings
+
+Building *`Palaxy`* was a challenging yet rewarding journey of merging design, psychology, and engineering. What began as a small experiment inspired by personality systems evolved into an interactive app that tested both my creativity and technical depth.
+
+Working with `Next.js`, `TypeScript`, `Framer Motion`, `Zod`, and `Supabase` strengthened my ability to manage complexity—integrating motion design, data validation, and UI flow into a cohesive experience. Through rapid prototyping and iterative refactoring, I refined component hierarchies, improved accessibility with meaningful ARIA labeling, and optimized rendering performance in the custom Wave Prism animation.
+
+This project also deepened my understanding of data flow and full-stack integration, while reinforcing disciplined `Git/GitHub` practices through simulated release cycles and version management. Ultimately, Palaxy became both a creative expression and a practical exercise in building modern, accessible web experiences from the ground up.
