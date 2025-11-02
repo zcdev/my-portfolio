@@ -8,7 +8,7 @@ date: "2025/11/02"
 
 After spending enough time with the mysterious operators, you may start seeing them everywhere. Sometimes they appear disguised as logic bugs; other times, they quietly remind you that even “nothing” can make a difference depending on context.
 
-## Conditional rendering gone missing 🧩
+## Conditional rendering gone missing <span className="emoji-small">🧩</span>
 In the reality of React, a simple condition can betray your intent if you don’t understand what truthiness means.
 
 ```
@@ -22,7 +22,7 @@ The fix isn’t just code. It has to come from your conscious awareness. Check f
 {user != null && <Profile user={user} />}
 ```
 
-## Defaults that disappear 👤
+## Defaults that disappear <span className="emoji-small">👤</span>
 When using `||` to provide fallbacks, valid values like `0` or `''` vanish because `||` treats them as false. It’s tempting to build a wall of assumptions, but keep questioning.
 
 ```
@@ -35,7 +35,7 @@ const items = count ?? 10
 ```
 One small swap, big difference in meaning. It all depends on how reality is being examined. "The unexamined life is not worth living”, we have to remember what *Socrates* told us.
 
-## Return values that whisper nothing ↩️
+## Return values that whisper nothing <span className="emoji-small">↩️</span>
 Sometimes your function isn’t broken — it just politely returns `undefined`.
 
 ```
@@ -45,17 +45,17 @@ function findItem() {
 ```
 When you start logging everything to “see what’s wrong,” you realize it’s not the app, it’s just silence by omission. Adding an explicit `return` reminds the code (and you) of its purpose.
 
-## TypeScript’s quiet guidance 🤫
+## TypeScript’s quiet guidance <span className="emoji-small">🤫</span>
 TypeScript doesn’t shout for nothing. Errors like `ts(2322)` or `ts(18048)` often mean you’re mixing something with nothing — assigning `undefined` where a value is expected, or forgetting to handle a null path. (We will look into some of those existential crises and help reveal the purposes they signified later.)
 
 At first, it feels like stumbling upon what code has to throw at you. It’s more like noticing shadows in disguise as reflections that won’t let you ignore your own assumptions.
 
-## Debugging the existential crisis 😶‍🌫️
-Every “undefined” in your console carries a story: something left behind, something never defined, or something intentionally cleared. Once you learn to distinguish between those states, debugging turns from frustration into understanding. Remember, it’s about clarity; you must contemplate enough to challenge the value and worthiness in your code, and be able to shift your perception, thus reality will change. That’s how transformation begins.
+## Debugging the existential crisis <span className="emoji-small">😶‍🌫️</span>
+Every “undefined” in your console carries a story: something left behind, something never defined, or something intentionally cleared. Once you learn to distinguish between those states, debugging turns from frustration into understanding. Remember, it’s about clarity; you must contemplate enough to challenge the value and worthiness in your code, and be able to shift your perspective, thus reality will change. That’s how transformation begins.
 
 In the end, these small moments remind us that absence is information too, just like being in the *Zen* state. You’ll no longer be blocked.
 
-## Wrapping Up
+## Wrapping Up <span className="emoji-small">🌀</span>
 JavaScript’s way of dealing with “nothing” is messy but poetic. Each value and operator reflects a different flavor of uncertainty — some accidental, some deliberate, some philosophical.
 
-Learning their patterns doesn’t just make your code safer. It also makes you pause before assuming that “nothing” means “wrong.” Sometimes, it just means “not yet.” Embrace it. Think through the confusion. In the end, you’ll liberate your thoughts so that what’s falsifiable actually empowers you. 😏
+Learning their patterns doesn’t just make your code safer. It also makes you pause before assuming that “nothing” means “wrong.” Sometimes, it just means “not yet.” Embrace it. Think through the confusion. In the end, you’ll liberate your thoughts so that what’s falsifiable actually empowers you. <span className="emoji-small">😏</span>
