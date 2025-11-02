@@ -62,7 +62,7 @@ type EggItem = {
 };
 ```
 
-<p>2. Provide a default value by using the **Nullish Coalescing Operator** `??` to default it to `0` if it is `undefined` or `null`.</p>
+<p>2. Provide a default value by using the **nullish coalescing operator** `??` to default it to `0` if it is `undefined` or `null`.</p>
 
 ```
 value: eggsValues[i] ?? 0;
@@ -74,7 +74,7 @@ value: eggsValues[i] ?? 0;
 value: eggsValues[i] !== undefined ? eggsValues[i] : 0;
 ```
 
-<p>4. Use the **Non-null Assertion Operator** `!` if you are certain that `value` is not `undefined`.</p>
+<p>4. Use the **non-null assertion operator** `!` if you are certain that `value` is not `undefined`.</p>
 
 ```
 value: eggsValues[i]!;
@@ -100,4 +100,4 @@ type EggItem = {
 };
 ```
 
-**Valuable lesson learned:** Guard your types, and define your code thoughtfully. <span className="emoji-small">😏</span>
+**Valuable lesson learned:** guard your types, and define your code thoughtfully. <span className="emoji-small">😏</span>
