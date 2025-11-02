@@ -37,6 +37,12 @@ p {
   margin: 0px;
 }
 
+h2 code {
+  font-size: 18px;
+  background: #fef9c2;
+  width: 100%;
+}
+
 /* For Project docs */
 h3 code, p code, li code {
   font-size: 15px;
