@@ -1,0 +1,133 @@
+---
+title: "Type Existentialism (Part 1): null, undefined, void, falsy, and the mysterious operators"
+slug: "type-existentialism-part-1"
+date: "2025/11/01"
+---
+
+<span className="emoji-large">‼️⁉️</span>
+
+As a developer, I often wrestle with self-doubt. Tracing bugs, second-guessing logic, and sometimes wondering if my code is having its own little existential crisis.
+
+If you’ve been writing JavaScript or TypeScript long enough. In that case, you’ve probably faced similar “nothingness” confusions that make you question what *really exists* in your code: `null`, `undefined`, `void`, and all their subtle differences from the least and most substantial meanings of existence in a **syntactical form**.
+
+They sneak into your codebase, crash your app, and leave a trail of mysterious console logs behind. But beneath the chaos, these values reveal something oddly human: even in code, “nothing” still holds meaning. If you know how to read it.
+
+# <span className="text-2xl font-bold">The Cast of Nothing</span> <span className="emoji-large">🫥</span> 
+
+## `null`: the deliberate nothing
+
+`null` is JavaScript’s way of saying “I know this is empty.” It’s an intentional absence, usually assigned on purpose to clear a value or to indicate something that should exist but doesn’t right now.
+
+```
+let user = null
+```
+When you see `null`, think placeholder. It tells future logic, “there will be something here purposefully, eventually.”
+
+## `undefined`: the unintentional nothing
+
+`undefined` appears when something was never defined in the first place. It’s JavaScript’s quiet shrug.
+
+```
+let user
+console.log(user) // undefined
+```
+Unlike `null`, you usually don’t assign this yourself. It shows up when the engine expected a value but didn’t get one. You might have forgotten its existence somehow.
+
+## `void`: the return of nothing
+
+Functions that do work but return no value produce `void`. In TypeScript, it explicitly tells readers that a function doesn’t return anything “particularly” meaningful.
+
+```
+function logMessage(msg: string): void {
+  console.log(msg)
+}
+```
+Think of it as a gentle “I’m done here” rather than silence.
+
+## `NaN` : the confusing “number” as existential paradox
+
+`NaN` stands for “Not a Number,” yet it is technically a “number”. It represents failed numeric operations.
+
+```
+Number('abc') // NaN
+typeof NaN // number
+```
+It’s the paradox of the numeric world: a number that means “this isn’t one.”
+
+## `Falsy` values: the evaluators that decide your worth in a Boolean world
+
+In conditionals, JavaScript converts values to true or false. These are the ones that evaluate to false:
+
+`false`, `0`, `''`, `null`, `undefined`, and `NaN`.
+
+```
+if ('') console.log('truty') // never runs
+```
+Knowing what’s falsy helps you avoid logic that vanishes when it shouldn’t.
+
+# <span className="text-2xl font-bold">The Mysterious Operators</span> <span className="emoji-large">🤔</span>
+
+## `!`: the truth-flipper
+`!` negates truthiness. It turns truthy values into `false` and falsy ones into `true`.
+
+```
+!true // false
+!0    // true
+```
+In TypeScript, you’ll also see it as the **non-null assertion operator**, used when you know something isn’t null or undefined.
+
+```
+user!.name // tells TS “trust me, it exists”
+```
+Use it carefully; you’re asking the compiler for blind faith. It flips your reality.
+
+## `!!`: the reality-check
+Double negation converts any value into a strict boolean.
+
+```
+!!'text' // true
+!!0      // false
+```
+A handy way to normalize truthy/falsy into actual `true` or `false`. Forces you to accept the reality.
+
+## `?`: the maybe-marker
+In TypeScript types, `?` marks something as optional.
+
+```
+type User = { name?: string }
+```
+It’s your way of saying, “this might exist, or it might not.”
+
+## `?.`: the cautious accessor
+Optional chaining lets you safely access nested properties without crashing when something’s undefined.
+
+```
+user?.profile?.avatar
+```
+If any link in the chain is nullish, the whole expression quietly returns `undefined` instead of throwing an error when your reality is relative.
+
+`??`: the nullish fallback
+Nullish coalescing provides a default only when the left side is `null` or `undefined`, not other falsy values like `0` or `''`.
+
+```
+const count = user.count ?? 0
+```
+Perfect for avoiding unexpected replacements of valid zero or empty-string values. Even *nihilists* need to back up their claims that some value’s gotta be there.
+
+## `|`: the type connector
+In TypeScript, `|` defines a union: one thing *or* another.
+
+```
+type Status = 'loading' | 'success' | 'error'
+```
+It widens possibilities while keeping them explicit as you wonder each state of mind.
+
+## `||`: the logical shortcut
+Logical OR returns the first truthy value it finds.
+
+```
+const title = input || 'Untitled'
+```
+It’s older and greedier than `??`. It treats `0`, `''`, or `false` as “empty,” so use it only when you truly want any falsy value to trigger a fallback. Again, when *nihilists* arguing against the other side of the argument, whatever is false will tell you the truth.
+
+(**Part 2** — to be continued...)
