@@ -11,7 +11,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-  h3 code, p code, li code {
+  h2 code, h3 code, p code, li code {
     color: var(--background)
   }
 }
@@ -41,6 +41,7 @@ h2 code {
   font-size: 18px;
   background: #fef9c2;
   width: 100%;
+  padding: 2px;
 }
 
 /* For Project docs */
@@ -48,6 +49,7 @@ h3 code, p code, li code {
   font-size: 15px;
   background: #fef9c2;
   width: 100%;
+  padding: 2px;
 }
 
 /* For Blog posts */
