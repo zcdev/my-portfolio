@@ -1,0 +1,33 @@
+---
+title: "The JavaScript Kitchen (Part 1): Why One Chef Can Feed the Whole Restaurant"
+slug: "javascript-kitchen-part-1"
+date: "2025/11/09"
+---
+
+<span className="emoji-large">🍳 👩‍🍳</span>
+
+People often say “JavaScript is single-threaded,” yet it somehow juggles timers, fetches, and events all at once. If that sounds contradictory, imagine a kitchen.
+
+## 👩‍🍳 The Chef → JavaScript Engine
+The chef can only chop or stir **one dish at a time**. That’s the single-threaded call stack. Everything happens step by step, on one cutting board.
+
+## 🔥 The Stove → Browser APIs or Node’s libuv
+While the chef chops onions, there’s a pot boiling on the stove: a timer, a fetch, or a file read. The chef doesn’t wait around; the stove handles it **in the background**.
+
+## 🛎️ The Bell → Callback / Microtask Queue
+When the stove’s done, it rings a bell: “Dish ready!” That notification (callback) joins a queue, waiting for the chef to finish what’s currently on the cutting board.
+
+## 🚶 The Waiter → Event Loop
+The waiter checks: “Is the cutting board free? If yes, let’s bring in the next ready dish.” That’s how JavaScript schedules async tasks without ever multitasking.
+
+## 👨‍🍳 Extra Chefs → Web Workers / Worker Threads
+If the restaurant gets busy, it hires extra chefs: Web Workers. Each works at their own station, separate from the main kitchen, passing notes (messages), not ingredients (shared memory).
+
+## 🧠 The Takeaway
+JavaScript never truly multitasks. It just delegates, times, and serves with precision.
+
+Only one dish gets cooked at a time,
+but the restaurant never stops moving.
+
+That’s the secret rhythm of the JavaScript kitchen:
+single-threaded, asynchronous, and deliciously efficient 😏.
