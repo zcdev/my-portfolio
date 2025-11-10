@@ -1,0 +1,73 @@
+---
+title: "The JavaScript Kitchen (Part 2): When Async Goes Wrong"
+slug: "javascript-kitchen-part-2"
+date: "2025/11/10"
+---
+
+<span className="emoji-large">🚫🍕</span>
+
+So, we've visited the JavaScript kitchen — one chef, one cutting board, and an event loop that keeps the orders flowing. But every kitchen has its bad days. Let’s peek behind the swinging door and see what can go wrong when async chaos hits the restaurant.
+
+## ⚔️ Race Condition: Waiters Gone Wild
+Two waiters rush into the kitchen at the same time, both shouting,
+
+“My order’s ready first!”
+
+The chef panics, mixes ingredients from both plates, and sends out a weird combo no one ordered.
+
+**In code:** Two async functions update the same variable, and whichever finishes first wins, unpredictably.
+
+```
+let sauce = "🍅";
+async function addCream() { sauce += "🥛"; }
+async function addSpice() { sauce += "🌶️"; }
+
+Promise.all([addCream(), addSpice()]).then(() => console.log(sauce));
+// Output could be "🍅🥛🌶️" or "🍅🌶️🥛"
+```
+➡️ Lesson learned: When multiple async tasks touch shared state, lock the fridge or coordinate with await, mutexes, or queues.
+
+## 🧠 Memory Leak: Never-Ending Leftovers
+The chef keeps every used plate, spoon, and recipe in case they’re “needed later.” Soon, the kitchen is buried under clutter, no space left to cook.
+
+**In code:** References to unused data never get released.
+
+```
+const pantry = [];
+function storeDish(dish) {
+  pantry.push(dish); // never removed
+}
+```
+➡️ Lesson learned: When listeners, caches, or closures hold references too long, the garbage collector can’t clean up. Dispose what you don’t need. Keep the kitchen clean.
+
+## 🥘 Blocking Code: The Chef Who Won’t Stop Stirring
+While a timer rings and orders pile up, the chef insists on stirring soup for 5 hours.
+
+**In code:**
+```
+// Synchronous CPU-heavy task
+for (let i = 0; i < 1e9; i++) {} // blocks everything
+console.log("Kitchen frozen 😩");
+```
+## 🧍‍♂️ Deadlock: Mutual Waiting Madness
+The chef waits for the waiter to bring more ingredients.
+The waiter waits for the chef to clear the board.
+No one moves. Silence. Cold soup.
+
+Deadlocks are rare in JS (thanks to the single-threaded model) but can appear in worker systems or external I/O dependencies.
+
+➡️ Lesson learned: Avoid circular waits or interdependent promises.
+
+## 👨‍🍳 Too Many Chefs (Concurrency Confusion)
+Each chef (Web Worker) has their own cutting board.
+But without clear communication, they all shout across the kitchen.
+
+➡️ Lesson learned: Workers can’t share memory; they pass messages. Plan your inter-chef coordination carefully.
+
+## 🧾 Final Bill
+
+Every async “disaster” teaches one truth:
+
+JavaScript’s power isn’t multitasking — it’s coordination.
+
+Whether it’s chefs, waiters, or timers, the kitchen only thrives when everyone knows **who’s waiting, who’s working, and who’s done.**
