@@ -1,0 +1,143 @@
+---
+title: "JavaScript Treats: A Dessert Menu of Delicious Oddities"
+slug: "javascript-treats"
+date: "2025/11/11"
+---
+
+<span className="emoji-large">🍬 🍭</span>
+
+JavaScript isn’t just a language. It’s a full dessert buffet of quirks, surprises, and contradictions.
+Every developer eventually stumbles upon one of its mysterious flavors and wonders:
+
+> “Wait… did that just happen?”
+
+Welcome to the sweet side of JS, where logic melts, equality gets sticky, and `NaN` swears it’s a number.
+Grab a spoon — it’s time for some weird but wonderful *JavaScript treats.*
+
+## 🥮 Infinity Soufflé: Math with No Limits
+
+```js
+1 / 0     // Infinity
+-1 / 0    // -Infinity
+0 / 0     // NaN
+Infinity - Infinity // NaN
+Math.max() // -Infinity
+Math.min() // Infinity
+```
+
+**Flavor note:**
+The soufflé rises… and rises forever. Divide by zero, and it floats into `Infinity`.
+But take Infinity away from itself, and you’re left with nothing but the mysterious `NaN`.
+Mathematicians might frown, but in the JS kitchen, it’s just how the recipe goes.
+
+## 🍩 Type Fudge: The “typeof” Paradox
+
+```js
+typeof null       // 'object'
+typeof []         // 'object'
+typeof NaN        // 'number'
+typeof typeof 1   // 'string'
+```
+
+**Tasting tip:**
+A reminder that JavaScript’s type system was baked in a hurry back in 1995.
+The famous `typeof null` bug? Still on the menu, and probably always will be.
+It’s a legacy flavor — like that odd frosting you’ve grown to love.
+
+## 🍪 Equality Cookies: Sweet, Salty, and a Bit Confusing
+
+```js
+[] == ![]         // true
+0 == false        // true
+0 === false       // false
+'' == 0           // true
+null == undefined // true
+null >= 0         // true
+```
+
+**Flavor note:**
+JavaScript’s equality operators are like cookies baked in two versions:
+`==` lets ingredients blend freely (type coercion), while `===` insists on exact measurements.
+Swap one for the other and the whole batch tastes different.
+
+## 🍰 NaN Pie: The Dessert That Isn’t a Number
+
+```js
+typeof NaN           // 'number'
+NaN === NaN          // false
+Object.is(NaN, NaN)  // true
+isNaN('NaN')         // true
+Number.isNaN('NaN')  // false
+```
+
+**Serving note:**
+`NaN` proudly calls itself a number but refuses to equal anything, even itself.
+`Object.is` is the only polite guest who recognizes it for who it is.
+A truly existential dessert.
+
+## 🍮 Boolean Brownies: Truths, Lies, and Maybe
+
+```js
+!![]        // true
+!!{}        // true
+!!0         // false
+!!'0'       // true
+!!NaN       // false
+```
+
+**Flavor note:**
+Everything has a truthiness in JS. Even an empty array or object is *truthy.*
+It’s the language’s way of staying optimistic, unless you’re `0`, `NaN`, or `null`.
+Then it’s lights out for dessert.
+
+## 🍫 Coercion Candy: The Shape-Shifters
+
+```js
+[] + []        // ''
+[] + {}        // '[object Object]'
+{} + []        // 0
+[1,2] + [3,4]  // '1,23,4'
+'5' - 2        // 3
+'5' + 2        // '52'
+```
+
+**Tasting tip:**
+When numbers and strings mingle, JS tries to guess your intent.
+Sometimes it’s sugar, sometimes it’s salt, but it’s *always surprising.*
+
+## 🍯 Operator Honey: Smooth but Sticky
+
+```js
+void (2 + 2) // undefined
++true        // 1
++[]          // 0
+~[]          // -1
+![]          // false
+```
+
+**Flavor note:**
+Unary operators are JS’s secret sauce.
+They may look harmless, but one drop of `+` or `~` can flip the whole dish on its head.
+The `void` operator? Pure garnish, just for the undefined aesthetic.
+
+## 🍨 Parsing Sundae: Toppings That Look Like Numbers
+
+```js
+parseInt('10px') // 10
+parseInt('px10') // NaN
+isFinite('0')    // true
+isFinite('')     // true
+```
+
+**Serving note:**
+Feed JS a string that starts with a number, and it’ll happily eat the digits.
+But start with letters and it chokes.
+A fussy dessert, but we love it anyway.
+
+## ☕️ The Aftertaste: Why We Keep Coming Back
+
+JavaScript’s weirdness isn’t a bug. It’s a flavor profile.
+Every quirk tells a story about backward compatibility, quick decisions, and creative chaos that somehow still runs the modern web.
+
+The next time `[] == ![]` makes your head spin, remember:
+This is just dessert being dessert. Unexpected, messy, and a little magical. 😏✨
