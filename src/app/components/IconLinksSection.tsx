@@ -19,9 +19,6 @@ export default function IconLinksSection() {
                     <Link className="pl-3" href="https://github.com/zcdev" target="_blank" aria-label="Check me out on GitHub">
                         <SiGithub className="text-lg icon-github icon-inline" title="GitHub" />
                     </Link>
-                    <Link className="pl-3" href="https://medium.com/@orbitz" target="_blank" aria-label="Read my articles on Medium">
-                        <SiMedium className="text-lg icon-medium icon-inline" title="Medium" />
-                    </Link>
                 </IconContext.Provider>
             </div>
             <Link
