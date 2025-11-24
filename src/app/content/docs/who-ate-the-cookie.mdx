@@ -20,7 +20,6 @@ This project began as a `VoiceRSS` experiment and unexpectedly evolved into a li
 
 <ul className="list">
 <li>Dynamic voice generation via serverless `/api/speech`.</li>
-<li>Voice warm-up strategy to establish voice consistency and eliminate excessive API calls.</li>
 <li>Mobile-first, fully responsive layout with high-DPI image optimization.</li>
 <li>Sound controls with mute/resume toggle.</li>
 <li>Instant game replay with a single click.</li>
@@ -33,7 +32,7 @@ This project began as a `VoiceRSS` experiment and unexpectedly evolved into a li
 <li>**Game logic:** Shared character narrative ensures consistent flow regardless of the starting point.</li>
 <li>**UI components:** Reusable button and responsive image components.</li>
 <li>**API handling:** Next.js API routes with private key in `.env`, structured error handling, and binary audio decoding via `ArrayBuffer`.</li>
-<li>**Audio playback:** Responses prepared with headers for blob consumption; session storage caching with `useEffect()` + `setTimeout()` to pre-run voices and eliminate excessive API calls.</li>
+<li>**Audio playback:** Responses prepared with headers for blob consumption.</li>
 <li>**State & UI management:** Conditional rendering of message board based on game states, dispatched actions, and dynamic animations through class toggles.</li>
 </ul>
 
