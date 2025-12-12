@@ -1,0 +1,92 @@
+---
+id: 2
+title: "HyBridger Scripted Chatbot 🤖"
+slug: "hybridger-scripted-chatbot"
+tech: ["Next.js", "TypeScript", "React.js", "Tailwind CSS"]
+description: "A lightweight, UI-driven chat interaction built purely with React components inside the HyBridger landing page. It provides a guided conversational flow using client-side state sequencing, custom message components, and interactive UX patterns without external AI APIs."
+demo: "hybridger.vercel.app"
+---
+
+![HyBridger project chatbot screenshot](/assets/hybridger-scripted-chatbot.webp)
+
+[See Demo](https://hybridger.vercel.app/)
+[Visit Repo](https://github.com/zcdev/hybridger)
+
+## Overview
+
+The HyBridger Chatbot serves as a demonstration of how a reactive chat experience can be architected inside a CMS-driven site. It showcases controlled UI sequencing, timing logic, component-level composition, and user interaction constraints, illustrating how front-end engineering can create an engaging “scripted chatbot” without relying on AI infrastructure.
+
+## Goals
+
+<ul className="list">
+<li>Build a clean, intuitive, scripted chatbot interface</li>
+<li>Showcase component composition and message sequencing logic</li>
+<li>Implement thoughtful UX for user input and linear flow steps</li>
+<li>Provide a demo-level chat experience for the CMS site</li>
+</ul>
+
+## Architecture
+
+<ul className="list">
+<li>Controlled step-based script for predictable behavior</li>
+<li>Message array updated instantly for smooth interactions</li>
+<li>Thinking state separated into its own mechanism</li>
+<li>Client components only</li>
+</ul>
+
+## Chat Flow Logic
+
+The core behavior is driven by:
+
+**1. Message sequencing**
+```
+setMessages(prev => [...prev, { from: "user", text: userText }]);
+```
+**2. Step progression**
+```
+setStep(prev => prev + 1);
+```
+**3. UX: Thinking delay**
+
+Displayed using a controlled timeout:
+```
+setTimeout(() => setIsThinking(false), 2500);
+```
+**4. Fix for double-input issues**
+
+Originally, `setStep()` was inside the timeout, causing race conditions when the user clicked rapidly.
+
+Solution: update step synchronously, not after a delay.
+
+## UX Strategies
+
+<ul className="list">
+<li>Instant user feedback (message appears immediately)</li>
+<li>Isolate input from "thinking" state</li>
+<li>Prevent repetition of triggers on double-clicks or fast typing</li>
+<li>Randomized timing for script-driven responses for a natural flow</li>
+</ul>
+
+## Challenges & Solutions
+
+**Managing State Across Multiple Components**
+
+Challenge: Passing message state, step progression, and callbacks required careful planning to avoid prop drilling and maintain clarity.
+
+Solution: breaking down each component's responsibility and clearly identifying the needs of associated TypeScript definition to improve organization and data flow orchestration.
+
+**Sequencing & Timing Bugs**
+
+Challenge: Delay inside state setters caused chat flow inconsistencies.
+
+Solution: reorganize the event loop and thinking cycle to isolate UI delay from logic.
+
+## This project demonstrates:
+
+<ul className="list">
+<li>Understanding how async UI delays can break interaction flow</li>
+<li>Preventing double-input disruptors through careful timing logic</li>
+<li>Structuring interface components for clarity and maintainability</li>
+<li>Using step-based flows for scripted UI behavior</li>
+<li>Practicing UI polish and message display consistency</li>
+</ul>

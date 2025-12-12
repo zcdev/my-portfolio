@@ -1,0 +1,128 @@
+---
+id: 1
+title: "HyBridger CMS + Landing Page 🤖"
+slug: "hybridger-cms-landing-page"
+tech: ["Next.js", "TypeScript", "React.js", "Contentful CMS", "GraphQL", "Vercel", "Tailwind CSS"]
+description: "A modern headless CMS demo that unifies design systems, structured content models, and dynamic page rendering into a cohesive landing experience. It highlights how a fully modular CMS-driven site is assembled from page sections to content types to reusable UI patterns."
+demo: "hybridger.vercel.app"
+---
+
+![HyBridger project homepage screenshot](/assets/hybridger-cms-landing-page.webp)
+
+[See Demo](https://hybridger.vercel.app/)
+[Visit Repo](https://github.com/zcdev/hybridger)
+
+## Overview
+
+HyBridger was built to show how a professional-grade, production-ready web architecture comes together using `Next.js`, `Contentful`, `TailwindCSS`, and `TypeScript`. The project demonstrates real-world content modeling, `GraphQL` querying patterns, image optimization, and scalable UI composition, offering a practical example of how engineering and design systems integrate in modern workflows.
+
+## Goals
+
+<ul className="list">
+<li>Build a high-performance CMS-driven landing page</li>
+<li>Demonstrate `GraphQL` querying and type-safe data handling</li>
+<li>Develop a reusable component system for sections and UI elements</li>
+<li>Implement a fast, predictable content pipeline (`Contentful` → `Next.js` → `Vercel`)</li>
+<li>Create a scalable foundation that can support future expansion (blog, chatbot, additional sections)</li>
+</ul>
+
+## Architecture
+HyBridger uses the `Next.js App Router` with a well-organized structure:
+
+<ul className="list">
+<li>Server components for CMS data fetching</li>
+<li>Client components for interactive UI pieces</li>
+<li>Centralized `GraphQL` utilities</li>
+<li>Custom responsive image component</li>
+<li>Typed data models for every query and CMS field</li>
+<li>ISR revalidation through a custom API route</li>
+</ul>
+This ensures predictable data flow and fast render times.
+
+## Features
+
+**1. Contentful GraphQL Integration**
+
+<ul className="list">
+<li>Multiple content models: Hero, Features, Pricing, Testimonials, etc.</li>
+<li>Each model mapped to `TypeScript` interfaces and section components</li>
+<li>`GraphQL` queries consolidated into reusable utilities</li>
+<li>Optional Preview Mode support for draft content</li>
+</ul>
+
+**2. High-Performance UI Sections**
+
+<ul className="list">
+<li>Built as isolated, reusable components</li>
+<li>`Tailwind CSS` for rapid iteration & theming</li>
+<li>Pixel-perfect layout engineered for both mobile and desktop</li>
+<li>100/100 Lighthouse scores across performance, accessibility, best practices, and SEO</li>
+</ul>
+
+**3. Responsive Image Architecture**
+
+A custom `<ImageWrapper />` component delivers:
+
+<ul className="list">
+<li>WebP + fallback formats</li>
+<li>Multiple resolutions via `srcset`</li>
+<li>Dark/light mode image variants</li>
+<li>Automatic optimization in `Next.js`</li>
+</ul>
+
+**4. Dark Mode Integration**
+
+Images and UI elements use:
+
+<ul className="list">
+<li>Tailwind's dark class switching</li>
+<li>Mapped variant sets for consistent theme behavior</li>
+</ul>
+
+## Challenges & Solutions
+
+**CVE-2025-55182 — React Server Component Vulnerability**
+
+During deployment, an industry-wide RSC exploit caused a failure in Vercel’s build pipeline.
+The fix required upgrading:
+
+<ul className="list">
+<li>`Next.js`</li>
+<li>`React` server rendering dependencies</li>
+<li>Contentful’s SDK (to ensure compatibility)</li>
+</ul>
+
+Outcome: A valuable real-world experience in diagnosing and resolving dependency-level security issues in a production environment.
+
+**GraphQL Type Management**
+
+Challenge: Managing multiple queries and fields became complex as the project grew.
+
+Solution: Consolidated all types and queries under a dedicated lib/contentful directory.
+
+**Image Variant Complexity**
+
+Challenge: Ensuring pixel-perfect image behavior across dark mode, mobile, and desktop.
+
+Solution: Introduced a flexible prop-driven image component supporting multiple variants.
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>**Accessibility:** <span className="emoji-small">💯</span></li>
+<li>**Best practices:** <span className="emoji-small">💯</span></li>
+<li>**SEO:** <span className="emoji-small">💯</span></li>
+<li>**Performance:** <span className="emoji-small">💯</span></li>
+</ul>
+
+## This project demonstrates:
+
+<ul className="list">
+<li>CMS integration experience</li>
+<li>Ability to architect a multi-section landing page system</li>
+<li>`TypeScript` discipline</li>
+<li>High-performance engineering</li>
+<li>Responsive UI & image optimization</li>
+<li>Handling real-world deployment/security issues</li>
+</ul>
