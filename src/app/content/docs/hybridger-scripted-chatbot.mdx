@@ -14,13 +14,13 @@ demo: "hybridger.vercel.app"
 
 ## Overview
 
-The HyBridger Chatbot serves as a demonstration of how a reactive chat experience can be architected inside a CMS-driven site. It showcases controlled UI sequencing, timing logic, component-level composition, and user interaction constraints, illustrating how front-end engineering can create an engaging “scripted chatbot” without relying on AI infrastructure.
+The HyBridger Chatbot serves as a demonstration of how a reactive chat experience can be architected inside a headless CMS site. It showcases controlled UI sequencing, timing logic, component composition, and user interaction constraints, illustrating how front-end engineering can create an engaging “scripted chatbot” without relying on AI service providers.
 
 ## Goals
 
 <ul className="list">
 <li>Build a clean, intuitive, scripted chatbot interface</li>
-<li>Showcase component composition and message sequencing logic</li>
+<li>Showcase component composition and message sequential logic</li>
 <li>Implement thoughtful UX for user input and linear flow steps</li>
 <li>Provide a demo-level chat experience for the CMS site</li>
 </ul>
@@ -73,20 +73,30 @@ Solution: update step synchronously, not after a delay.
 
 Challenge: Passing message state, step progression, and callbacks required careful planning to avoid prop drilling and maintain clarity.
 
-Solution: breaking down each component's responsibility and clearly identifying the needs of associated TypeScript definition to improve organization and data flow orchestration.
+Solution: Breaking down each component's responsibility and clearly identifying the needs of associated TypeScript definition to improve organization and data flow orchestration.
 
 **Sequencing & Timing Bugs**
 
 Challenge: Delay inside state setters caused chat flow inconsistencies.
 
-Solution: reorganize the event loop and thinking cycle to isolate UI delay from logic.
+Solution: Reorganize the event loop and thinking cycle to isolate UI delay from logic.
+
+## Learning Highlights:
+
+<ul className="list">
+<li>Understanding how async UI delays can break interaction flow</li>
+<li>Preventing double-input disruptors through carefully timed logic</li>
+<li>Structuring interface components for clarity and maintainability</li>
+<li>Using step-based flows for scripted UI behavior</li>
+<li>Practicing UI polishing and message display consistency</li>
+</ul>
 
 ## This project demonstrates:
 
 <ul className="list">
-<li>Understanding how async UI delays can break interaction flow</li>
-<li>Preventing double-input disruptors through careful timing logic</li>
-<li>Structuring interface components for clarity and maintainability</li>
-<li>Using step-based flows for scripted UI behavior</li>
-<li>Practicing UI polish and message display consistency</li>
+<li>Interactive UI design</li>
+<li>State management with controlled sequencing</li>
+<li>Attention to UX details and timing</li>
+<li>Debugging of async and input race conditions</li>
+<li>`React` component architecture inside a modern `Next.js` ecosystem</li>
 </ul>

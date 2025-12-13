@@ -3,7 +3,7 @@ id: 1
 title: "HyBridger CMS + Landing Page 🤖"
 slug: "hybridger-cms-landing-page"
 tech: ["Next.js", "TypeScript", "React.js", "Contentful CMS", "GraphQL", "Vercel", "Tailwind CSS"]
-description: "A modern headless CMS demo that unifies design systems, structured content models, and dynamic page rendering into a cohesive landing experience. It highlights how a fully modular CMS-driven site is assembled from page sections to content types to reusable UI patterns."
+description: "A modern headless CMS demo that unifies design systems, structured content models, and dynamic page rendering into a cohesive landing experience. It highlights how a fully modular CMS site is assembled from page sections to content types to reusable UI patterns."
 demo: "hybridger.vercel.app"
 ---
 
@@ -19,7 +19,7 @@ HyBridger was built to show how a professional-grade, production-ready web archi
 ## Goals
 
 <ul className="list">
-<li>Build a high-performance CMS-driven landing page</li>
+<li>Build a high-performance headless CMS landing page</li>
 <li>Demonstrate `GraphQL` querying and type-safe data handling</li>
 <li>Develop a reusable component system for sections and UI elements</li>
 <li>Implement a fast, predictable content pipeline (`Contentful` → `Next.js` → `Vercel`)</li>
@@ -30,7 +30,7 @@ HyBridger was built to show how a professional-grade, production-ready web archi
 HyBridger uses the `Next.js App Router` with a well-organized structure:
 
 <ul className="list">
-<li>Server components for CMS data fetching</li>
+<li>Server components for headless CMS data fetching</li>
 <li>Client components for interactive UI pieces</li>
 <li>Centralized `GraphQL` utilities</li>
 <li>Custom responsive image component</li>
@@ -65,12 +65,20 @@ A custom `<ImageWrapper />` component delivers:
 
 <ul className="list">
 <li>WebP + fallback formats</li>
-<li>Multiple resolutions via `srcset`</li>
+<li>Multiple resolutions via `srcset` switching</li>
 <li>Dark/light mode image variants</li>
-<li>Automatic optimization in `Next.js`</li>
+<li>Fetch optimization in `Next.js`</li>
 </ul>
 
-**4. Dark Mode Integration**
+**4. CSS-based Animation Slider**
+
+<ul className="list">
+<li>Manually designed and calculated key frames for 3 slides with precise timing</li>
+<li>Managed slides overlapping with delay, opacity, and transform/translate in a vertical/upward motion</li>
+<li>Outputs are visually measurable and consistent</li>
+</ul>
+
+**5. Dark Mode Integration**
 
 Images and UI elements use:
 
@@ -98,7 +106,7 @@ Outcome: A valuable real-world experience in diagnosing and resolving dependency
 
 Challenge: Managing multiple queries and fields became complex as the project grew.
 
-Solution: Consolidated all types and queries under a dedicated lib/contentful directory.
+Solution: Consolidated all types and queries under a dedicated lib directory.
 
 **Image Variant Complexity**
 
@@ -116,10 +124,20 @@ Solution: Introduced a flexible prop-driven image component supporting multiple 
 <li>**Performance:** <span className="emoji-small">💯</span></li>
 </ul>
 
+## Learning Highlights
+
+<ul className="list">
+<li>Navigating and resolving a major framework vulnerability</li>
+<li>Improving GraphQL type safety and structure</li>
+<li>Designing maintainable, theme-aware image systems</li>
+<li>Understanding revalidation and caching in a headless CMS site</li>
+<li>Refining folder structure for long-term scalability</li>
+</ul>
+
 ## This project demonstrates:
 
 <ul className="list">
-<li>CMS integration experience</li>
+<li>Headless CMS integration experience</li>
 <li>Ability to architect a multi-section landing page system</li>
 <li>`TypeScript` discipline</li>
 <li>High-performance engineering</li>
