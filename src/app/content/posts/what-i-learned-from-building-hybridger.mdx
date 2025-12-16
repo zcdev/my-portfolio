@@ -1,0 +1,69 @@
+---
+title: "What I Learned From Building HyBridger"
+slug: "what-i-learned-from-building-hybridger"
+date: "2025/12/16"
+---
+
+<span className="emoji-large">🤖 🤝</span>
+
+I’ve been learning and building within the Next.js ecosystem for a while, and I wanted to push myself further by applying it to a more structured, content-driven architecture. A headless CMS felt like the natural next step. That’s what led me to build *`HyBridger`*: a CMS-powered marketing landing page with a scripted chatbot, designed to reflect how a modern small SaaS product might present itself online.
+
+The goal wasn’t just to “make something work,” but to understand how tools like Next.js, React, TypeScript, Contentful, and Vercel fit together in a real-world setup, from content modeling to deployment and performance.
+
+This ended up being one of the most challenging self-assigned projects I’ve taken on.
+
+I did use AI tools along the way, mostly as a sounding board for ideas, debugging help, and second opinions, but the bulk of the work involved experimentation, trial and error, and figuring out why things behaved the way they did once everything was wired together.
+
+## 🏃🏻‍♀️ Getting Contentful Running (and Running… Again)
+
+It took several attempts before I fully understood the Contentful setup flow. I created spaces, deleted them, reinstalled templates, reset credentials, and reconfigured environments more times than I intended.
+
+I had to:
+
+<ul className="list">
+<li>Set up a Contentful space and API credentials</li>
+<li>Choose and adapt a starter template</li>
+<li>Import the codebase into Vercel</li>
+<li>Understand how environments, branches, and routing interact</li>
+</ul>
+
+At first, every small configuration choice felt like it could derail the whole setup. But each failed attempt clarified something new, and eventually the pieces started to click.
+
+## 😵‍💫 The “Chaotic but Educational” Phase
+
+Once the foundation was in place, the deep learning began.
+
+Some highlights from the chaos:
+
+<ul className="list">
+<li>I didn’t initially realize revalidation had to be configured properly for CMS updates to appear without redeploying.</li>
+<li>I misunderstood content modeling and leaned on post excerpts in ways that didn’t scale well.</li>
+<li>I used multiple image components to handle complex cases like light/dark variants and different content types.</li>
+<li>I chose the wrong Contentful field types and had to refactor later.</li>
+<li>I inherited GraphQL queries that relied on any types, which pushed me to centralize and clean up my TypeScript definitions.</li>
+<li>I struggled with a testimonial slider animation where fade timing and slide timing fought each other.</li>
+<li>The chatbot logic taught me a lot about sequencing state updates especially when the bot should “think” autonomously while user input waits.</li>
+<li>My original `setTimeout()` logic was messy until I simplified responsibilities between state updates.</li>
+<li>On the UI side, I learned tiny but important details, like preventing iOS zoom by setting input font sizes to `17px`.</li>
+<li>Performance tuning mattered more than I expected, even small tweaks like `fetchPriority` helped me pass LCP and reach 💯 Lighthouse scores.</li>
+</ul>
+
+Each issue felt small in isolation, but together they forced me to reason about architecture, data flow, and UX at a deeper level than I had before.
+
+## 🌀 A Real-World Curveball
+
+One major obstacle I ran into was a React Server Component vulnerability that surfaced during development:      
+[Vercel Changelog: Summary of CVE-2025-55182](https://vercel.com/changelog/cve-2025-55182)
+
+This led to some surprisingly complex troubleshooting involving a version mismatch between Next.js and Contentful dependencies. Resolving it required careful dependency management and a clearer understanding of how framework updates ripple through a project.
+
+I documented the resolution in this commit, which captures both the fix and the reasoning behind it:        
+[Commit #: a8a341f](https://github.com/zcdev/hybridger/commit/a8a341f8e063206c52e6c34b846251f1e978d40b)
+
+## 📝 Takeaways
+
+Building *`HyBridger`* taught me that modern web apps aren’t just about writing components. They’re about systems thinking. Content models, rendering strategies, caching, performance, and UX details all influence each other.
+
+More importantly, it reinforced that confusion is often a signal you’re learning something new, not doing something wrong. By the end of this project, I felt far more confident navigating complex toolchains, debugging unfamiliar issues, and making architectural decisions with intent rather than guesswork.
+
+It was chaotic, frustrating, fun, and absolutely worth it. 😏✨
