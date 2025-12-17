@@ -40,11 +40,11 @@ Some highlights from the chaos:
 <li>I misunderstood content modeling and leaned on post excerpts in ways that didn’t scale well.</li>
 <li>I used multiple image components to handle complex cases like light/dark variants and different content types.</li>
 <li>I chose the wrong Contentful field types and had to refactor later.</li>
-<li>I inherited GraphQL queries that relied on any types, which pushed me to centralize and clean up my TypeScript definitions.</li>
+<li>I inherited GraphQL queries that relied on `any` type, which pushed me to centralize and clean up my TypeScript definitions.</li>
 <li>I struggled with a testimonial slider animation where fade timing and slide timing fought each other.</li>
 <li>The chatbot logic taught me a lot about sequencing state updates especially when the bot should “think” autonomously while user input waits.</li>
 <li>My original `setTimeout()` logic was messy until I simplified responsibilities between state updates.</li>
-<li>On the UI side, I learned tiny but important details, like preventing iOS zoom by setting input font sizes to `17px`.</li>
+<li>On the UI side, I learned tiny but important details, like preventing iOS zoom by setting input font size to `17px`.</li>
 <li>Performance tuning mattered more than I expected, even small tweaks like `fetchPriority` helped me pass LCP and reach 💯 Lighthouse scores.</li>
 </ul>
 
