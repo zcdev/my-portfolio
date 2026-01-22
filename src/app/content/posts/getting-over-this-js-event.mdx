@@ -1,0 +1,145 @@
+---
+title: "Getting Over `this`: How JavaScript Events Finally Clicked"
+slug: "getting-over-this-js-event"
+date: "2026/01/21"
+---
+
+<span className="emoji-large">🖱️☑️</span>
+
+When handling click events in JavaScript, there are two common patterns:
+
+```
+// Pattern A: using `this`
+button.addEventListener("click", function () {
+  toggle(this);
+});
+
+// Pattern B: using the event object
+button.addEventListener("click", (event) => {
+  toggle(event.currentTarget);
+});
+```
+
+While they may seem equivalent in simple cases, they are not always interchangeable. Understanding the distinction leads to more intentional event handling and more predictable, controllable code.
+
+## Why these two patterns look equivalent at first
+
+In a basic setup:
+<ul className="list">
+  <li>One button</li>
+  <li>No nested elements</li>
+  <li>One listener per element</li>
+</ul>
+
+Both of these expressions point to the same element:
+
+```
+this === event.currentTarget
+```
+
+Naturally, it can feel like a matter of style: pick one pattern, memorize it, and move on.
+
+That assumption is where the confusion tends to show up later.
+
+## Where the difference actually matters
+
+The key difference isn’t *what they point to*, but **how they get there**.
+
+### `this` is implicitly bound
+
+When writing:
+
+```
+button.addEventListener("click", function () {
+  console.log(this);
+});
+```
+
+`this` is set by the browser based on **how the function is called**.
+
+That means:
+<ul className="list">
+  <li>It only works with regular functions</li>
+  <li>It breaks if refactored into an arrow function</li>
+  <li>Its meaning depends on call context</li>
+</ul>
+
+This makes `this` fragile in event handlers.
+
+### The event object is explicitly passed
+
+When writing:
+
+```
+button.addEventListener("click", toggle);
+```
+
+The browser always calls the function like this:
+
+```
+toggle(event);
+```
+
+Nothing implicit is happening.
+
+From the event object, the targeted element is explicitly available:
+
+```
+function toggle(event) {
+  const el = event.currentTarget;
+}
+```
+
+This works:
+<ul className="list">
+  <li>With arrow functions</li>
+  <li>With direct callbacks</li>
+  <li>Regardless of nesting</li>
+  <li>Regardless of refactors</li>
+</ul>
+
+At this point, predictability finally *clicks* as intended.
+
+## A concrete example
+
+Using the event object:
+
+```
+button.addEventListener("click", toggle);
+
+function toggle(event) {
+  const button = event.currentTarget;
+  const chilled = button.classList.toggle("chilled");
+  button.textContent = chilled ? "😌" : "😵‍💫";
+}
+```
+
+No wrapper function.
+No reliance on `this`.
+No hidden binding rules.
+
+Everything the function needs is passed in.
+
+## When `this` still makes sense
+
+It’s not about banning `this`.
+
+`this` works well when:
+<ul className="list">
+  <li>It’s inside a class</li>
+  <li>There’s a need to deal with instance state</li>
+  <li>The context is stable and intentional</li>
+</ul>
+
+But for DOM event handlers, it often adds more mental overhead than value, especially when the referenced element isn’t immediately clear.
+
+## A simple rule of thumb
+
+When handling DOM events:
+<ul className="list">
+  <li>Accept the event object</li>
+  <li>Use <code>event.currentTarget</code></li>
+  <li>Avoid relying on <code>this</code> unless there’s a clear reason</li>
+</ul>
+
+Adopting a rule like this made event handling stop feeling mystical. The code now intentionally operates on the element that was meant to be clicked clearly and without guesswork. 😌
