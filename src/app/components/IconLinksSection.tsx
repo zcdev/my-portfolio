@@ -8,9 +8,6 @@ export default function IconLinksSection() {
 
     return (
         <section className="text-left">
-            <h2 className="text-xl text-[17px] font-semibold mb-1">Latest Updates <span className="emoji-large">👩🏻‍💻</span></h2>
-            <p className="text-base text-[17px] mb-3">This is a living portfolio where I’ll continue to add new work as I keep learning and building. I’m currently focused on deepening my frontend skills.</p>
-            <p className="text-base text-[17px] mb-3">I’m open to work!</p>
             <div className="mb-7">
                 <IconContext.Provider value={{ size: "1.8em" }}>
                     <Link href="https://www.linkedin.com/in/zcdev/" target="_blank" aria-label="Connect with me on LinkedIn">

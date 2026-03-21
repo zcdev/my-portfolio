@@ -11,10 +11,10 @@ export default function Home() {
           UI Engineer
         </h2>
         <p className="text-base text-[17px] font-semibold mb-4">
-          Building thoughtful, user-friendly interfaces at the intersection of art and technology.
+          At the intersection of art and technology
         </p>
         <p className="text-base text-[17px] mb-4">
-          I am a frontend developer who designs, focused on building user-friendly, accessible, and beautiful interfaces. I translate design intent into intuitive, inclusive experiences, working primarily with React.js, Next.js, TypeScript, and modern UI systems.
+          I am a frontend developer with a strong eye for designs, focused on building user-friendly, accessible, and beautiful interfaces. I translate design intent into intuitive, inclusive experiences, working primarily with React.js, Next.js, TypeScript, and modern UI systems.
         </p>
         <p className="text-base text-[17px] mb-5 pb-6 border-b-1 border-zinc-200">
           All the web apps in my portfolio support accessibility, dark-mode considerations, and responsive designs.

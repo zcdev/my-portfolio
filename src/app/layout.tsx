@@ -9,10 +9,10 @@ const arimo = Arimo({
 });
 
 export const metadata: Metadata = {
-  title: "Zoe Chang — Front-end Developer",
+  title: "Zoe Chang — UI Engineer",
   description: "Frontend portfolio, interactive projects, and dev blog",
   openGraph: {
-    title: "Zoe Chang — Front-end Developer",
+    title: "Zoe Chang — UI Engineer",
     description: "Frontend portfolio, interactive projects, and dev blog",
     url: "https://zoechang.dev",
     siteName: "Zoe Chang's Portfolio",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zoe Chang — Front-end Developer",
+    title: "Zoe Chang — UI Engineer",
     description: "Frontend portfolio, interactive projects, and dev blog",
     images: ["/og-image.png"],
   },
