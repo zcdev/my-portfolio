@@ -40,6 +40,11 @@ const mdxComponents = {
       {props.children}
     </ul>
   ),
+  ol: (props: ComponentPropsWithoutRef<"ol">) => (
+    <ol className="mt-2 mb-4">
+      {props.children}
+    </ol>
+  ),
   li: (props: ComponentPropsWithoutRef<"li">) => <li {...props} />
 };
 

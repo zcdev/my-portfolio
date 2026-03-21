@@ -83,3 +83,7 @@ pre code {
 .list li:last-child {
   padding-bottom: 0px;
 }
+
+.ordered {
+  list-style-type: decimal;
+}

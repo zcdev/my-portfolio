@@ -1,0 +1,111 @@
+---
+title: "What I Learned from Two Next.js Production Bugs (Part 2)"
+slug: "two-nextjs-prod-bugs-part-2"
+date: "2026/03/21"
+---
+
+<span className="emoji-large">🔗 🤔</span>
+
+## `useSearchParams` Prerendering Error (Static vs. Dynamic Rendering): Request-based mismatch (runtime data) 
+
+## What I Needed
+
+The Food Truck Tracker app is heavily parameter-driven due to its search functionality—especially for the Hot Menu feature.
+
+I needed to use `useSearchParams` to:
+
+<ul className="list">
+<li>Track search queries from the URL</li>
+<li>Filter food truck data based on user input</li>
+<li>Extract food truck IDs associated with search results for downstream utility functions</li>
+</ul>
+
+## What Went Wrong
+
+Everything worked fine locally.
+
+But when I deployed to production, the build failed with this error:
+
+```
+Error occurred prerendering page "/page".
+⨯ useSearchParams() should be wrapped in a suspense boundary at page "/".
+```
+
+Along with multiple prerender failures across routes.
+
+## What Fixed It
+
+```ts
+export const dynamic = 'force-dynamic';
+```
+
+## Why This Happens
+
+`useSearchParams` depends on **runtime URL state**—it reads values that only exist when a request is made.
+
+During static rendering, there is no request. That means no query params, no URL state, and no reliable value for `useSearchParams` to read.
+
+So when Next.js tries to prerender the page at build time, it hits a wall.
+
+By setting:
+
+```ts
+export const dynamic = 'force-dynamic';
+```
+
+you’re telling Next.js:
+
+> “This page depends on request-time data—don’t try to statically generate it.”
+
+This shifts the page from **static rendering** to **dynamic rendering**, allowing `useSearchParams` to work as intended at runtime.
+
+## Key Insight
+
+If your UI depends on **URL state that changes per request**, it cannot be statically rendered.
+
+That’s the boundary.
+
+## What Both Bugs Had in Common
+
+At first, these felt like completely different issues:
+
+<ul className="list">
+<li>One was about hydration</li>
+<li>One was about routing</li>
+</ul>
+
+But they shared the same root cause:
+
+> I didn’t clearly separate what belongs on the server vs. the client.
+
+Once I started asking:
+
+<ul className="list">
+<li>“Is this value stable at render time?”</li>
+<li>“Does this depend on the user *right now*?”</li>
+</ul>
+
+…the fixes became much more obvious.
+
+## Final Takeaway
+
+Neither bug was about Next.js being broken.
+
+They were about having a clear mental model of:
+
+<ul className="list">
+<li>What the server can safely pre-render</li>
+<li>What must be handled at runtime on the client (or per request)</li>
+</ul>
+
+## Closing Thought
+
+Production bugs are frustrating but they’re also where things finally click.
+
+This was one of those moments where Next.js stopped feeling like a system full of “gotchas”…
+
+…and started feeling like:
+
+> “Oh, I see exactly why this works now.”
+
+And honestly, that’s a much better place to be. 😏💜

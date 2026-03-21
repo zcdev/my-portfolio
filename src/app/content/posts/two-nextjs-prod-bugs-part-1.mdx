@@ -1,0 +1,163 @@
+---
+title: "What I Learned from Two Next.js Production Bugs (Part 1)"
+slug: "two-nextjs-prod-bugs-part-1"
+date: "2026/03/21"
+---
+
+<span className="emoji-large">💦 🤔</span>
+
+## Hydration Mismatch (SSR vs. CSR): Time-based mismatch (non-deterministic data)
+
+## What I Built
+
+I was building a Food Truck Tracker app with a component that displayed time-sensitive data, like:
+
+<ul className="list">
+<li>“Arrives in 10 minutes”</li>
+<li>Calculated from the user’s current time</li>
+</ul>
+
+Seems harmless, right?
+
+```ts
+'use client';
+import { useEffect, useState } from "react";
+
+export default function ScheduleClock() {
+    const [time, setTime] = useState<Date>(new Date()); // 👈 The culprit
+
+    useEffect(() => {
+        const timerId = setInterval(() => {
+            setTime(new Date());
+        }, 1000);
+
+        return () => clearInterval(timerId);
+    }, []);
+
+    const formattedTime = time.toLocaleTimeString([], {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true
+    });
+
+    return <>Current Time: {formattedTime}</>;
+}
+```
+
+## What Went Wrong
+
+After deploying, everything looked fine—until I opened DevTools.
+
+I saw:
+
+<ul className="list">
+<li>Minified React error</li>
+<li>References to `hydrateRoot`</li>
+</ul>
+
+At first, I thought it was a bundling or minification issue.
+
+But that `hydrateRoot` hint gave it away:
+
+> This wasn’t a build problem—it was a hydration mismatch.
+
+And looking back, I had actually seen warnings locally… I just didn’t fully chase them down.
+
+## Going Down the Rabbit Hole
+
+I started digging into hydration issues and kept running into messages like:
+
+<ul className="list">
+<li>“Text content does not match server-rendered HTML”</li>
+<li>“Cannot access current time reliably during SSR”</li>
+</ul>
+
+So I tried everything:
+
+<ul className="list">
+<li>Wrapping with `Suspense` + fallback</li>
+<li>Using `suppressHydrationWarning`</li>
+<li>Moving logic into `useEffect`</li>
+<li>Even disabling SSR in different ways</li>
+</ul>
+
+…and nothing *consistently* fixed it.
+
+At that point, it honestly felt like a framework limitation.
+
+## What Was Actually Happening
+
+The breakthrough came when I stopped trying fixes and started isolating the cause.
+
+The issue wasn’t React. It wasn’t Next.js.
+
+It was this:
+
+```ts
+new Date()
+```
+
+Here’s what was happening under the hood:
+
+<ol className="list ordered">
+<li>The server renders the HTML at time **T₁**</li>
+<li>The client hydrates at time **T₂**</li>
+<li>The component recalculates `new Date()` at **T₂**</li>
+<li>The UI no longer matches the server-rendered HTML</li>
+</ol>
+
+That mismatch is exactly what hydration is designed to detect.
+
+## What Fixed It
+
+Once I understood the root cause, the solution became simple:
+
+> Don’t server-render something that depends on “now”.
+
+The fix that worked in production:
+
+👉 **Disable SSR for the affected component**
+
+```ts
+import dynamic from 'next/dynamic';
+
+const ScheduleClock = dynamic(
+  () => import('../components/schedule/ScheduleClock'),
+  { ssr: false }
+);
+```
+
+## Why This Works
+
+By disabling SSR:
+
+<ul className="list">
+<li>The component is **not rendered on the server**</li>
+<li>It renders only on the **client**</li>
+<li>There’s no T₁ vs T₂ mismatch to reconcile</li>
+</ul>
+
+Instead of forcing two different timestamps to match…
+
+> We remove the comparison entirely.
+
+## The Real Lesson
+
+If something depends on **“right now”**, it does not belong in a server-rendered snapshot.
+
+This wasn’t a Next.js bug—it was a mental model issue:
+
+> Server-rendered output must be deterministic and match the client’s first render.
+
+Time is inherently non-deterministic.
+
+## Closing Thought
+
+I probably tried close to 10 different fixes in production (not even counting development 😏).
+
+It was frustrating—but it forced me to really understand how SSR and hydration actually work.
+
+And once that clicked…
+
+> The problem stopped feeling mysterious—and started feeling obvious.
