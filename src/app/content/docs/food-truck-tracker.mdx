@@ -1,0 +1,83 @@
+---
+id: 4
+title: "Food Truck Tracker 🚚"
+slug: "food-truck-tracker"
+tech: ["Next.js", "TypeScript", "React.js", "Swiper.js", "Vercel", "Tailwind CSS"]
+description: "A web app simulating real-time food truck tracking, discovering, and exploring. It helps busy, on-the-go users quickly find food options without the hassle of planning or cooking. It delivers a streamlined, food-truck-first experience with simple search and filtering, enabling fast, intuitive decision-making."
+demo: "food-truck-tracker-app.vercel.app"
+---
+
+![Food Truck Tracker app screenshot](/assets/food-truck-tracker.webp)
+
+[See Demo](https://food-truck-tracker-app.vercel.app/)
+[Visit Repo](https://github.com/zcdev/food-truck-tracker)
+
+## Overview
+
+Food Truck Tracker is a web app built around real-time scheduling. It balances real-time responsiveness with rendering and runtime constraints in a hybrid SSR/CSR environment, efficient state management, and mobile-first performance. The result is a vibrant, user-friendly interface that reduces friction and keeps interactions fast and effortless.
+
+## Goals
+
+<ul className="list">
+<li>Built a Food Truck Tracker app for on-the-go users seeking quick, convenient meal options without the friction of cooking or extensive browsing</li>
+<li>Designed a real-time scheduling system to support fast decision-making, with simple search and filtering for easy information retrieval</li>
+<li>Structured a data-first information architecture to prioritize core food truck details and reduce navigation friction</li>
+<li>Balanced real-time update accuracy with backend cost constraints through thoughtful tradeoff decisions</li>
+<li>Optimized UI responsiveness and state management for smooth mobile performance</li>
+<li>Delivered a usability-driven, responsive interface with vibrant visuals and a distinct brand voice that appeals to a broad audience</li>
+</ul>
+
+## Architecture
+
+**UI & State Management:**
+
+Optimized state updates by `useEffect()` to minimize unnecessary re-renders, ensuring smooth interactions under frequent time-based updates.
+
+**SSR/CSR Boundary Handling:**
+
+Resolved hydration issues by isolating time-sensitive logic to the client, preventing server-client render mismatches in production.
+
+**URL State Management with useSearchParams:**
+
+Enabled dynamic rendering by leveraging `Next.js` `App Router` `useSearchParams` to persist query parameters across navigation, ensuring consistent routing behavior in edge cases while preserving scroll position.
+
+## Features
+
+**1. Real-Time Scheduling:**
+
+Built a live clock to compute durations from the current client time, accurately calculating upcoming arrivals down to the millisecond and formatting output in 12-hour time.
+
+**2. Swiper Carousel Integration:**
+
+Implemented a touch-optimized carousel using `Swiper.js` with autoplay, maintaining responsive layouts and consistent slide dimensions across viewports.
+
+**3. Hot Menu Item Search:**
+
+Develop a client-side search with controlled input state and dynamic filtering logic to return relevant menu items with minimal re-rendering.
+
+**4. Schedule Sorting:**
+
+Implement accessible sorting controls on the schedule table header to allow users to toggle between ascending and descending order.
+
+**5. Food Truck Modal:**
+
+Designed and built a lightweight modal to display detailed food truck info.
+
+## Challenges & Solutions
+[What I Learned from Two Next.js Production Bugs (Part 1)](/blog/two-nextjs-prod-bugs-part-1)
+
+[What I Learned from Two Next.js Production Bugs (Part 2)](/blog/two-nextjs-prod-bugs-part-2)
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>**Accessibility:** <span className="emoji-small">💯</span></li>
+<li>**Best practices:** <span className="emoji-small">💯</span></li>
+<li>**SEO:** <span className="emoji-small">💯</span></li>
+<li>**Performance:** <span className="emoji-small">💯</span></li>
+</ul>
+
+## Conclusion
+
+Food Truck Tracker demonstrates a practical balance between real-time interactivity and production constraints. It highlights thoughtful decisions across architecture, performance, and user experience, particularly in handling time-based rendering, managing state efficiently, and designing for fast, mobile-friendly interactions. The project reflects a focus on building responsive, user-centered applications while navigating real-world tradeoffs in modern web development.
