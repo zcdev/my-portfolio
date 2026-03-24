@@ -3,7 +3,7 @@ id: 8
 title: "Clicky Owls 🦉"
 slug: "clicky-owls"
 tech: ["React.js", "Vercel", "React Confetti", "Framer Motion", "Vite", "Accessibility", "CSS Grid", "Flexbox"]
-description: "A lighthearted memory game built with React.js. Players must click through randomly shuffled owls without repetition, encouraging them to sharpen their focus and strategic recall."
+description: "A lighthearted game built with React.js. Players must click through randomly shuffled owls without repetition, encouraging them to sharpen their focus and strategic memory recall."
 demo: "clicky-owls.vercel.app"
 ---
 
@@ -14,29 +14,29 @@ demo: "clicky-owls.vercel.app"
 
 ## Overview
 
-This project is part of my personal portfolio rebuild initiative, where I transformed the legacy code I learned at UCBX into a modern web app using the most up-to-date tech stack. I rebuilt it from **React** `v16.7.0` to `v19.1.0`, enhancing it by improving accessibility, user interaction, visual design, and mobile-friendliness, while adhering to modern frontend best practices for accessibility, performance, and responsive design.
+This project is part of my personal portfolio rebuild initiative, where I transformed the legacy code I learned at UCBX into a modern web app using the most up-to-date tech stack. I rebuilt it from **React** `v16.7.0` to `v19.1.0`, enhancing it by improving accessibility, user interaction, visual design, and mobile-friendliness, while adhering to modern frontend best practices for accessibility, performance, and mobile-responsive design.
 
 ## Features
 <ul className="list">
-<li>Memory-based shuffled image recognition test with instant feedback.</li>
+<li>Memory-based shuffling image recognition test with instant feedback.</li>
 <li>Responsive 4×3 (desktop) / 3x4 (mobile) grid layout.</li>
-<li>Confetti animation on win using react-confetti.</li>
+<li>Confetti animation on winning using React Confetti.</li>
 <li>Smooth animated message transitions with framer-motion.</li>
 <li>Accessibility-conscious design (aria-live, semantic landmarks, screen reader support).</li>
-<li>Freeze UI after win to prevent further clicks until restart.</li>
-<li>Restart button with complete state reset.</li>
+<li>Freeze UI on winning to prevent further clicks until restart.</li>
+<li>Restart button for game reset.</li>
 </ul>
 
 ## Implementation
 <ul className="list">
 <li>**Scaffolding:** Initialized with `React` and `Vite`.</li>
-<li>**State management:** `useState()` used to manage game scores with a list of `12` owl images.</li>
-<li>**Grid layout:** Owl images displayed as grid items, shuffling on each click/tap (desktop + mobile).</li>
-<li>**Component structure:** App divided into four main components: Header, OwlCard, OwlGrid, ScoreBoard.</li>
-<li>**Utilities:** Fisher–Yates Array Shuffle Algorithm (from UCBX curriculum) implemented to randomize owl images.</li>
-<li>**Animations:** `Framer Motion` for UI messages. `React Confetti` for the winning effect.</li>
-<li>**Game end state:** On win, the UI freezes and owl images gray out.</li>
-<li>**Testing & accessibility:** Evaluated via `Lighthouse` for performance and refined for screen reader and keyboard navigation support.</li>
+<li>**State management:** Using `useState()` to manage game scores with a list of `12` owl images.</li>
+<li>**Grid layout:** Owl images displayed as grid items, shuffles on each click/tap (desktop + mobile).</li>
+<li>**Component structure:** App divided into four main components: Header, OwlCard, OwlGrid, and ScoreBoard.</li>
+<li>**Utilities:** Fisher–Yates Array Shuffle Algorithm (from UCBX curriculum) implemented to randomize owl image display.</li>
+<li>**Animations:** Using `Framer Motion` for UI message animation effect and `React Confetti` for the winning effect.</li>
+<li>**Game end state:** On winning, the UI freezes and owl images gray out.</li>
+<li>**Testing & accessibility:** Evaluated via `Lighthouse` for performance, refined for screen reader and keyboard navigation support.</li>
 </ul>
 
 ## Challenges & Solutions

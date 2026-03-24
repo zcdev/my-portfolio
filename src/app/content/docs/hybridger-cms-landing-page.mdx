@@ -3,7 +3,7 @@ id: 1
 title: "HyBridger CMS + Landing Page 🤖"
 slug: "hybridger-cms-landing-page"
 tech: ["Next.js", "TypeScript", "React.js", "Contentful CMS", "GraphQL", "Vercel", "Tailwind CSS"]
-description: "A modern headless CMS demo that unifies design systems, structured content models, and dynamic page rendering into a cohesive landing experience. It highlights how a fully modular CMS site is assembled from page sections to content types to reusable UI patterns."
+description: "A modern headless CMS marketing landing page demo that unifies system design, structured content models, and dynamic page rendering into a cohesive landing experience. It highlights how a fully modular CMS page is assembled by sections, content types, and reusable UI patterns."
 demo: "hybridger.vercel.app"
 ---
 
@@ -14,7 +14,7 @@ demo: "hybridger.vercel.app"
 
 ## Overview
 
-HyBridger was built to show how a professional-grade, production-ready web architecture comes together using `Next.js`, `Contentful`, `TailwindCSS`, and `TypeScript`. The project demonstrates real-world content modeling, `GraphQL` querying patterns, image optimization, and scalable UI composition, offering a practical example of how engineering and design systems integrate in modern workflows.
+HyBridger was built to show how a professional-grade, production-ready web architecture comes to life using `Next.js`, `Contentful`, `TailwindCSS`, and `TypeScript`. The project demonstrates real-world content modeling, `GraphQL` querying patterns, image optimization, and scalable UI composition, offering a practical example of how engineering and system design integrate in modern workflows.
 
 ## Goals
 
@@ -23,7 +23,7 @@ HyBridger was built to show how a professional-grade, production-ready web archi
 <li>Demonstrate `GraphQL` querying and type-safe data handling</li>
 <li>Develop a reusable component system for sections and UI elements</li>
 <li>Implement a fast, predictable content pipeline (`Contentful` → `Next.js` → `Vercel`)</li>
-<li>Create a scalable foundation that can support future expansion (blog, chatbot, additional sections)</li>
+<li>Create a scalable foundation that can support future expansion (blog, chatbot, and additional sections)</li>
 </ul>
 
 ## Architecture
@@ -33,11 +33,11 @@ HyBridger uses the `Next.js App Router` with a well-organized structure:
 <li>Server components for headless CMS data fetching</li>
 <li>Client components for interactive UI pieces</li>
 <li>Centralized `GraphQL` utilities</li>
-<li>Custom responsive image component</li>
-<li>Typed data models for every query and CMS field</li>
+<li>Custom mobile-responsive image component</li>
+<li>Stongly typed data models for every query and CMS field</li>
 <li>ISR revalidation through a custom API route</li>
 </ul>
-This ensures predictable data flow and fast render times.
+This ensures predictable data flow and fast rendering time.
 
 ## Features
 
@@ -47,14 +47,14 @@ This ensures predictable data flow and fast render times.
 <li>Multiple content models: Hero, Features, Pricing, Testimonials, etc.</li>
 <li>Each model mapped to `TypeScript` interfaces and section components</li>
 <li>`GraphQL` queries consolidated into reusable utilities</li>
-<li>Optional Preview Mode support for draft content</li>
+<li>Optional "Preview Mode" support for drafting content</li>
 </ul>
 
 **2. High-Performance UI Sections**
 
 <ul className="list">
 <li>Built as isolated, reusable components</li>
-<li>`Tailwind CSS` for rapid iteration & theming</li>
+<li>`Tailwind CSS` for rapid design & theming</li>
 <li>Pixel-perfect layout engineered for both mobile and desktop</li>
 <li>100/100 Lighthouse scores across performance, accessibility, best practices, and SEO</li>
 </ul>
@@ -65,9 +65,8 @@ A custom `<ImageWrapper />` component delivers:
 
 <ul className="list">
 <li>WebP + fallback formats</li>
-<li>Multiple resolutions via `srcset` switching</li>
+<li>Multiple image versions via `srcset` swapping</li>
 <li>Dark/light mode image variants</li>
-<li>Fetch optimization in `Next.js`</li>
 </ul>
 
 **4. CSS-based Animation Slider**
@@ -83,8 +82,8 @@ A custom `<ImageWrapper />` component delivers:
 Images and UI elements use:
 
 <ul className="list">
-<li>Tailwind's dark class switching</li>
-<li>Mapped variant sets for consistent theme behavior</li>
+<li>Tailwind's dark mode CSS class switching</li>
+<li>Dark mode variants for consistent theming behavior</li>
 </ul>
 
 ## Challenges & Solutions
@@ -110,7 +109,7 @@ Solution: Consolidated all types and queries under a dedicated lib directory.
 
 **Image Variant Complexity**
 
-Challenge: Ensuring pixel-perfect image behavior across dark mode, mobile, and desktop.
+Challenge: Ensuring pixel-perfect image display across dark mode, mobile, and desktop.
 
 Solution: Introduced a flexible prop-driven image component supporting multiple variants.
 
@@ -129,8 +128,8 @@ Solution: Introduced a flexible prop-driven image component supporting multiple 
 <ul className="list">
 <li>Navigating and resolving a major framework vulnerability</li>
 <li>Improving GraphQL type safety and structure</li>
-<li>Designing maintainable, theme-aware image systems</li>
-<li>Understanding revalidation and caching in a headless CMS site</li>
+<li>Designing maintainable, dark mode-friendly theme</li>
+<li>Understanding revalidation and caching in a headless CMS</li>
 <li>Refining folder structure for long-term scalability</li>
 </ul>
 
@@ -140,7 +139,7 @@ Solution: Introduced a flexible prop-driven image component supporting multiple 
 <li>Headless CMS integration experience</li>
 <li>Ability to architect a multi-section landing page system</li>
 <li>`TypeScript` discipline</li>
-<li>High-performance engineering</li>
-<li>Responsive UI & image optimization</li>
-<li>Handling real-world deployment/security issues</li>
+<li>Web performance optimization</li>
+<li>Mobile-responsive UI & image optimization</li>
+<li>Handling real-world deployment and managing security updates</li>
 </ul>

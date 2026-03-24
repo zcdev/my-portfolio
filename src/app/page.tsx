@@ -17,7 +17,7 @@ export default function Home() {
           I am a frontend developer with a strong eye for designs, focused on building user-friendly, accessible, and beautiful interfaces. I translate design intent into intuitive, inclusive experiences, working primarily with React.js, Next.js, TypeScript, and modern UI systems.
         </p>
         <p className="text-base text-[17px] mb-5 pb-6 border-b-1 border-zinc-200">
-          All the web apps in my portfolio support accessibility, dark-mode considerations, and responsive designs.
+          All the web apps in my portfolio support accessibility, dark mode considerations, and mobile-responsive designs.
         </p>
         <IconLinksSection />
       </aside>

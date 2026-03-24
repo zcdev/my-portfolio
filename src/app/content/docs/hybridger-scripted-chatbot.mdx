@@ -3,7 +3,7 @@ id: 2
 title: "HyBridger Scripted Chatbot 🤖"
 slug: "hybridger-scripted-chatbot"
 tech: ["Next.js", "TypeScript", "React.js", "Tailwind CSS"]
-description: "A lightweight, UI-driven chat interaction built purely with React components inside the HyBridger landing page. It provides a guided conversational flow using client-side state sequencing, custom message components, and interactive UX patterns without external AI APIs."
+description: "A lightweight, user-friendly demo chatbot built with React components inside the HyBridger marketing landing page. It provides a scripted conversation flow by asynchronous interactive messages without connecting to an external AI API."
 demo: "hybridger.vercel.app"
 ---
 
@@ -14,23 +14,23 @@ demo: "hybridger.vercel.app"
 
 ## Overview
 
-The HyBridger Chatbot serves as a demonstration of how a reactive chat experience can be architected inside a headless CMS site. It showcases controlled UI sequencing, timing logic, component composition, and user interaction constraints, illustrating how front-end engineering can create an engaging “scripted chatbot” without relying on AI service providers.
+The HyBridger Chatbot serves as a demonstration of how a reactive chat experience can be architected inside a headless CMS. It showcases controlled UI sequencing, timing logic, component composition within user interaction constraints. It shows how front-end engineering can create an engaging “scripted chatbot” without relying on AI API service integration.
 
 ## Goals
 
 <ul className="list">
-<li>Build a clean, intuitive, scripted chatbot interface</li>
-<li>Showcase component composition and message sequential logic</li>
-<li>Implement thoughtful UX for user input and linear flow steps</li>
-<li>Provide a demo-level chat experience for the CMS site</li>
+<li>Build a clean, intuitive chatbot interface with a scripted dialogue</li>
+<li>Demonstrate component composition and asynchronous message sequence</li>
+<li>Implement thoughtful UX for user input through linear flow steps</li>
+<li>Provide a demo-level chat experience for the CMS landing page</li>
 </ul>
 
 ## Architecture
 
 <ul className="list">
-<li>Controlled step-based script for predictable behavior</li>
-<li>Message array updated instantly for smooth interactions</li>
-<li>Thinking state separated into its own mechanism</li>
+<li>User-controlled, step-based interaction for predictable behavior</li>
+<li>Message array updated asynchronously</li>
+<li>Bot thinking state separated into its own mechanism</li>
 <li>Client components only</li>
 </ul>
 
@@ -54,9 +54,9 @@ setTimeout(() => setIsThinking(false), 2500);
 ```
 **4. Fix for double-input issues**
 
-Originally, `setStep()` was inside the timeout, causing race conditions when the user clicked rapidly.
+Originally, `setStep()` was inside `setTimeOut()`, causing race conditions when the user clicked rapidly.
 
-Solution: update step synchronously, not after a delay.
+Solution: update step asynchronously, not after a delay.
 
 ## UX Strategies
 
@@ -64,7 +64,7 @@ Solution: update step synchronously, not after a delay.
 <li>Instant user feedback (message appears immediately)</li>
 <li>Isolate input from "thinking" state</li>
 <li>Prevent repetition of triggers on double-clicks or fast typing</li>
-<li>Randomized timing for script-driven responses for a natural flow</li>
+<li>Randomized timing for script-based responses for a natural flow</li>
 </ul>
 
 ## Challenges & Solutions
@@ -94,9 +94,9 @@ Solution: Reorganize the event loop and thinking cycle to isolate UI delay from 
 ## This project demonstrates:
 
 <ul className="list">
-<li>Interactive UI design</li>
+<li>Interaction design</li>
 <li>State management with controlled sequencing</li>
-<li>Attention to UX details and timing</li>
+<li>Attention to user task flow and timing</li>
 <li>Debugging of async and input race conditions</li>
 <li>`React` component architecture inside a modern `Next.js` ecosystem</li>
 </ul>
