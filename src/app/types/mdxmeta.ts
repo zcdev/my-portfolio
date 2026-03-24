@@ -6,5 +6,5 @@ export type MdxMeta = {
     description?: string;
     tech?: string[] | undefined;
     demo?: string;
-    codebase?: string;
+    repo?: string;
 };
