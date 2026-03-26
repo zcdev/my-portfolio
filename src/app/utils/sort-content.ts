@@ -6,7 +6,8 @@ export function sortProjectDocsById(docs: MdxMeta[]): MdxMeta[] {
 
 export function sortBlogPostsByDate(posts: MdxMeta[]): MdxMeta[] {
     return [...posts].sort(
-        (a, b) => Number(new Date(b.date!)) - Number(new Date(a.date!))
+        (a, b) => b.date!.localeCompare(a.date!) ||
+            b.title!.localeCompare(a.title!)
     );
 }
 
