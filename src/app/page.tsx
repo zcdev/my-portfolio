@@ -11,10 +11,10 @@ export default function Home() {
           Frontend Developer
         </h2>
         <p className="text-base text-[17px] mb-4">
-          I build user-friendly, intuitive interfaces that are accessible, translating design intent into thoughtful experiences with React.js, Next.js, TypeScript, and modern UI systems.
+          I build user-friendly, intuitive interfaces that translate design intent into thoughtful, production-ready experiences using React, Next.js, TypeScript, and modern UI systems.
         </p>
         <p className="text-base text-[17px] mb-5 pb-6 border-b-1 border-zinc-200">
-          Most of the web apps in my portfolio support accessibility, dark mode, and mobile responsiveness. Thanks for taking a look at my work!
+          My work consistently emphasizes accessibility, dark mode, and responsive design across applications.
         </p>
         <IconLinksSection />
       </aside>
