@@ -1,0 +1,104 @@
+---
+id: 1
+title: "MailComposer"
+slug: "mailcomposer"
+tech: ["Next.js", "TypeScript", "React.js", "MJML", "Zod", "React Hook Form", "Sonner", "Upstash Redis", "OpenAI API", "Vercel", "Tailwind CSS", "ESLint", "Adm-Zip"]
+description: "A modern headless CMS marketing landing page demo that unifies system design, structured content models, and dynamic page rendering into a cohesive landing experience."
+demo: "mailcomposer.vercel.app"
+repo: "github.com/zcdev/mailcomposer"
+---
+
+![HyBridger project homepage screenshot](/assets/mailcomposer.webp)
+
+[See Demo](https://mailcomposer.vercel.app/)
+[Visit Repo](https://github.com/zcdev/mailcomposer)
+
+## Overview
+
+A lightweight AI-powered email composer built with modern frontend tooling. Generate polished email drafts, preview the final HTML output, and export clean email-ready markup with a smooth, responsive user experience.
+
+## Goals
+
+<ul className="list">
+<li>Generate email content from prompts</li>
+<li>Instant preview and download generated HTML output</li>
+<li>Validation and error notifications upon form input</li>
+<li>Prevent accidental multiple submissions by cooldown period and rate limiting</li>
+</ul>
+
+## Architecture
+
+<ul className="list">
+<li>UI pattern and component reusability</li>
+<li>API route and page views</li>
+<li>Type-safe form data handling and AI prompts</li>
+<li>State management with React Hook Form</li>
+<li>Error handling and form input validation</li>
+<li>Deployment readiness and production verification</li>
+</ul>
+
+## Features
+
+**1. AI Email Composition**
+
+Generate structured email drafts from user prompts using a streamlined composition flow.
+
+**2. HTML Preview**
+
+Preview rendered email HTML directly in the browser using an iframe-based preview page.
+
+**3. HTML Export**
+
+Download generated HTML in an extractable Zip file for use in email clients or external workflows.
+
+**4. Toast Notifications**
+
+Responsive toast feedback powered by Sonner for:
+
+<ul className="list">
+<li>Validation errors</li>
+<li>API failures</li>
+<li>Success states</li>
+</ul>
+
+**5. Cooldown + Rate Limiting**
+
+Implemented request protection using Redis-based rate limiting to help prevent abuse and accidental spam requests.
+
+**6. TypeScript + ESLint Verification**
+
+Project includes strict linting and verification workflows to reduce deployment issues and improve maintainability.
+
+## Challenges & Learning
+
+<ul className="list">
+<li>Designing reusable utility functions while balancing DRY principles with readability and intent</li>
+<li>Separating business logic and presentation responsibilities for clearer architecture and easier theming</li>
+<li>Utilizing comprehensive form schemas, HTML5 validation, type guards, and input restrictions</li>
+<li>Structuring form input into thoughtful AI prompts for more reliable output generation</li>
+<li>Rendering form fields and template themes dynamically through conditional UI patterns</li>
+<li>Extracting reusable MJML/HTML generation logic into shared utilities, allowing preview and export functionality to rely on the same source of truth</li>
+<li>Evaluating architectural trade-offs, including when suppressing a one-off linter warning was the more practical decision</li>
+<li>Building a cohesive error messaging system to create a smoother user experience</li>
+</ul>
+
+## Performance & Accessibility
+(Evaluated via Lighthouse)
+
+<ul className="list">
+<li>**Accessibility:** <span className="emoji-small">💯</span></li>
+<li>**Best practices:** <span className="emoji-small">💯</span></li>
+<li>**SEO:** <span className="emoji-small">💯</span></li>
+<li>**Performance:** <span className="emoji-small">💯</span></li>
+</ul>
+
+## This project demonstrates:
+
+<ul className="list">
+<li>Production-focused frontend engineering</li>
+<li>Practical API integration</li>
+<li>Thoughtful UX feedback systems</li>
+<li>Type-safe development workflows</li>
+<li>Deployment reliability practices</li>
+<li>Clean component and utility organization</li>
+</ul>
