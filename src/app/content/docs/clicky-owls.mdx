@@ -1,5 +1,5 @@
 ---
-id: 8
+id: 10
 title: "Clicky Owls"
 slug: "clicky-owls"
 tech: ["React.js", "Vercel", "React Confetti", "Framer Motion", "Vite", "Accessibility", "CSS Grid", "Flexbox"]
@@ -15,7 +15,7 @@ repo: "github.com/zcdev/clicky-owls"
 
 ## Overview
 
-This project is part of my personal portfolio rebuild initiative, where I transformed the legacy code I learned at UCBX into a modern web app using the most up-to-date tech stack. I rebuilt it from **React** `v16.7.0` to `v19.1.0`, enhancing it by improving accessibility, user interaction, visual design, and mobile-friendliness, while adhering to modern frontend best practices for accessibility, performance, and mobile-responsive design.
+This project is part of my personal portfolio rebuild initiative, where I transformed the legacy code I learned at UCBX into a modern web app using the most up-to-date tech stack. I rebuilt it from React v16.7.0 to v19.1.0, enhancing it by improving accessibility, user interaction, visual design, and mobile-friendliness, while adhering to modern frontend best practices for accessibility, performance, and mobile-responsive design.
 
 ## Features
 <ul className="list">
@@ -30,22 +30,22 @@ This project is part of my personal portfolio rebuild initiative, where I transf
 
 ## Implementation
 <ul className="list">
-<li>**Scaffolding:** Initialized with `React` and `Vite`.</li>
-<li>**State management:** Using `useState()` to manage game scores with a list of `12` owl images.</li>
+<li>**Scaffolding:** Initialized with React and Vite.</li>
+<li>**State management:** Using useState() to manage game scores with a list of 12 owl images.</li>
 <li>**Grid layout:** Owl images displayed as grid items, shuffles on each click/tap (desktop + mobile).</li>
 <li>**Component structure:** App divided into four main components: Header, OwlCard, OwlGrid, and ScoreBoard.</li>
 <li>**Utilities:** Fisher–Yates Array Shuffle Algorithm (from UCBX curriculum) implemented to randomize owl image display.</li>
-<li>**Animations:** Using `Framer Motion` for UI message animation effect and `React Confetti` for the winning effect.</li>
+<li>**Animations:** Using Framer Motion for UI message animation effect and React Confetti for the winning effect.</li>
 <li>**Game end state:** On winning, the UI freezes and owl images gray out.</li>
-<li>**Testing & accessibility:** Evaluated via `Lighthouse` for performance, refined for screen reader and keyboard navigation support.</li>
+<li>**Testing & accessibility:** Evaluated via Lighthouse for performance, refined for screen reader and keyboard navigation support.</li>
 </ul>
 
 ## Challenges & Solutions
 
 <ul className="list">
-<li>**File renaming on macOS:** Git ignored case-only changes (e.g., ScoreBoard.jsx → Scoreboard.jsx). Solved with `git mv` to force rename.</li>
-<li>**Async state updates:** React `setState()` didn’t update immediately within the same function. Adjusted logic to avoid relying on synchronous values.</li>
-<li>**State management pattern:** Replaced legacy `.concat()` with the functional `setState()` pattern for safer updates.</li>
+<li>**File renaming on macOS:** Git ignored case-only changes (e.g., ScoreBoard.jsx → Scoreboard.jsx). Solved with git mv to force rename.</li>
+<li>**Async state updates:** React setState() didn’t update immediately within the same function. Adjusted logic to avoid relying on synchronous values.</li>
+<li>**State management pattern:** Replaced legacy .concat() with the functional setState() pattern for safer updates.</li>
 <li>**Deployment fixes:** Vercel deployment succeeded once path resolution and casing issues were corrected.</li>
 </ul>
 
@@ -61,8 +61,8 @@ This project is part of my personal portfolio rebuild initiative, where I transf
 
 ## Reflections & Learnings
 
-Rebuilding *`Clicky Owls`* was a strong exercise in moving from legacy **React** to modern practices. I gained hands-on experience with functional components, hooks, and functional state updates, which clarified common pitfalls around asynchronous state. Working with **Vite** and **Vercel** highlighted the improvements in today’s developer tooling and deployment workflows.
+Rebuilding Clicky Owls was a strong exercise in moving from legacy React to modern practices. I gained hands-on experience with functional components, hooks, and functional state updates, which clarified common pitfalls around asynchronous state. Working with Vite and Vercel highlighted the improvements in today’s developer tooling and deployment workflows.
 
-A focus on **accessibility** taught me how to integrate `ARIA attributes`, semantic structure, and keyboard navigation as part of the core design, not as an afterthought. Using **Framer Motion** and **React Confetti** also showed how thoughtful animations can *enhance user experience without compromising clarity*.
+A focus on accessibility taught me how to integrate ARIA attributes, semantic structure, and keyboard navigation as part of the core design, not as an afterthought. Using Framer Motion and React Confetti also showed how thoughtful animations can enhance user experience without compromising clarity.
 
-Finally, **Lighthouse** testing reinforced the importance of performance awareness, especially around image optimization. This project ultimately helped me bridge the gap between older **React** patterns and modern frontend best practices.
+Finally, Lighthouse testing reinforced the importance of performance awareness, especially around image optimization. This project ultimately helped me bridge the gap between older React patterns and modern frontend best practices.

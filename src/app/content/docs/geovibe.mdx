@@ -1,5 +1,5 @@
 ---
-id: 5
+id: 3
 title: "GeoVibe"
 slug: "geovibe"
 tech: ["React.js", "Census API", "Accessibility", "Webform", "HTML5", "CSS3", "Vite", "Dark Mode", "Vercel"]
@@ -15,14 +15,14 @@ repo: "github.com/zcdev/geovibe"
 
 ## Overview
 
-This project is a complete rebuild of an earlier JavaScript-based version, modernized with **React** and **Vite**, presenting geodemographic insights from the `U.S. Census Bureau` in a user-friendly, accessible, and visually engaging way. Users can enter any U.S. state in the webform to view statistics on population, median income, age, gender, and diversity.
+This project is a complete rebuild of an earlier JavaScript-based version, modernized with **React** and **Vite**, presenting geodemographic insights from the U.S. Census Bureau in a user-friendly, accessible, and visually engaging way. Users can enter any U.S. state in the webform to view statistics on population, median income, age, gender, and diversity.
 
 ## Features
 
 <ul className="list">
-<li>Integration with the `U.S. Census Bureau API`, retrieving official `2024 American Community Survey (ACS)` data in real-time.</li>
+<li>Integration with the U.S. Census Bureau API, retrieving official 2024 American Community Survey (ACS) data in real-time.</li>
 <li>Key demographic insights including total population, median income, age, gender, and race/ethnicity breakdowns.</li>
-<li>Webform input validation, autocomplete with `datalist`, and API fetch error handling.</li>
+<li>Webform input validation, autocomplete with datalist, and API fetch error handling.</li>
 <li>Custom background artwork reflecting the theme of community, diversity, and geography.</li>
 <li>Dark mode–friendly design that adapts to system preferences for eye comfort and accessibility.</li>
 <li>Responsive UI optimized for different devices, with keyboard-friendly webform navigation.</li>
@@ -32,20 +32,20 @@ This project is a complete rebuild of an earlier JavaScript-based version, moder
 
 <ul className="list">
 <li>**Demographic stats:** Extracted data from Census tables and calculated percentages for clear population breakdowns.</li>
-<li>**Performance monitoring:** Used `Vercel Web Analytics` and `Speed Insights` to track performance and user interactions.</li>
-<li>**Autocomplete:** Populated `datalist` with all `50` U.S. states for autofill functionality.</li>
+<li>**Performance monitoring:** Used Vercel Web Analytics and Speed Insights to track performance and user interactions.</li>
+<li>**Autocomplete:** Populated datalist with all 50 U.S. states for autofill functionality.</li>
 <li>**Webform management:** Validated input, fetched API data, and surfaced user-friendly error messages.</li>
-<li>**State management:** Managed user queries with controlled inputs, `useState()`, and structured error handling.</li>
+<li>**State management:** Managed user queries with controlled inputs, useState(), and structured error handling.</li>
 </ul>
 
 ## Challenges & Solutions
 
 <ul className="list">
-<li>**Stack modernization:** Migrated from ES6 to `React`, adopting structured state management.</li>
-<li>**Accessible input:** Added `datalist autocomplete` for streamlined and accessible user interaction.</li>
+<li>**Stack modernization:** Migrated from ES6 to React, adopting structured state management.</li>
+<li>**Accessible input:** Added datalist autocomplete for streamlined and accessible user interaction.</li>
 <li>**Data accuracy:** Recalculated Hispanic/Latino as an ethnicity and added explanatory disclaimers for clarity.</li>
 <li>**Updated sources:** Shifted from 2019 Census data to the latest 2024 ACS endpoints for relevance.</li>
-<li>**Performance tracking:** Integrated `Vercel Web Analytics` and `Speed Insights` to monitor usage and optimize performance post-deployment.</li>
+<li>**Performance tracking:** Integrated Vercel Web Analytics and Speed Insights to monitor usage and optimize performance post-deployment.</li>
 </ul>
 
 ## Performance & Accessibility
@@ -60,6 +60,6 @@ This project is a complete rebuild of an earlier JavaScript-based version, moder
 
 ## Reflections & Learnings
 
-Rebuilding *`GeoVibe`* from `ES6` to **React** reshaped how I think about application architecture and frameworks. Working with the `U.S. Census Bureau API` was challenging at first, but I learned how to navigate endpoints and map tables to the data I needed. Leveraging the native **HTML5** `datalist` proved to be an efficient way to implement accessible autocomplete.  
+Rebuilding *GeoVibe* from ES6 to **React** reshaped how I think about application architecture and frameworks. Working with the U.S. Census Bureau API was challenging at first, but I learned how to navigate endpoints and map tables to the data I needed. Leveraging the native **HTML5** datalist proved to be an efficient way to implement accessible autocomplete.  
 
 This project also deepened my understanding of presenting demographic data responsibly, particularly clarifying that “Hispanic or Latino” is categorized as an ethnicity, not a race. Through this project, I gained valuable experience in *data reliability, web performance monitoring, and designing applications with accessibility and user privacy in mind*.

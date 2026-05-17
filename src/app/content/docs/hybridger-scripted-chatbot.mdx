@@ -1,5 +1,5 @@
 ---
-id: 2
+id: 4
 title: "HyBridger Scripted Chatbot"
 slug: "hybridger-scripted-chatbot"
 tech: ["Next.js", "TypeScript", "React.js", "Tailwind CSS"]
@@ -40,19 +40,19 @@ The HyBridger Chatbot serves as a demonstration of how a reactive chat experienc
 The core behavior is driven by:
 
 **1. Message sequencing**
-```
-setMessages(prev => [...prev, { from: "user", text: userText }]);
-```
+
+`setMessages(prev => [...prev, { from: "user", text: userText }]);`
+
 **2. Step progression**
-```
-setStep(prev => prev + 1);
-```
+
+`setStep(prev => prev + 1);`
+
 **3. UX: Thinking delay**
 
 Displayed using a controlled timeout:
-```
-setTimeout(() => setIsThinking(false), 2500);
-```
+
+`setTimeout(() => setIsThinking(false), 2500);`
+
 **4. Fix for double-input issues**
 
 Originally, `setStep()` was inside `setTimeOut()`, causing race conditions when the user clicked rapidly.
@@ -99,5 +99,5 @@ Solution: Reorganize the event loop and thinking cycle to isolate UI delay from 
 <li>State management with controlled sequencing</li>
 <li>Attention to user task flow and timing</li>
 <li>Debugging of async and input race conditions</li>
-<li>`React` component architecture inside a modern `Next.js` ecosystem</li>
+<li>React component architecture inside a modern Next.js ecosystem</li>
 </ul>
