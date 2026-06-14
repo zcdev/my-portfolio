@@ -1,0 +1,160 @@
+---
+title: "When Every Console Log Says You're Wrong"
+slug: "when-every-console-log-says-you-are-wrong"
+date: "2026/06/14"
+---
+
+<span className="emoji-large">🤨❓</span>
+
+While building Voez AI to experiment with an AI-powered, voice-driven interactive music listening experience, I ran into one of those bugs that make you question every assumption you hold.
+
+The symptom seemed simple enough:
+
+<ul className="list">
+<li>Sometimes the play/pause button worked.</li>
+<li>Sometimes it simply didn't toggle.</li>
+<li>Even worse, it felt random.</li>
+</ul>
+
+## The Inquisition Begins
+
+My first assumption was state management.
+
+The application coordinates several moving parts:
+
+<ul className="list">
+<li>React state</li>
+<li>Audio playback</li>
+<li>Speech recognition</li>
+<li>AI requests</li>
+<li>Voice synthesis</li>
+<li>Real-time UI updates</li>
+</ul>
+
+Initially, I suspected the click event wasn't even firing. I checked the console logs, but everything looked fine. Then I wondered whether a race condition was hiding somewhere in that stack.
+
+I started asking:
+
+<ul className="list">
+<li>Was React state stale?</li>
+<li>Was the selected song ID incorrect?</li>
+<li>Was the audio object out of sync?</li>
+<li>Was speech recognition interfering?</li>
+<li>Was AI streaming causing rerenders?</li>
+<li>Were event listeners accumulating?</li>
+</ul>
+
+Every theory seemed plausible.
+
+Every theory explained part of the behavior.
+
+None of them fully explained the bug.
+
+## Everything Looked Like the Culprit
+
+At one point, I was convinced the issue involved song IDs and array indexes.
+
+Then I thought it was stale React state.
+
+Then I questioned my `useEffect` dependencies.
+
+Then I became suspicious of audio event listeners.
+
+Then I started looking at rerenders caused by playback progress updates.
+
+Every time I thought I had found the culprit, another test disproved it.
+
+The bug remained.
+
+## The Unexpected Clue
+
+Eventually, I stopped chasing theories and started simplifying.
+
+The play/pause button originally rendered a nested component responsible for displaying the label and icon.
+
+Something like this:
+
+```tsx
+<button onClick={onClick}>
+  <Toggle />
+</button>
+```
+
+The nested component rendered either:
+
+<ul className="list">
+<li>Play + icon</li>
+<li>Pause + icon</li>
+</ul>
+
+depending on the application state.
+
+Nothing looked obviously wrong.
+
+But as an experiment, I removed the nested component and rendered the content directly inside the button.
+
+Suddenly, the problem disappeared.
+
+## Wait... What?
+
+The SVG icon wasn't the issue.
+
+The click handler wasn't the issue.
+
+The audio wasn't the issue.
+
+The behavior disappeared simply by reducing the complexity of the button's render tree.
+
+The exact root cause is still open to interpretation, but my working theory is that frequent rerenders, combined with a nested component inside a frequently updated UI, created an interaction that occasionally produced inconsistent behavior.
+
+The button lived inside a part of the application that was constantly updating state.
+
+By removing the nested component and rendering the toggle directly inside the button, I eliminated an entire layer of rendering complexity.
+
+```tsx
+<button type="button" onClick={onClick} className="button">
+  {isPlaying && songId === selectedSong ? (
+    <>
+      Pause <IoPauseSharp />
+    </>
+  ) : (
+    <>
+      Play <IoPlaySharp />
+    </>
+  )}
+</button>
+```
+
+The toggle button finally behaved as expected and became a stable, responsive control.
+
+## The Real Lesson
+
+The most valuable lesson wasn't about React.
+
+It was about debugging.
+
+When a bug becomes difficult to explain, try disproving your theories one by one.
+
+Start removing complexity.
+
+Reduce moving parts.
+
+Make the problem smaller.
+
+Eventually, the bug runs out of places to hide.
+
+## Final Thoughts
+
+This bug consumed far more time than I expected.
+
+For a while, every part of the application looked suspicious.
+
+I literally created a small army of console logs to investigate the cause. 😂
+
+But the logs never confessed.
+
+In the end, the solution came from simplifying a button.
+
+Sometimes software engineering feels less like solving a puzzle and more like conducting an investigation where every suspect has an alibi.
+
+And occasionally, the culprit is hiding in the last place you'd think to look. 😏
