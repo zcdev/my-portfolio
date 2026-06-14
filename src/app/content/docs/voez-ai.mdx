@@ -1,0 +1,101 @@
+---
+id: 2
+title: "Voez AI"
+slug: "voez-ai"
+tech: ["Next.js", "TypeScript", "React.js", "React Icons", "Upstash Redis", "OpenAI API", "ElevenLabs API", "Web Speech API", "Vercel", "Tailwind CSS", "ESLint"]
+description: "An experimental voice-first music player that explores AI-assisted navigation through conversation rather than traditional graphical interfaces."
+demo: "voez.ai"
+repo: "github.com/zcdev/voez"
+---
+
+![Voez AI project homepage screenshot](/assets/voez-ai.webp)
+
+[See Demo](https://voez.ai/)
+[Visit Repo](https://github.com/zcdev/voez)
+
+## Overview
+
+Voez AI explores whether music discovery and playback can feel more natural when voice becomes the primary method of interaction.
+
+Instead of navigating menus, searching manually, or relying heavily on visual controls, users can simply speak with the AI to request songs, receive recommendations, and control playback through conversation.
+
+The project combines speech recognition, AI reasoning, voice synthesis, and audio playback into a single voice-driven experience designed around listening rather than clicking.
+
+## Goals
+
+<ul className="list">
+<li>Request songs using natural voice prompts</li>
+<li>Interact with an AI-powered voice assistant</li>
+<li>Discover music through conversational recommendations</li>
+<li>Reduce reliance on traditional UI controls</li>
+<li>Enjoy a continuous interactive listening experience</li>
+</ul>
+
+## Architecture
+
+<ul className="list">
+<li>Frontend architecture and state management</li>
+<li>API route design and orchestration</li>
+<li>Integration of OpenAI, ElevenLabs, and Web Speech APIs</li>
+<li>Speech-to-text (STT) and text-to-speech (TTS) workflows</li>
+<li>Event-driven audio interactions</li>
+<li>Complex conditional rendering patterns</li>
+<li>Graceful fallback and failure handling</li>
+</ul>
+
+## Features
+
+**1. Voice Recognition & Speech Synthesis**
+
+Uses the Web Speech API for speech recognition and a custom ElevenLabs voice for AI-generated spoken responses.
+
+**2. AI Mood Analysis & Music Recommendations**
+
+OpenAI analyzes the user's voice prompts and conversational context to infer mood, intent, and listening preferences, enabling personalized song recommendations and more natural music discovery.
+
+**3. Conversational Music Playback**
+
+Users can request music through natural language and receive spoken feedback while controlling playback through conversation.
+
+**4. Event-Driven Audio Experience**
+
+Audio playback is coordinated through state-based and event-driven interactions to create a seamless listening experience.
+
+**5. Adaptive Interface**
+
+The interface dynamically adjusts throughout the listening journey, minimizing unnecessary visual distractions and keeping the experience focused on audio.
+
+**6. Graceful Failure Handling**
+
+When AI analysis or recommendations fail, the application falls back to predefined behavior to maintain continuity rather than exposing technical errors to users.
+
+**7. Rate Limiting**
+
+Redis-backed rate limiting helps prevent abuse, excessive requests, and accidental spam.
+
+**8. Browser Support**
+
+Voez AI is an experimental voice-first application and is currently optimized for the latest version of Google Chrome.
+
+Support for other browsers has not been fully validated and some features may not function as expected due to differences in speech recognition, audio capture, real-time streaming, and autoplay behavior. For the best experience, ensure your microphone and speakers are enabled.
+
+## Challenges & Learning
+
+<ul className="list">
+<li>Designing conversational flows that remain intuitive across multiple user paths</li>
+<li>Building reliable fallback behavior for AI-driven experiences</li>
+<li>Managing asynchronous workflows across multiple APIs</li>
+<li>Coordinating speech recognition, speech synthesis, and audio playback</li>
+<li>Keeping the interface simple while handling complex state transitions</li>
+</ul>
+
+## This project demonstrates:
+
+<ul className="list">
+<li>Production-focused frontend engineering</li>
+<li>Multi-API integration</li>
+<li>Voice-first UX experimentatio</li>
+<li>Type-safe development practices</li>
+<li>Event-driven application design</li>
+<li>Resilient error and fallback handling</li>
+</ul>
