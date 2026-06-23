@@ -47,7 +47,7 @@ export default function ScheduleClock() {
 
 ## What Went Wrong
 
-After deploying, everything looked fine—until I opened DevTools.
+After deploying, everything looked fine until I opened DevTools.
 
 I saw:
 
@@ -60,7 +60,7 @@ At first, I thought it was a bundling or minification issue.
 
 But that `hydrateRoot` hint gave it away:
 
-> This wasn’t a build problem—it was a hydration mismatch.
+> This wasn’t a build problem. It was a hydration mismatch.
 
 And looking back, I had actually seen warnings locally… I just didn’t fully chase them down.
 
@@ -146,7 +146,7 @@ Instead of forcing two different timestamps to match…
 
 If something depends on **“right now”**, it does not belong in a server-rendered snapshot.
 
-This wasn’t a Next.js bug—it was a mental model issue:
+This wasn’t a Next.js bug. It was a mental model issue:
 
 > Server-rendered output must be deterministic and match the client’s first render.
 
@@ -156,7 +156,7 @@ Time is inherently non-deterministic.
 
 I probably tried close to 10 different fixes in production (not even counting development 😏).
 
-It was frustrating—but it forced me to really understand how SSR and hydration actually work.
+It was frustrating, but it forced me to really understand how SSR and hydration actually work.
 
 And once that clicked…
 

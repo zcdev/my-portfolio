@@ -10,7 +10,7 @@ date: "2026/03/21"
 
 ## What I Needed
 
-The Food Truck Tracker app is heavily parameter-driven due to its search functionality—especially for the Hot Menu feature.
+The Food Truck Tracker app is heavily parameter-driven due to its search functionality, especially for the Hot Menu feature.
 
 I needed to use `useSearchParams` to:
 
@@ -41,7 +41,7 @@ export const dynamic = 'force-dynamic';
 
 ## Why This Happens
 
-`useSearchParams` depends on **runtime URL state**—it reads values that only exist when a request is made.
+`useSearchParams` depends on **runtime URL state**. It reads values that only exist when a request is made.
 
 During static rendering, there is no request. That means no query params, no URL state, and no reliable value for `useSearchParams` to read.
 
@@ -55,7 +55,7 @@ export const dynamic = 'force-dynamic';
 
 you’re telling Next.js:
 
-> “This page depends on request-time data—don’t try to statically generate it.”
+> “This page depends on request-time data. Don’t try to statically generate it.”
 
 This shifts the page from **static rendering** to **dynamic rendering**, allowing `useSearchParams` to work as intended at runtime.
 
