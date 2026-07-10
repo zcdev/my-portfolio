@@ -41,12 +41,14 @@ export default async function ProjectIndex() {
               <ListPills items={doc.tech} />
               <p className="text-base text-[17px] mt-3 mb-4 pr-4">{doc.description}</p>
             </div>
-            <Link
-              href={`/project/${doc.slug}`}
-              className="text-base text-purple-600 dark:text-purple-400 underline pl-6 pr-6 pb-6"
-            >
-              View Project
-            </Link>
+            <div className="flex">
+              <Link
+                href={`/project/${doc.slug}`}
+                className="text-base text-purple-600 dark:text-purple-400 underline pl-6 pr-6 pb-6"
+              >
+                View Project
+              </Link>
+            </div>
           </li>
         );
       })}

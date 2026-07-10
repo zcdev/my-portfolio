@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Arimo } from "next/font/google";
 import { Analytics } from '@vercel/analytics/next';
-import "./globals.css";
+import "@/app/globals.css";
 
 const arimo = Arimo({
   variable: "--arimo",

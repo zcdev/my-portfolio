@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { RxArrowRight } from "react-icons/rx";
 import { IconContext } from "react-icons";
-import { SiLinkedin, SiGithub, SiMedium } from "react-icons/si";
+import { ImGithub, ImLinkedin2 } from "react-icons/im";
 
 export default function IconLinksSection() {
 
@@ -11,10 +11,10 @@ export default function IconLinksSection() {
             <div className="mb-7">
                 <IconContext.Provider value={{ size: "1.8em" }}>
                     <Link href="https://www.linkedin.com/in/zcdev/" target="_blank" aria-label="Connect with me on LinkedIn">
-                        <SiLinkedin className="text-lg icon-linkedin icon-inline" title="LinkedIn" />
+                        <ImLinkedin2 className="text-lg icon-linkedin icon-inline" title="LinkedIn" />
                     </Link>
                     <Link className="pl-3" href="https://github.com/zcdev" target="_blank" aria-label="Check me out on GitHub">
-                        <SiGithub className="text-lg icon-github icon-inline" title="GitHub" />
+                        <ImGithub className="text-lg icon-github icon-inline" title="GitHub" />
                     </Link>
                 </IconContext.Provider>
             </div>
