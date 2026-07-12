@@ -7,4 +7,5 @@ export type MdxMeta = {
     tech?: string[] | undefined;
     demo?: string;
     repo?: string;
+    tag?: string[] | undefined;
 };

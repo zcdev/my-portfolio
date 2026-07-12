@@ -20,7 +20,7 @@ export default function IconLinksSection() {
             </div>
             <Link
                 href="/blog"
-                className="text-lg text-purple-600 dark:text-purple-400 hover:underline align-middle inline-block"
+                className="text-lg text-purple-800 dark:text-purple-300 hover:underline align-middle inline-block"
             >
                 Visit Blog <RxArrowRight className="icon-inline align-[-0.24em]" />
             </Link>

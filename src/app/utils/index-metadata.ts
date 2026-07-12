@@ -21,6 +21,7 @@ export function getPostMetadata(contentFolder: "docs" | "posts"): MdxMeta[] {
       tech: (Array.isArray(data.tech) ? data.tech : [data.tech]) || undefined,
       demo: (data.demo as string) || undefined,
       repo: (data.repo as string) || undefined,
+      tag: (Array.isArray(data.tag) ? data.tag : [data.tag]) || undefined,
     };
   });
 }

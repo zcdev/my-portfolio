@@ -26,10 +26,10 @@ export default async function BlogIndex() {
                 <li key={post.slug} className="mb-2">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="text-lg text-purple-600 hover:underline dark:text-purple-400"
+                    className="text-lg text-purple-800 hover:underline dark:text-purple-300"
                   >{post.title}
                   </Link>
-                  <span className="text-lg text-gray-400 pl-2">({post.date!.slice(5)})</span>
+                  <span className="text-md text-black pl-2">({post.date!.slice(5)})</span>
                 </li>
               ))}
             </ul>
@@ -38,7 +38,7 @@ export default async function BlogIndex() {
       })}
       <Link
         href="/"
-        className="text-lg text-purple-600 dark:text-purple-400 hover:underline inline-block"
+        className="text-lg text-purple-800 dark:text-purple-300 hover:underline inline-block"
       >
         <RxArrowLeft className="icon-inline align-[-0.17em]" /> Back to Home
       </Link>

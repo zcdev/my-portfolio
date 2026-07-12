@@ -4,6 +4,8 @@ import { getProjectMeta } from "../utils/index-metadata";
 import { sortProjectDocsById } from "../utils/sort-content";
 import ResponsiveImage from "../components/ResponsiveImage";
 import ListPills from "../components/PillsList";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { LiaPenSolid } from "react-icons/lia";
 
 export default async function ProjectIndex() {
   const docs: MdxMeta[] = getProjectMeta();
@@ -15,24 +17,33 @@ export default async function ProjectIndex() {
         return (
           <li
             key={doc.id}
-            className="flex flex-col rounded-2xl border-1 border-zinc-200 shadow-md bg-zinc-100 dark:bg-stone-800 dark:text-zinc-400 dark:border-none"
+            className="flex flex-col rounded-2xl border-1 border-zinc-200 shadow-md bg-slate-50 dark:bg-stone-800 dark:text-zinc-100 dark:border-none"
           >
-            <ResponsiveImage className="rounded-t-2xl" src={`/assets/${doc.slug}`} alt="" width={1200} height={822} />
+            <ResponsiveImage className="rounded-t-2xl" src={`/assets/${doc.slug}`} alt={`A screenshot from the ${doc.title} project.`} width={1200} height={822} />
             <div className="pt-6 pr-6 pl-6 border-t-10 border-zinc-300 h-full">
-              <div className="flex">
-                <h3 className="text-left md:text-lg lg:text-xl font-bold mb-2 md:pr-8 lg:pr-2 w-[80%]">{doc.title}</h3>
-                <div className="flex justify-end">
+              <div className="flex justify-between">
+                <div>
+                  <h3 className="md:text-lg lg:text-xl font-bold md:pr-8 lg:pr-2">{doc.title}</h3>
+                  <ul className="pill flex">
+                    {doc.tag && doc.tag.map((item) => (
+                      <li key={item} className="w-fit text-xs text-black bg-green-200 rounded-full px-2 py-1 mt-1 mr-2">
+                        {item === "Experimental" ? <LiaPenSolid className="inline-block text-[16px] mr-1 leading-1" /> : <IoMdCheckmarkCircleOutline className="inline-block text-[15px] mr-1 leading-1" />}
+                        {item.replace(", ", "")}
+                      </li>))}
+                  </ul>
+                </div>
+                <div className="self-start">
                   <Link
                     href={`https://${doc.demo}`}
                     target="_blank"
-                    className="text-base text-purple-600 dark:text-purple-400 underline mr-4"
+                    className="text-base text-purple-800 dark:text-purple-300 underline mr-4"
                   >
                     Demo
                   </Link>
                   <Link
                     href={`https://${doc.repo}`}
                     target="_blank"
-                    className="text-base text-purple-600 dark:text-purple-400 underline"
+                    className="text-base text-purple-800 dark:text-purple-300 underline"
                   >
                     Repo
                   </Link>
@@ -44,7 +55,7 @@ export default async function ProjectIndex() {
             <div className="flex">
               <Link
                 href={`/project/${doc.slug}`}
-                className="text-base text-purple-600 dark:text-purple-400 underline pl-6 pr-6 pb-6"
+                className="text-base text-purple-800 dark:text-purple-300 underline pl-6 pr-6 pb-6"
               >
                 View Project
               </Link>
