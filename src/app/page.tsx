@@ -12,10 +12,13 @@ export default function Home() {
         </h2>
         <h3 className="text-black text-md dark:text-white font-semibold">Accessibility &bull; Usability &bull; Design System</h3>
         <p className="text-base text-[17px] mb-4">
-          I build thoughtful, human-centered interfaces that transform design concepts into accessible, intuitive, and user-friendly experiences using React, Next.js, TypeScript, and modern UI technologies.
+          I build accessible, human-centered interfaces that transform design concepts into intuitive, user-friendly experiences using React, Next.js, TypeScript, and modern frontend technologies.
+        </p>
+        <p className="text-base text-[17px] mb-4">
+          Across my work, I prioritize accessibility, usability, responsive design, and dark mode support to create production-ready web applications that are inclusive, reliable, and centered around real user needs.
         </p>
         <p className="text-base text-[17px] mb-5 pb-6 border-b-1 border-zinc-200">
-          Across my work, I prioritize accessibility, usability, dark mode, and responsive design to create production-ready web applications that are inclusive, reliable, and focused on real user needs.
+          Every portfolio project is built with accessibility in mind from the start, aiming for WCAG 2.2 AAA through semantic HTML, keyboard-first interactions, thoughtful design, and iterative accessibility testing. Some projects also include optional audio enhancements to create a richer, more engaging user experience.
         </p>
         <IconLinksSection />
       </aside>

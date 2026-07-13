@@ -48,7 +48,7 @@ export default async function ProjectIndex() {
                 {doc.tag && doc.tag.map((item) => (
                   <li key={item} className="text-sm text-black bg-green-200 rounded-full px-2 py-1">
                     {item === "Experimental" ? <ImLab className="inline-block text-xs mr-1 mt-[-5px]" />
-                      : item === "WCAG 2.2 AAA" ? <BsUniversalAccess className="inline-block text-md mr-1 mt-[-5px]" /> : item === "AI" ? <BiBot className="inline-block text-lg mr-1 mt-[-5px]" />
+                      : item === "A11y" ? <BsUniversalAccess className="inline-block text-md mr-1 mt-[-5px]" /> : item === "AI" ? <BiBot className="inline-block text-lg mr-1 mt-[-5px]" />
                         : item === "With Sounds" ? <AiOutlineSound className="inline-block text-lg mr-1 mt-[-5px]" /> : null}
                     {item.replace(", ", "")}
                   </li>))}
