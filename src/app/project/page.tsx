@@ -26,15 +26,6 @@ export default async function ProjectIndex() {
               <div className="flex justify-between">
                 <div>
                   <h3 className="md:text-lg lg:text-xl font-bold md:pr-8 lg:pr-2">{doc.title}</h3>
-                  <ul className="pill flex">
-                    {doc.tag && doc.tag.map((item) => (
-                      <li key={item} className="w-fit text-sm text-black bg-green-200 rounded-full px-2 py-1 mt-1 mr-2">
-                        {item === "Experimental" ? <ImLab className="inline-block text-xs mr-1 mt-[-5px]" />
-                          : item === "WCAG 2.2 AAA" ? <BsUniversalAccess className="inline-block text-md mr-1 mt-[-5px]" /> : item === "AI" ? <BiBot className="inline-block text-lg mr-1 mt-[-5px]" />
-                            : item === "With Sounds" ? <AiOutlineSound className="inline-block text-lg mr-1 mt-[-5px]" /> : null}
-                        {item.replace(", ", "")}
-                      </li>))}
-                  </ul>
                 </div>
                 <div className="self-start">
                   <Link
@@ -53,6 +44,15 @@ export default async function ProjectIndex() {
                   </Link>
                 </div>
               </div>
+              <ul className="pill flex flex-wrap gap-2 mt-2">
+                {doc.tag && doc.tag.map((item) => (
+                  <li key={item} className="text-sm text-black bg-green-200 rounded-full px-2 py-1">
+                    {item === "Experimental" ? <ImLab className="inline-block text-xs mr-1 mt-[-5px]" />
+                      : item === "WCAG 2.2 AAA" ? <BsUniversalAccess className="inline-block text-md mr-1 mt-[-5px]" /> : item === "AI" ? <BiBot className="inline-block text-lg mr-1 mt-[-5px]" />
+                        : item === "With Sounds" ? <AiOutlineSound className="inline-block text-lg mr-1 mt-[-5px]" /> : null}
+                    {item.replace(", ", "")}
+                  </li>))}
+              </ul>
               <ListPills items={doc.tech} />
               <p className="text-base text-[17px] mt-3 mb-4 pr-4">{doc.description}</p>
             </div>

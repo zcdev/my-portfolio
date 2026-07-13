@@ -10,7 +10,7 @@ export default function Home() {
         <h2 className="title text-[21px] text-purple-800 mb-1 dark:text-purple-300">
           Frontend Developer
         </h2>
-        <h3 className="text-black dark:text-white font-semibold">Accessibility &bull; Usability &bull; Design System</h3>
+        <h3 className="text-black text-md dark:text-white font-semibold">Accessibility &bull; Usability &bull; Design System</h3>
         <p className="text-base text-[17px] mb-4">
           I build thoughtful, human-centered interfaces that transform design concepts into accessible, intuitive, and user-friendly experiences using React, Next.js, TypeScript, and modern UI technologies.
         </p>
