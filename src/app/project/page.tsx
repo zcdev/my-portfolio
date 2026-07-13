@@ -4,8 +4,10 @@ import { getProjectMeta } from "../utils/index-metadata";
 import { sortProjectDocsById } from "../utils/sort-content";
 import ResponsiveImage from "../components/ResponsiveImage";
 import ListPills from "../components/PillsList";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { LiaPenSolid } from "react-icons/lia";
+import { ImLab } from "react-icons/im";
+import { BsUniversalAccess } from "react-icons/bs";
+import { BiBot } from "react-icons/bi";
+import { AiOutlineSound } from "react-icons/ai";
 
 export default async function ProjectIndex() {
   const docs: MdxMeta[] = getProjectMeta();
@@ -26,8 +28,10 @@ export default async function ProjectIndex() {
                   <h3 className="md:text-lg lg:text-xl font-bold md:pr-8 lg:pr-2">{doc.title}</h3>
                   <ul className="pill flex">
                     {doc.tag && doc.tag.map((item) => (
-                      <li key={item} className="w-fit text-xs text-black bg-green-200 rounded-full px-2 py-1 mt-1 mr-2">
-                        {item === "Experimental" ? <LiaPenSolid className="inline-block text-[16px] mr-1 leading-1" /> : <IoMdCheckmarkCircleOutline className="inline-block text-[15px] mr-1 leading-1" />}
+                      <li key={item} className="w-fit text-sm text-black bg-green-200 rounded-full px-2 py-1 mt-1 mr-2">
+                        {item === "Experimental" ? <ImLab className="inline-block text-xs mr-1 mt-[-5px]" />
+                          : item === "WCAG 2.2 AAA" ? <BsUniversalAccess className="inline-block text-md mr-1 mt-[-5px]" /> : item === "AI" ? <BiBot className="inline-block text-lg mr-1 mt-[-5px]" />
+                            : item === "With Sounds" ? <AiOutlineSound className="inline-block text-lg mr-1 mt-[-5px]" /> : null}
                         {item.replace(", ", "")}
                       </li>))}
                   </ul>

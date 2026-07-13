@@ -9,7 +9,7 @@ export default function PillsList({ items }: Props) {
             {items && items.map((item) => (
                 <li
                     key={item}
-                    className="rounded-full bg-purple-100 px-2 py-1 text-xs font-medium text-purple-800 dark:bg-purple-900 dark:text-white"
+                    className="rounded-full bg-purple-100 px-2 py-1 text-sm font-medium text-purple-800 dark:bg-purple-900 dark:text-white"
                 >
                     {item.replace(", ", "")}
                 </li>
