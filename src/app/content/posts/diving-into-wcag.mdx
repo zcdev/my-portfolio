@@ -1,0 +1,47 @@
+---
+title: "Diving into WCAG: What I Learned by Pushing My Apps to the Limit"
+slug: "diving-into-wcag"
+date: "2026/07/13"
+---
+
+<span className="emoji-large">✅ 🎨</span>
+
+I’ve been fascinated by the intersection of accessibility and design systems ever since I built a few interactive email template prototypes. Driven by curiosity, I started looking into online accessibility courses and stumbled across Deque's axe DevTools. To see where my own code stood, I began auditing my web applications to figure out how to build digital experiences more thoughtfully.
+
+Instead of just aiming for the bare minimum, I decided to shoot for the highest possible standard: WCAG 2.2 AAA. I knew hitting full AAA across a dynamic app is incredibly rare, but I wanted to intentionally expose every single edge-case flaw in my development habits. While standard automated tools like Lighthouse gave me an easy pass, unlocking the strict AAA rule filters in axe DevTools revealed a whole new world of hidden issues.
+
+## Enemy #1: The Nuances of Color Contrast
+
+Unsurprisingly, almost every issue I encountered boiled down to color contrast. My layouts easily cleared standard Level AA requirements, but stepping up to Level AAA's strict demands forced me to rethink my design choices.
+
+Here are the three biggest lessons I walked away with:
+
+**Lesson 1: Saturated Backgrounds Are a Contrast Trap**
+
+In modern UI design, we love using bright, highly saturated call-to-action buttons to grab a user's attention. However, pairing a vibrant brand color with white text rarely creates enough contrast to satisfy the strict `7:1` ratio required for AAA normal text. I quickly learned that using dark text over lighter, pastel backgrounds or darkening the background significantly clears accessibility checkpoints much more reliably.
+
+**Lesson 2: Font Sizes and Padding Are Mathematically Tethered**
+
+To meet the WCAG AAA Target Size requirement, interactive elements must have a clickable area of at least 44 X 44px. Because of this, font size and padding share an inverse relationship:
+
+<ul className="list">
+<li>Smaller fonts need more padding to expand the physical target area.</li>
+<li>Bigger fonts need less padding because the text's bounding box does the heavy lifting.</li>
+</ul>
+
+It all comes down to a strict layout equation:
+
+ ```
+ Total Button Height = Line-Height + Top Padding + Bottom Padding
+ ```
+
+**Lesson 3: Gradients Have Hidden "Dead Zones"**
+
+Gradients look beautiful, but standard browser rendering can completely sabotage your text contrast under the hood. When web browsers mathematically calculate the transition between two colors, they interpolate through the standard sRGB color space. If your gradient handles transparency or blends opposing hues, this math can generate a muddy, desaturated gray "dead zone" right in the middle of the transition. Even if your start and end colors look fine, that muddy middle ground will instantly fail a AAA contrast test against overlapping text, a quirk that becomes especially tricky to manage when designing for dark mode.
+
+Are these gradient flags just automated false positives? No. While the tool's scanner might get tripped up by the shifting pixels, the human readability issue is completely real. To fix it, stop relying on standard sRGB interpolation. By explicitly defining color stops or utilizing modern CSS color spaces like oklab, we can eliminate muddy dead zones and keep our text perfectly accessible.
+
+```
+/* Avoids the muddy midpoint completely */
+background: linear-gradient(in oklab to right, #1266f1, #f69d3c);
+```
