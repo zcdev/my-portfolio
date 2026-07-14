@@ -35,13 +35,12 @@ It all comes down to a strict layout equation:
  Total Button Height = Line-Height + Top Padding + Bottom Padding
  ```
 
-**Lesson 3: Gradients Have Hidden "Dead Zones"**
+**Lesson 3: Gradients, Glassmorphism, and Layered Backgrounds Can Make Contrast Deceptively Complex**
 
-Gradients look beautiful, but standard browser rendering can completely sabotage your text contrast under the hood. When web browsers mathematically calculate the transition between two colors, they interpolate through the standard sRGB color space. If your gradient handles transparency or blends opposing hues, this math can generate a muddy, desaturated gray "dead zone" right in the middle of the transition. Even if your start and end colors look fine, that muddy middle ground will instantly fail a AAA contrast test against overlapping text, a quirk that becomes especially tricky to manage when designing for dark mode.
+Combining layered backgrounds, opacity, and gradients can create beautiful interfaces, but they also introduce some of the trickiest accessibility challenges I encountered.
 
-Are these gradient flags just automated false positives? No. While the tool's scanner might get tripped up by the shifting pixels, the human readability issue is completely real. To fix it, stop relying on standard sRGB interpolation. By explicitly defining color stops or utilizing modern CSS color spaces like oklab, we can eliminate muddy dead zones and keep our text perfectly accessible.
+By default, gradients are interpolated in the sRGB color space. When blending opposing hues or colors with transparency, the transition can produce a muddy, desaturated gray "dead zone" in the middle. Even if the start and end colors both meet contrast requirements, that unintended midpoint may not. If text overlaps this area, it can legitimately fail a AAA contrast check, especially when designing for dark mode.
 
-```
-/* Avoids the muddy midpoint completely */
-background: linear-gradient(in oklab to right, #1266f1, #f69d3c);
-```
+Translucent backgrounds introduce a different challenge. Because they are composited from multiple layers, automated accessibility tools do not always evaluate the final rendered colors accurately. In my case, axe DevTools reported a severe contrast violation because it appeared to compare the white text against the translucent white overlay instead of the final composited background, where the underlying layer contributed to the rendered color. As a result, the reported contrast ratio did not match what users actually saw on screen.
+
+The lesson is that automated contrast testing is essential, but it is not infallible. Sometimes it uncovers genuine rendering issues, like muddy gradient interpolation. Other times, layered transparency can confuse the analysis and produce misleading results. When working with gradients, opacity, or glassmorphism, verify the final rendered colors beneath your text with an eyedropper tool and confirm the actual contrast ratio in a contrast checker. Combining automated tools with manual verification gives you confidence that you are measuring the experience users actually see.
