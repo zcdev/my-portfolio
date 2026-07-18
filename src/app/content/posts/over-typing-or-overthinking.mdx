@@ -14,7 +14,7 @@ const onSubmit: (task: string, hours: number) => boolean = (task, hours) => {
 }
 ```
 
-I asked [ChatGPT] what it is, and it explained to me in a very helpful manner:
+I asked ChatGPT what it is, and it explained to me in a very helpful manner:
 
 <span className="emoji-small">🤖</span> ”Great question — this is a TypeScript function type annotation pattern. Let’s break it down step by step:”
 
@@ -57,7 +57,7 @@ Here:
 
 This is declaring a constant `onSubmit` whose type is “a function that takes `(string, number)` and returns `boolean`” then assigning an arrow function that matches that type. It’s a way of making function contracts explicit.
 
-<span className="emoji-small">🤯</span> [ChatGPT] read my mind as we continued the discussion:
+<span className="emoji-small">🤯</span> ChatGPT read my mind as we continued the discussion:
 
 <span className="emoji-small">🤖</span> ”Why Declare Types Like This? You might think: _But TypeScript could infer that!_ — and you’d be right.”
 
@@ -71,7 +71,7 @@ It’s especially common when:
 <li>You want to make the code more **self-documenting**.</li>
 </ul>
 
-<span className="emoji-small">💡</span> So I confirmed with [ChatGPT] that without the explicit type, TypeScript would still infer correctly when the function is simply written like this:
+<span className="emoji-small">💡</span> So I confirmed with ChatGPT that without the explicit type, TypeScript would still infer correctly when the function is simply written like this:
 
 ```
 const onSubmit = (task: string, hours: number) => {
@@ -79,7 +79,7 @@ return hustle > 24 * 7
 }
 ```
 
-<span className="emoji-small">🤖</span> [ChatGPT] also mentioned: “The TypeScript function type annotation pattern makes the function type explicit, which can be clearer in team codebases or when exporting APIs.”
+<span className="emoji-small">🤖</span> ChatGPT also mentioned: “The TypeScript function type annotation pattern makes the function type explicit, which can be clearer in team codebases or when exporting APIs.”
 
 <span className="emoji-small">🤔</span> Hmmm… Now, I wonder… Should I just let TypeScript “infer” my function types like some carefree developer?
 
