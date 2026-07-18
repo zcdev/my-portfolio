@@ -78,7 +78,7 @@ export default async function MDXPage({ params, contentFolder }: MDXPageProps) {
       {contentFolder === "posts" && (
         <Link
           href={back.href}
-          className="text-lg text-purple-600 dark:text-purple-400 hover:underline inline-block"
+          className="text-lg text-purple-800 dark:text-purple-300 hover:underline inline-block"
         >
           <RxArrowLeft className="icon-inline align-[-0.17em]" /> {back.label}
         </Link>
@@ -86,7 +86,7 @@ export default async function MDXPage({ params, contentFolder }: MDXPageProps) {
       {contentFolder === "docs" && (
         <Link
           href={back.href}
-          className="text-lg text-purple-600 dark:text-purple-400 hover:underline inline-block"
+          className="text-lg text-purple-800 dark:text-purple-300 hover:underline inline-block"
         >
           <RxArrowLeft className="icon-inline align-[-0.17em]" /> {back.label}
         </Link>

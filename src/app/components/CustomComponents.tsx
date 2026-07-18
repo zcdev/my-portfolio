@@ -22,14 +22,14 @@ const mdxComponents = {
         <Link
           href={props.href ?? "#"}
           target="_blank"
-          className="flex justify-self-end items-center text-lg text-purple-600 dark:text-purple-400 hover:underline block pb-2"
+          className="flex justify-self-end items-center text-lg text-purple-800 dark:text-purple-300 hover:underline block pb-2"
         >{props.children}<RxArrowRight className="icon-block align-[-0.24em] ml-1" />
         </Link>
         :
         <Link
           href={props.href ?? "#"}
           target="_blank"
-          className="text-purple-600 hover:underline dark:text-purple-400"
+          className="text-purple-800 hover:underline dark:text-purple-300"
         >{props.children}
         </Link>
       }
