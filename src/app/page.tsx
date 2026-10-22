@@ -10,15 +10,15 @@ export default function Home() {
         <h2 className="title text-[21px] text-purple-800 mb-1 dark:text-purple-300">
           Frontend Developer
         </h2>
-        <h3 className="text-black text-md dark:text-white font-semibold">Accessibility &bull; Usability &bull; Design System</h3>
+        <h3 className="text-black text-md dark:text-white font-semibold">CMS Development &bull; Landing Pages &bull; Email Marketing</h3>
         <p className="text-base text-[17px] mb-4">
-          I build accessible, human-centered interfaces that transform design concepts into intuitive, user-friendly experiences using React, Next.js, TypeScript, and modern frontend technologies.
+          I build accessible, responsive, and high-performing digital experiences that connect frontend engineering with marketing and business goals.
         </p>
         <p className="text-base text-[17px] mb-4">
-          Across my work, I prioritize accessibility, usability, responsive design, and dark mode support to create production-ready web applications that are inclusive, reliable, and centered around real user needs.
+          With 10+ years of experience in digital production and marketing web development, I specialize in building scalable websites, landing pages, email templates, and content-driven experiences using modern frontend technologies.
         </p>
         <p className="text-base text-[17px] mb-5 pb-6 border-b-1 border-zinc-200">
-          Every portfolio project is built with accessibility in mind from the start, aiming for WCAG 2.2 AAA through semantic HTML, keyboard-first interactions, thoughtful design, and iterative accessibility testing. Some projects also include optional audio enhancements to create a richer, more engaging user experience.
+          My work focuses on accessibility, usability, performance, and maintainability, while helping marketing teams streamline production workflows, deliver consistent digital experiences, and support meaningful business outcomes.
         </p>
         <IconLinksSection />
       </aside>
